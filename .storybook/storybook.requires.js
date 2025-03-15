@@ -8,23 +8,18 @@ import "@storybook/addon-ondevice-actions/register";
 const normalizedStories = [
   {
     titlePrefix: "",
-    directory: "./stories",
+    directory: "./components",
     files: "**/*.stories.?(ts|tsx|js|jsx)",
     importPathMatcher:
       /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
-    // @ts-ignore
+
     req: require.context(
-      "../stories",
+      "../components",
       true,
       /^\.(?:(?:^|[\\/]|(?:(?:(?!(?:^|[\\/])\.).)*?)[\\/])(?!\.)(?=.)[^\\/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/
     ),
   },
 ];
-
-declare global {
-  var view: ReturnType<typeof start>;
-  var STORIES: typeof normalizedStories;
-}
 
 const annotations = [
   require("./preview"),
@@ -34,7 +29,6 @@ const annotations = [
 
 global.STORIES = normalizedStories;
 
-// @ts-ignore
 module?.hot?.accept?.();
 
 if (!global.view) {
