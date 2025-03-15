@@ -2,9 +2,6 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { styles } from './styles';
-import { styled } from "nativewind";
-
-const StyledTextInput = styled(TextInput);
 
 export const Task = ({
   task: { id, title, state },
@@ -24,11 +21,15 @@ export const Task = ({
           <MaterialIcons name="check-box" size={24} color="#26c6da" />
         )}
       </TouchableOpacity>
-      <StyledTextInput
+      <TextInput
         placeholder="Input Title"
         value={title}
         editable={false}
-        className="text-lg text-red-700"
+        style={
+          state === "TASK_ARCHIVED"
+            ? styles.listItemInputTaskArchived
+            : styles.listItemInputTask
+        }
       />
       <TouchableOpacity onPress={() => onPinTask(id)}>
         <MaterialIcons

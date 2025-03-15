@@ -6,10 +6,10 @@ const StarterComponent = () => (
       Thanks for trying out Storybook, follow the{" "}
       <Text
         style={{
-          color: "blue",
           textDecorationLine: "underline",
           textDecorationColor: "blue",
         }}
+        className="text-white p-4 bg-blue-500"
         onPress={() =>
           Linking.openURL(
             "https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/get-started/"
