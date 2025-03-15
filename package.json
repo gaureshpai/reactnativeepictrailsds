@@ -34,7 +34,6 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "install": "npm install",
     "build": "storybook build",
     "dev": "storybook dev -p 6006",
     "storybook:build": "build-storybook -o storybook-static",
