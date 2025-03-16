@@ -23,7 +23,7 @@ const preview = {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#D3D3D3",
           padding: 8,
         }}
       >
