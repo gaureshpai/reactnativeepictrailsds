@@ -126,7 +126,7 @@ module.exports = {
           rewardsTier4: "#000000",
           membership: "#FBC02D",
 
-          //TYPOGRAPHY DISPLAY
+
 
           fontFamily: {
             ubuntu: ['Ubuntu Sans', 'sans-serif'],
@@ -188,7 +188,7 @@ module.exports = {
             bold: 700,
           },
 
-          // TYPOGRAPHY HEADING//
+
 
           fontFamily: {
             ubuntu: ['Ubuntu Sans', 'sans-serif'],
@@ -304,7 +304,7 @@ module.exports = {
             bold: 700,
           },
 
-          // TYPOGRAPHY LABELS //
+
 
           fontFamily: {
             ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
@@ -370,7 +370,6 @@ module.exports = {
             medium: 500,
           },
 
-          // TYPOGRAPHY PARAGRAPH//
 
           fontFamily: {
             ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
