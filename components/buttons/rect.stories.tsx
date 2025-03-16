@@ -49,7 +49,7 @@ export const RectButton = {
     size: "small",
     state: "default",
     disabled: false,
-    onClick: () =>alert("Default button clicked"),
+    onClick: () =>alert("Rect button clicked"),
     background : "",
   }
 }
