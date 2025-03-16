@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native"; // Use React Native's ActivityIndicator instead of CircularProgress
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; // Import the Material-UI icon
 
 type ButtonProps = {
   label: string;
   onPress?: () => void;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
-  icon?: "right" | "left" | "none";
+  icon?: "right" | "left" ;
   state?: "default" | "pressed" | "hover" | "disabled" | "loading";
   disabled?: boolean;
   onClick?: () => void;
@@ -15,12 +16,12 @@ type ButtonProps = {
   varient?: string; // Fallback for typo
 };
 
-export const Button = ({
+export const icon = ({
   label,
   onPress,
   state = "default",
   size = "medium",
-  icon = "none",
+  icon = "right",
   disabled,
   onClick,
   background,
@@ -32,11 +33,11 @@ export const Button = ({
 
   // Define sizes
   const sizes = {
-    small: "min-w-[80px] h-fit p-[10px]", // Small size with minimum width
-    medium: "min-w-[120px] h-fit p-[10px]", // Medium size with minimum width
-    large: "min-w-[160px] h-fit p-[15px]", // Large size with minimum width
+    small: "min-w-[169px] h-fit p-[10px]", // Small size with minimum width
+    medium: "min-w-[270px] h-fit p-[10px]", // Medium size with minimum width
+    large: "min-w-[270px] h-fit p-[15px]", // Large size with minimum width
   };
-
+  
   // Define states for primary and secondary variants
   const primaryStates = {
     default: "bg-buttons-primary-default",
@@ -66,6 +67,14 @@ export const Button = ({
   // Determine if hover effect should be applied
   const isHoverEffectEnabled = !disabled && state !== "disabled" && state !== "loading";
 
+  // Determine icon color based on state and variant
+  const iconColor =
+    state === "disabled"
+      ? "#868686" // Use the same color as disabled text
+      : buttonVariant === "primary"
+      ? "#ffffff" // White for primary
+      : "#000000"; // Black for secondary
+
   return (
     <Pressable
       onPress={!disabled ? onClick || onPress : undefined}
@@ -81,15 +90,42 @@ export const Button = ({
           : isHovered && isHoverEffectEnabled
           ? states.hover // Apply hover styles when hovered and hover effect is enabled
           : states[state]
-      } flex items-center justify-center`}
+      } flex flex-row items-center justify-between`} // Use justify-between to push text and icon to opposite ends
     >
       {state === "loading" ? (
-        <ActivityIndicator size="small" color={buttonVariant === "primary" ? "#ffffff" : "#000000"} /> // React Native loading indicator
+        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+          <ActivityIndicator size="small" color={buttonVariant === "primary" ? "#ffffff" : "#000000"} />
+        </View>
       ) : (
-        <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
-          {label}
-        </Text>
+        <>
+          {/* Render icon on the left if icon prop is "left" */}
+          {icon === "left" && (
+            <ArrowForwardIcon
+              style={{
+                color: iconColor, // Set icon color dynamically
+                marginRight: 24, // Increased padding between icon and text
+                fontSize: 20, // Smaller icon size
+              }}
+            />
+          )}
+
+          {/* Text */}
+          <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
+            {label}
+          </Text>
+
+          {/* Render icon on the right if icon prop is "right" */}
+          {icon === "right" && (
+            <ArrowForwardIcon
+              style={{
+                color: iconColor, // Set icon color dynamically
+                marginLeft: 24, // Increased padding between text and icon
+                fontSize: 20, // Smaller icon size
+              }}
+            />
+          )}
+        </>
       )}
     </Pressable>
   );
-};  
+};

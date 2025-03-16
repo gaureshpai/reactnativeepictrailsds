@@ -1,8 +1,8 @@
-import { Button } from "./rect";
+import typeDoc from "./typeDoc";
 
 export default {
-  title: "Design System/Foundations/Buttons",
-  component: Button,
+  title: "Design System/Molecules",
+  component: typeDoc,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -31,19 +31,25 @@ export default {
         control: { type: "text" },
         description: "Content of the button",
     },
-    varient : {
-        options: ["primary", "secondary"],
-        description: "Variant of the button",
-        control: { type: "select" },
+    buttonLabel: {
+        control: { type: "text" },
+        description: "Content",
     },
+    icon: {
+        options: ["right", "left"],
+        description: "Position of the icon",
+        control: { type: "select" },
+    }
 },
 };
 
-export const RectButton = {
+export const TypeDoc = {
   args: {
-    label: "Button",
-    size: "small",
+    buttonLabel: "Button",
+    label : "I agree to the terms and conditions.",
+    size: "medium",
     state: "default",
+    // disabled: false,
     onClick: () =>alert("Default button clicked"),
     background : "",
   }

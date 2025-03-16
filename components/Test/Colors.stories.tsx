@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 export default {
-  title: "Design System/colors",
+  title: "Design System/Foundations",
   parameters: {
     layout: "centered",
   },
@@ -226,6 +226,99 @@ export const ColorPalette = () => {
       colorCode: "green600" 
     },
   ];
+  const semanticbackgroundContent = [
+    {
+      id: "backgroundStateDisabled",
+      name: "backgroundStateDisabled",
+      color: "#f3f3f3",
+      colorCode: "gray50",
+    },
+    { 
+      id: "backgroundOverlayArt",
+      name: "backgroundOverlayArt",
+      color: "0%",
+      colorCode: "black" 
+    },
+    {
+      id: "backgroundOverlayDark",
+      name: "backgroundOverlayDark",
+      color: "50%",
+      colorCode: "black",
+    },
+    { 
+      id: "DEPRECATED_backgroundOverlayLight",
+      name: "DEPRECATED_backgroundOverlayLight",
+      color: "8%",
+      colorCode: "black" 
+    },
+    { 
+      id: "backgroundOverlayElevation",
+      name: "backgroundOverlayElevation", 
+      color: "0%",
+      colorCode: "black" 
+    },
+    { 
+      id: "backgroundAccent",
+      name: "backgroundAccent", 
+      color: "#266ef1",
+      colorCode: "blue600" 
+    },
+    { 
+      id: "backgroundNegative",
+      name: "backgroundNegative",
+      color: "#de1135",
+      colorCode: "red600" 
+    },
+    { 
+      id: "backgroundWarning",
+      name: "backgroundWarning",
+      color: "#f6bc2f",
+      colorCode: "yellow600" 
+    },
+    { 
+      id: "backgroundPositive",
+      name: "backgroundPositive",
+      color: "#0e8345",
+      colorCode: "green600" 
+    },
+    { 
+      id: "backgroundLightAccent",
+      name: "backgroundLightAccent",
+      color: "#eff4fe",
+      colorCode: "blue50" 
+    },
+    { 
+      id: "backgroundLightNegative",
+      name: "backgroundLightNegative",
+      color: "#fff0ee",
+      colorCode: "red50" 
+    },
+    { 
+      id: "backgroundLightWarning",
+      name: "backgroundLightWarning",
+      color: "#fdf2dc",
+      colorCode: "yellow50" 
+    },
+    { 
+      id: "backgroundLightPositive",
+      name: "backgroundLightPositive",
+      color: "#eaf6ed",
+      colorCode: "green50" 
+    },
+    { 
+      id: "backgroundAlwaysDark",
+      name: "backgroundAlwaysDark",
+      color: "#000000",
+      colorCode: "black" 
+    },
+    { 
+      id: "backgroundAlwaysLight",
+      name: "backgroundAlwaysLight",
+      color: "#ffffff",
+      colorCode: "white" 
+    },
+  ];
+
 
   // Function to determine text color based on background brightness
   const getTextColor = (bgColor) => {
@@ -247,6 +340,8 @@ export const ColorPalette = () => {
   const leftColumnContent = semanticColorsContent.slice(0,3);
   const rightColumnContent = semanticColorsContent.slice(3);
 
+  const leftsemanticbackgroundContent = semanticbackgroundContent.slice(0,3);
+  const rightsemanticbackgroundContent = semanticbackgroundContent.slice(3);
   return (
     <ScrollView style={styles.container}>
       {/* Full Color Palette Section */}
@@ -341,6 +436,42 @@ export const ColorPalette = () => {
           {/* Right column */}
           <View style={styles.column}>
             {rightColumnContent.map((color) => (
+              <View key={color.id} style={styles.colorItem}>
+                <View
+                  style={[styles.colorDot, { backgroundColor: color.color }]}
+                />
+                <View style={styles.colorTextContainer}>
+                  <Text style={styles.colorName}>{color.name}</Text>
+                  <Text style={styles.colorCode}>{color.colorCode}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+      </View>
+
+       {/* Core/Semantic Colors Content Section */}
+       <View style={styles.section}>
+        <Text style={styles.sectionTitle}>semanticbackground</Text>
+        <View style={styles.columnsContainer}>
+          {/* Left column */}
+          <View style={styles.column}>
+            {leftsemanticbackgroundContent.map((color) => (
+              <View key={color.id} style={styles.colorItem}>
+                <View
+                  style={[styles.colorDot, { backgroundColor: color.color }]}
+                />
+                <View style={styles.colorTextContainer}>
+                  <Text style={styles.colorName}>{color.name}</Text>
+                  <Text style={styles.colorCode}>{color.colorCode}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+
+          {/* Right column */}
+          <View style={styles.column}>
+            {rightsemanticbackgroundContent.map((color) => (
               <View key={color.id} style={styles.colorItem}>
                 <View
                   style={[styles.colorDot, { backgroundColor: color.color }]}

@@ -1,8 +1,8 @@
-import { Button } from "./button";
+import {icon} from "./icon";
 
 export default {
-  title: "Design System/Buttons",
-  component: Button,
+  title: "Design System/Foundations/Buttons",
+  component: icon,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -14,12 +14,12 @@ export default {
   },
   argTypes: {
     state: {
-        options: ["default", "pressed", "hover", "disabled"],
+        options: ["default", "pressed", "hover", "disabled" , "loading"],
         description: "Variant of the button",   
         control: { type: "select" },
     },
     size: {
-        options: ["sm", "md", "lg"],
+        options: ["small", "medium", "large"],
         description: "Size of the button",
         control: { type: "select" },
     },
@@ -31,22 +31,27 @@ export default {
         control: { type: "text" },
         description: "Content of the button",
     },
-    disabled: {
-        control: { type: "boolean" },
-        description: "Whether the button is disabled or not",
+    varient : {
+        options: ["primary", "secondary"],
+        description: "Variant of the button",
+        control: { type: "select" },
     },
+    icon: {
+        options: ["right", "left"],
+        description: "Position of the icon",
+        control: { type: "select" },
+    }
 },
 };
 
-export const ButtonDefault = {
+export const icons = {
   args: {
     label: "Button",
-    size: "sm",
+    size: "small",
     state: "default",
-    disabled: false,
+    // disabled: false,
     onClick: () =>alert("Default button clicked"),
     background : "",
-
   }
 }
 
