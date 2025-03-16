@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
 export default {
-  title: "Design System/colors",
+  title: "Design System/Foundations",
   parameters: {
     layout: "centered",
   },

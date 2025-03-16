@@ -1,7 +1,7 @@
 import Label from "./label";
 
 export default {
-  title: "Design System",
+  title: "Design System/Foundations",
   component: Label,
   tags: ["autodocs"],
   parameters: {

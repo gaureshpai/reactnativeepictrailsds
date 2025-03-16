@@ -1,7 +1,7 @@
 import typeDoc from "./typeDoc";
 
 export default {
-  title: "Design System/Buttons",
+  title: "Design System/Molecules",
   component: typeDoc,
   tags: ["autodocs"],
   parameters: {

@@ -1,7 +1,7 @@
 import Elevation from "./elevations";
 
 export default {
-  title: "Design System/Elevation",
+  title: "Design System/Foundations",
   component: Elevation,
   tags: ["autodocs"],
   parameters: {

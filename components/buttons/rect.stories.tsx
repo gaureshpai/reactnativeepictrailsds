@@ -1,7 +1,7 @@
 import { Button } from "./rect";
 
 export default {
-  title: "Design System/Buttons",
+  title: "Design System/Foundations/Buttons",
   component: Button,
   tags: ["autodocs"],
   parameters: {
