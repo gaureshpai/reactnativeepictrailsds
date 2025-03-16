@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Pressable, Text, Touchable, TouchableOpacity } from "react-native";
 // import { Primary } from "./Button.stories";
 
@@ -15,30 +16,27 @@ type ButtonProps = {
 };
 
 export const Button = ({ label, onPress, state,size, icon="none" ,loading = false, disabled,onClick,background}: ButtonProps) => {
-  
   const sizes = {
     sm : "w-fit h-fit p-[10px]",
     md : "w-fit h-fit p-[10px]",
     lg : "w-fit h-fit p-[10px]",
   }
   const states = {
-    default : "bg-buttons-primary-default text-white ",
-    pressed : "bg-buttons-primary-pressed text-white",
-    hover : "bg-buttons-primary-hover text-white",
+    default : "bg-buttons-primary-default ",
+    pressed : "bg-buttons-primary-pressed ",
+    hover : "bg-buttons-primary-hover ",
     disabled : "bg-buttons-primary-disabled",
   }
-
-  console.log(background)
-
+  background = disabled ? null : background
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={!disabled ? onClick : undefined}
       disabled={ disabled}
       style={{backgroundColor:background}}
-      className={`${sizes[size]} ${background ? null : states[state]}`}
+      className={`${sizes[size]} ${background ? null : disabled ? states.disabled : states[state]} hover:bg-buttons-primary-hover active:bg-buttons-primary-pressed`}
     >
       <Text className={`${state=="disabled" ? "text-gray-500" : "text-white"} bg-buttons`}>{label}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 

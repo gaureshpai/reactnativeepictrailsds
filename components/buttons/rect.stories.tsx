@@ -1,4 +1,4 @@
-import { Button } from "./button";
+import { Button } from "./rect";
 
 export default {
   title: "Design System/Buttons",
@@ -14,12 +14,12 @@ export default {
   },
   argTypes: {
     state: {
-        options: ["default", "pressed", "hover", "disabled"],
+        options: ["default", "pressed", "hover", "disabled" , "loading"],
         description: "Variant of the button",   
         control: { type: "select" },
     },
     size: {
-        options: ["sm", "md", "lg"],
+        options: ["small", "medium", "large"],
         description: "Size of the button",
         control: { type: "select" },
     },
@@ -35,18 +35,22 @@ export default {
         control: { type: "boolean" },
         description: "Whether the button is disabled or not",
     },
+    varient : {
+        options: ["primary", "secondary"],
+        description: "Variant of the button",
+        control: { type: "select" },
+    },
 },
 };
 
-export const ButtonDefault = {
+export const RectButton = {
   args: {
     label: "Button",
-    size: "sm",
+    size: "small",
     state: "default",
     disabled: false,
-    onClick: () =>alert("Default button clicked"),
+    onClick: () =>alert("Rect button clicked"),
     background : "",
-
   }
 }
 
