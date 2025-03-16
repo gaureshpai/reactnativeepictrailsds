@@ -11,7 +11,7 @@ const preview = {
     },
     docs: {
       source: {
-        type: "code", // Enables copyable code preview
+        type: "code",
       },
     },
   },
