@@ -6,7 +6,6 @@ const StarterComponent = () => (
       Thanks for trying out Storybook, follow the{" "}
       <Text
         style={{
-          color: "blue",
           textDecorationLine: "underline",
           textDecorationColor: "blue",
         }}
