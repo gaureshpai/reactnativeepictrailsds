@@ -11,7 +11,7 @@ const preview = {
     },
     docs: {
       source: {
-        type: "code", // Enables copyable code preview
+        type: "code",
       },
     },
   },
@@ -23,7 +23,7 @@ const preview = {
           flex: 1,
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "#ffffff",
+          backgroundColor: "#D3D3D3",
           padding: 8,
         }}
       >

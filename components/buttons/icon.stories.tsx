@@ -1,7 +1,7 @@
 import {icon} from "./icon";
 
 export default {
-  title: "Button System/Buttons/icon",
+  title: "Design System/Buttons",
   component: icon,
   tags: ["autodocs"],
   parameters: {
