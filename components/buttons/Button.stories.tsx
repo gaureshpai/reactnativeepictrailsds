@@ -39,7 +39,7 @@ export const ButtonDefault = {
     size: "sm",
     state: "default",
     disabled: false,
-    onClick: () => console.log("Default button clicked"),
+    onClick: () =>alert("Default button clicked"),
     background : "",
 
   }
