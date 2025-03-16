@@ -210,6 +210,305 @@ module.exports = {
           rewardsTier3: "#B0B0B0",
           rewardsTier4: "#000000",
           membership: "#FBC02D",
+
+          //TYPOGRAPHY DISPLAY
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+          },
+          lineHeight: {
+            large: '112px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+          },
+          lineHeight: {
+            large: '112px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+            small: '44px',
+          },
+          lineHeight: {
+            large: '112px',
+            small: '52px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+            small: '44px',
+            xsmall: '36px',
+          },
+          lineHeight: {
+            large: '112px',
+            small: '52px',
+            xsmall: '44px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          // TYPOGRAPHY HEADING//
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+            small: '44px',
+            xsmall: '36px',
+            xxlarge: '40px',
+          },
+          lineHeight: {
+            large: '112px',
+            small: '52px',
+            xsmall: '44px',
+            xxlarge: '52px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '96px',
+            small: '44px',
+            xsmall: '36px',
+            xxlarge: '40px',
+            xlarge: '36px',
+          },
+          lineHeight: {
+            large: '112px',
+            small: '52px',
+            xsmall: '44px',
+            xxlarge: '52px',
+            xlarge: '44px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '32px',
+            small: '44px',
+            xsmall: '36px',
+            xxlarge: '40px',
+            xlarge: '36px',
+          },
+          lineHeight: {
+            large: '40px',
+            small: '52px',
+            xsmall: '44px',
+            xxlarge: '52px',
+            xlarge: '44px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans', 'sans-serif'],
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            large: '32px',
+            medium: '28px',
+            small: '44px',
+            xsmall: '36px',
+            xxlarge: '40px',
+            xlarge: '36px',
+          },
+          lineHeight: {
+            large: '40px',
+            medium: '36px',
+            small: '52px',
+            xsmall: '44px',
+            xxlarge: '52px',
+            xlarge: '44px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            small: '24px',
+          },
+          lineHeight: {
+            small: '32px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          fontFamily: {
+            uber: ['Uber Move', 'sans-serif'],
+          },
+          fontSize: {
+            xsmall: '20px',
+          },
+          lineHeight: {
+            xsmall: '28px',
+          },
+          fontWeight: {
+            bold: 700,
+          },
+
+          // TYPOGRAPHY LABELS //
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            large: '18px',
+          },
+          lineHeight: {
+            large: '24px',
+          },
+          fontWeight: {
+            medium: 500,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            large: '18px',
+            medium: '16px',
+          },
+          lineHeight: {
+            large: '24px',
+            medium: '20px',
+          },
+          fontWeight: {
+            medium: 500,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            large: '18px',
+            medium: '16px',
+            small: '14px',
+          },
+          lineHeight: {
+            large: '24px',
+            medium: '20px',
+            small: '16px',
+          },
+          fontWeight: {
+            medium: 500,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            large: '18px',
+            medium: '16px',
+            small: '14px',
+            'x-small': '12px',
+          },
+          lineHeight: {
+            large: '24px',
+            medium: '20px',
+            small: '16px',
+            'x-small': '16px',
+          },
+          fontWeight: {
+            medium: 500,
+          },
+
+          // TYPOGRAPHY PARAGRAPH//
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            large: '18px',
+          },
+          lineHeight: {
+            large: '28px',
+          },
+          fontWeight: {
+            normal: 400,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            medium: '16px',
+          },
+          lineHeight: {
+            medium: '24px',
+          },
+          fontWeight: {
+            normal: 400,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            small: '14px',
+          },
+          lineHeight: {
+            small: '20px',
+          },
+          fontWeight: {
+            normal: 400,
+          },
+
+          fontFamily: {
+            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
+          },
+          fontSize: {
+            'x-small': '12px',
+          },
+          lineHeight: {
+            'x-small': '20px',
+          },
+          fontWeight: {
+            normal: 400,
+          },
+
       },
     },
   },
