@@ -41,7 +41,7 @@ module.exports = {
           100: "#dee9fe",
           50: "#eff4fe",
         },
-        teal:{
+        teal: {
           900: "#002d33",
           800: "#1a535a",
           700: "#016974",
@@ -139,34 +139,32 @@ module.exports = {
           100: "#E8E8E8",
           50: "#F3F3F3",
         },
-        buttons:{
+        buttons: {
           "primary-default": "#1F1F1F",
           "primary-pressed": "#000000",
           "primary-disabled": "#A6A6A6",
           "primary-hover": "#4B4B4B",
-        }
+        },
         primaryA: "#000000",
         primaryB: "#ffffff",
         accent: "#068BEE",
-        negative: "#D32F2F", 
-        warning: "#FBC02D", 
+        negative: "#D32F2F",
+        warning: "#FBC02D",
         positive: "#388E3C",
-        
-        backgroundPrimary: "#ffffff", 
-        backgroundSecondary: "#e0e0e0", 
+
+        backgroundPrimary: "#ffffff",
+        backgroundSecondary: "#e0e0e0",
         backgroundTertiary: "#bdbdbd",
-        backgroundInversePrimary: "#000000", 
+        backgroundInversePrimary: "#000000",
         backgroundInverseSecondary: "#424242",
 
-        
-        contentPrimary: "#000000", 
+        contentPrimary: "#000000",
         contentSecondary: "#616161",
         contentTertiary: "#9e9e9e",
         contentInversePrimary: "#ffffff",
         contentInverseSecondary: "#bdbdbd",
         contentInverseTertiary: "#757575",
 
-        
         borderOpaque: "#bdbdbd",
         borderTransparent: "rgba(0,0,0,0.1)",
         borderSelected: "#ffffff",
@@ -189,7 +187,6 @@ module.exports = {
         backgroundAlwaysDark: "#000000",
         backgroundAlwaysLight: "#ffffff",
 
-      
         contentStatusDisabled: "#9e9e9e",
         contentOnColor: "#ffffff",
         contentOnColorInverse: "#000000",
@@ -198,7 +195,6 @@ module.exports = {
         contentWarning: "#fbc02d",
         contentPositive: "#388e3c",
 
-        
         borderStatusDisabled: "#e0e0e0",
         borderAccent: "#1e88e5",
         borderNegative: "#d32f2f",
@@ -206,316 +202,44 @@ module.exports = {
         borderPositive: "#388e3c",
         borderAccentLight: "#90caf9",
 
-        
-          safety: "#1e88e5",
-          oats: "#388e3c",
-          freight: "#1565c0",
-          rewardsTier1: "#1e88e5",
-          rewardsTier2: "#FDC045",
-          rewardsTier3: "#B0B0B0",
-          rewardsTier4: "#000000",
-          membership: "#FBC02D",
-
-
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-          },
-          lineHeight: {
-            large: '112px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-          },
-          lineHeight: {
-            large: '112px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-            small: '44px',
-          },
-          lineHeight: {
-            large: '112px',
-            small: '52px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-            small: '44px',
-            xsmall: '36px',
-          },
-          lineHeight: {
-            large: '112px',
-            small: '52px',
-            xsmall: '44px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-            small: '44px',
-            xsmall: '36px',
-            xxlarge: '40px',
-          },
-          lineHeight: {
-            large: '112px',
-            small: '52px',
-            xsmall: '44px',
-            xxlarge: '52px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '96px',
-            small: '44px',
-            xsmall: '36px',
-            xxlarge: '40px',
-            xlarge: '36px',
-          },
-          lineHeight: {
-            large: '112px',
-            small: '52px',
-            xsmall: '44px',
-            xxlarge: '52px',
-            xlarge: '44px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '32px',
-            small: '44px',
-            xsmall: '36px',
-            xxlarge: '40px',
-            xlarge: '36px',
-          },
-          lineHeight: {
-            large: '40px',
-            small: '52px',
-            xsmall: '44px',
-            xxlarge: '52px',
-            xlarge: '44px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans', 'sans-serif'],
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            large: '32px',
-            medium: '28px',
-            small: '44px',
-            xsmall: '36px',
-            xxlarge: '40px',
-            xlarge: '36px',
-          },
-          lineHeight: {
-            large: '40px',
-            medium: '36px',
-            small: '52px',
-            xsmall: '44px',
-            xxlarge: '52px',
-            xlarge: '44px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            small: '24px',
-          },
-          lineHeight: {
-            small: '32px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-          fontFamily: {
-            uber: ['Uber Move', 'sans-serif'],
-          },
-          fontSize: {
-            xsmall: '20px',
-          },
-          lineHeight: {
-            xsmall: '28px',
-          },
-          fontWeight: {
-            bold: 700,
-          },
-
-
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            large: '18px',
-          },
-          lineHeight: {
-            large: '24px',
-          },
-          fontWeight: {
-            medium: 500,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            large: '18px',
-            medium: '16px',
-          },
-          lineHeight: {
-            large: '24px',
-            medium: '20px',
-          },
-          fontWeight: {
-            medium: 500,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            large: '18px',
-            medium: '16px',
-            small: '14px',
-          },
-          lineHeight: {
-            large: '24px',
-            medium: '20px',
-            small: '16px',
-          },
-          fontWeight: {
-            medium: 500,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            large: '18px',
-            medium: '16px',
-            small: '14px',
-            'x-small': '12px',
-          },
-          lineHeight: {
-            large: '24px',
-            medium: '20px',
-            small: '16px',
-            'x-small': '16px',
-          },
-          fontWeight: {
-            medium: 500,
-          },
-
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            large: '18px',
-          },
-          lineHeight: {
-            large: '28px',
-          },
-          fontWeight: {
-            normal: 400,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            medium: '16px',
-          },
-          lineHeight: {
-            medium: '24px',
-          },
-          fontWeight: {
-            normal: 400,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            small: '14px',
-          },
-          lineHeight: {
-            small: '20px',
-          },
-          fontWeight: {
-            normal: 400,
-          },
-
-          fontFamily: {
-            ubuntu: ['Ubuntu Sans Text', 'sans-serif'],
-          },
-          fontSize: {
-            'x-small': '12px',
-          },
-          lineHeight: {
-            'x-small': '20px',
-          },
-          fontWeight: {
-            normal: 400,
-          },
+        safety: "#1e88e5",
+        oats: "#388e3c",
+        freight: "#1565c0",
+        rewardsTier1: "#1e88e5",
+        rewardsTier2: "#FDC045",
+        rewardsTier3: "#B0B0B0",
+        rewardsTier4: "#000000",
+        membership: "#FBC02D",
       },
-      
+      fontFamily: {
+        ubuntu: ['Ubuntu Sans', 'sans-serif'],
+        'ubuntu-text': ['Ubuntu Sans Text', 'sans-serif'],
+        uber: ['Uber Move', 'sans-serif'],
+      },
+      fontSize: {
+        'x-small': '12px',
+        small: '14px',
+        medium: '16px',
+        large: '18px',
+        xsmall: '20px',
+        xxlarge: '40px',
+        xlarge: '36px',
+      },
+      lineHeight: {
+        'x-small': '16px',
+        small: '20px',
+        medium: '24px',
+        large: '28px',
+        xsmall: '28px',
+        xxlarge: '52px',
+        xlarge: '44px',
+      },
+      fontWeight: {
+        normal: 400,
+        medium: 500,
+        bold: 700,
+      },
     },
-    
   },
   plugins: [],
 };
