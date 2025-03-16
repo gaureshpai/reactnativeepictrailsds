@@ -228,10 +228,11 @@ module.exports = {
         'x-small': '12px',
         small: '14px',
         medium: '16px',
-        large: '18px',
+        large: '96px',
         xsmall: '20px',
         xxlarge: '40px',
         xlarge: '36px',
+        xxxlarge: '48px',
       },
       lineHeight: {
         'x-small': '16px',

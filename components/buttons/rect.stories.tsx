@@ -1,7 +1,7 @@
 import { Button } from "./rect";
 
 export default {
-  title: "Button System/Buttons/Rect",
+  title: "Design System/Buttons",
   component: Button,
   tags: ["autodocs"],
   parameters: {
@@ -49,7 +49,7 @@ export const RectButton = {
     size: "small",
     state: "default",
     disabled: false,
-    onClick: () =>alert("Default button clicked"),
+    onClick: () =>alert("Rect button clicked"),
     background : "",
   }
 }
