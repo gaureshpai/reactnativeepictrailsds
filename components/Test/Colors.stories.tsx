@@ -1,15 +1,13 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 export default {
-    title: "Design System/Colors",
-    parameters: {
-    },
+  title: "Design System/colors",
+  parameters: {
+      layout: "centered",
+  },
 };
-
 export const ColorPalette = () => {
-  // Color data organized by rows and columns to match the image
   const colorRows = [
-    // Magenta row
     [
       { color: '#5b003f', name: 'magenta900' },
       { color: '#891869', name: 'magenta800' },
@@ -22,7 +20,6 @@ export const ColorPalette = () => {
       { color: '#fedff3', name: 'magenta100' },
       { color: '#feeff9', name: 'magenta50' },
     ],
-    // Purple row
     [
       { color: '#341059', name: 'purple900' },
       { color: '#633495', name: 'purple800' },
@@ -35,7 +32,6 @@ export const ColorPalette = () => {
       { color: '#f2e5ff', name: 'purple100' },
       { color: '#f9f1ff', name: 'purple50' },
     ],
-    // Blue row
     [
       { color: '#002651', name: 'blue900' },
       { color: '#1948a3', name: 'blue800' },
@@ -48,7 +44,6 @@ export const ColorPalette = () => {
       { color: '#dee9fe', name: 'blue100' },
       { color: '#f1f4fe', name: 'blue50' },
     ],
-    // Teal row
     [
       { color: '#002d33', name: 'teal900' },
       { color: '#1a535a', name: 'teal800' },
@@ -61,7 +56,6 @@ export const ColorPalette = () => {
       { color: '#e2f8fb', name: 'teal100' },
       { color: '#f0fcfd', name: 'teal50' },
     ],
-    // Green row
     [
       { color: '#0b2f14', name: 'green900' },
       { color: '#0d572d', name: 'green800' },
@@ -74,7 +68,6 @@ export const ColorPalette = () => {
       { color: '#d3efda', name: 'green100' },
       { color: '#eafead', name: 'green50' },
     ],
-    // Lime row
     [
       { color: '#152000', name: 'lime900' },
       { color: '#36531a', name: 'lime800' },
@@ -87,7 +80,6 @@ export const ColorPalette = () => {
       { color: '#daeec6', name: 'lime100' },
       { color: '#eafe65', name: 'lime50' },
     ],
-    // Yellow row
     [
       { color: '#5d2c00', name: 'yellow900' },
       { color: '#4b4100', name: 'yellow800' },
@@ -100,7 +92,6 @@ export const ColorPalette = () => {
       { color: '#fbeb5d', name: 'yellow100' },
       { color: '#fff2dc', name: 'yellow50' },
     ],
-    // Amber row
     [
       { color: '#562000', name: 'amber900' },
       { color: '#6d4100', name: 'amber800' },
@@ -113,7 +104,6 @@ export const ColorPalette = () => {
       { color: '#ffe4b7', name: 'amber100' },
       { color: '#fff1e1', name: 'amber50' },
     ],
-    // Orange row
     [
       { color: '#461a00', name: 'orange900' },
       { color: '#823006', name: 'orange800' },
@@ -126,7 +116,6 @@ export const ColorPalette = () => {
       { color: '#fee26b', name: 'orange100' },
       { color: '#ffebb9', name: 'orange50' },
     ],
-    // Red row
     [
       { color: '#520810', name: 'red900' },
       { color: '#950f22', name: 'red800' },
@@ -139,7 +128,6 @@ export const ColorPalette = () => {
       { color: '#ffe1de', name: 'red100' },
       { color: '#fff0ee', name: 'red50' },
     ],
-    // Grayscale row
     [
       { color: '#000000', name: 'black' },
       { color: '#282828', name: 'gray900' },
@@ -155,65 +143,191 @@ export const ColorPalette = () => {
       { color: '#ffffff', name: 'white' },
     ],
   ];
+  
+  // Semantic/Core colors
+  const semanticColors = [
+    { 
+      id: 'primaryA',
+      name: 'primaryA', 
+      color: '#000000', 
+      colorCode: 'black'
+    },
+    { 
+      id: 'primaryB',
+      name: 'primaryB', 
+      color: '#ffffff', 
+      colorCode: 'white'
+    },
+    { 
+      id: 'accent',
+      name: 'accent', 
+      color: '#266ef1', 
+      colorCode: 'blue600'
+    },
+    { 
+      id: 'negative',
+      name: 'negative', 
+      color: '#de1135', 
+      colorCode: 'red600'
+    },
+    { 
+      id: 'warning',
+      name: 'warning', 
+      color: '#ffbc2f', 
+      colorCode: 'yellow300'
+    },
+    { 
+      id: 'positive',
+      name: 'positive', 
+      color: '#0e8345', 
+      colorCode: 'green600'
+    },
+  ];
 
-  const renderColorCell = (colorInfo) => {
-    const { color, name } = colorInfo;
-    // Calculate text color based on background brightness
-    const r = parseInt(color.substring(1, 3), 16);
-    const g = parseInt(color.substring(3, 5), 16);
-    const b = parseInt(color.substring(5, 7), 16);
+  // Function to determine text color based on background brightness
+  const getTextColor = (bgColor) => {
+    if (bgColor === '#ffffff' || bgColor === 'white') return '#000000';
+    if (bgColor === '#000000' || bgColor === 'black') return '#ffffff';
+    
+    const r = parseInt(bgColor.substring(1, 3), 16);
+    const g = parseInt(bgColor.substring(3, 5), 16);
+    const b = parseInt(bgColor.substring(5, 7), 16);
     const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-    const textColor = brightness > 125 ? 'black' : 'white';
-
-    return (
-      <View key={name} style={[styles.colorCell, { backgroundColor: color }]}>
-        <Text style={[styles.colorName, { color: textColor }]}>{name}</Text>
-        <Text style={[styles.colorHex, { color: textColor }]}>{color}</Text>
-      </View>
-    );
+    
+    return brightness > 125 ? '#000000' : '#ffffff';
   };
 
+  // Split semantic colors into two columns
+  const leftColumn = semanticColors.slice(0, 3);
+  const rightColumn = semanticColors.slice(3);
+
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.paletteContainer}>
-          {colorRows.map((row, index) => (
-            <View key={`row-${index}`} style={styles.colorRow}>
-              {row.map(renderColorCell)}
-            </View>
-          ))}
+    <ScrollView style={styles.container}>
+      
+
+      {/* Full Color Palette Section */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Color Palette</Text>
+        {colorRows.map((row, rowIndex) => (
+          <View key={`row-${rowIndex}`} style={styles.colorRow}>
+            {row.map((colorInfo) => (
+              <View 
+                key={colorInfo.name}
+                style={[styles.colorSwatch, { backgroundColor: colorInfo.color }]}
+              >
+                <Text style={[styles.swatchText, { color: getTextColor(colorInfo.color) }]}>
+                  {colorInfo.name}
+                </Text>
+                <Text style={[styles.swatchSubtext, { color: getTextColor(colorInfo.color) }]}>
+                  bg-{colorInfo.name}
+                </Text>
+              </View>
+            ))}
+          </View>
+        ))}
+      </View>
+      {/* Core/Semantic Colors Section */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>02 Core</Text>
+        <View style={styles.columnsContainer}>
+          {/* Left column */}
+          <View style={styles.column}>
+            {leftColumn.map(color => (
+              <View key={color.id} style={styles.colorItem}>
+                <View style={[styles.colorDot, { backgroundColor: color.color }]} />
+                <View style={styles.colorTextContainer}>
+                  <Text style={styles.colorName}>{color.name}</Text>
+                  <Text style={styles.colorCode}>{color.colorCode}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
+          
+          {/* Right column */}
+          <View style={styles.column}>
+            {rightColumn.map(color => (
+              <View key={color.id} style={styles.colorItem}>
+                <View style={[styles.colorDot, { backgroundColor: color.color }]} />
+                <View style={styles.colorTextContainer}>
+                  <Text style={styles.colorName}>{color.name}</Text>
+                  <Text style={styles.colorCode}>{color.colorCode}</Text>
+                </View>
+              </View>
+            ))}
+          </View>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f3f3f3', // gray50
   },
-  paletteContainer: {
-    padding: 4,
+  section: {
+    padding: 16,
+    marginBottom: 16,
+  },
+  sectionTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginBottom: 24,
+  },
+  columnsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  column: {
+    width: '48%',
+  },
+  colorItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 32,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#f0f0f0',
+  },
+  colorDot: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    marginRight: 16,
+    borderWidth: 1,
+    borderColor: '#e0e0e0',
+  },
+  colorTextContainer: {
+    flex: 1,
+  },
+  colorName: {
+    fontSize: 16,
+    fontWeight: '500',
+    marginBottom: 4,
+  },
+  colorCode: {
+    fontSize: 14,
+    color: '#666666',
   },
   colorRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  colorCell: {
-    height: 70,
+  colorSwatch: {
     flex: 1,
-    minWidth: 90,
+    minWidth: 80,
+    height: 64,
     justifyContent: 'center',
     alignItems: 'center',
     padding: 4,
   },
-  colorName: {
-    fontSize: 10,
+  swatchText: {
+    fontSize: 12,
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  colorHex: {
+  swatchSubtext: {
     fontSize: 10,
     textAlign: 'center',
     marginTop: 2,
