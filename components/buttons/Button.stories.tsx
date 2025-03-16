@@ -6,6 +6,11 @@ export default {
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
+    docs: {
+      source: {
+        type: "dynamic", // Ensures the code is shown
+      },
+    },
   },
   argTypes: {
     state: {
