@@ -27,7 +27,6 @@ export const Button = ({ label, onPress, state,size, icon="none" ,loading = fals
     hover : "bg-buttons-primary-hover text-white",
     disabled : "bg-buttons-primary-disabled",
   }
-  const backgrodund = `bg-[${background}]`
 
   console.log(background)
 
@@ -35,11 +34,14 @@ export const Button = ({ label, onPress, state,size, icon="none" ,loading = fals
     <TouchableOpacity
       onPress={!disabled ? onClick : undefined}
       disabled={ disabled}
-      className={`${sizes[size]} ${background ? `bg-[${background}]` : states[state]}`}
+      style={{backgroundColor:background}}
+      className={`${sizes[size]} ${background ? null : states[state]}`}
     >
       <Text className={`${state=="disabled" ? "text-gray-500" : "text-white"} bg-buttons`}>{label}</Text>
     </TouchableOpacity>
   );
 };
+
+
 
 

@@ -1,5 +1,3 @@
-const { blue } = require('@mui/material/colors');
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./components/**/*.{js,jsx,ts,tsx,mdx}"],
@@ -59,7 +57,7 @@ module.exports = {
           50: "#F3F3F3",
         },
         buttons:{
-          "primary-default": blue[600],
+          "primary-default": "#1F1F1F",
           "primary-pressed": "#000000",
           "primary-disabled": "#A6A6A6",
           "primary-hover": "#4B4B4B",
