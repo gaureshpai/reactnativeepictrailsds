@@ -25,6 +25,7 @@ const annotations = [
   require("./preview"),
   require("@storybook/react-native/preview"),
   require("@storybook/addon-ondevice-actions/preview"),
+  require("@storybook/addon-docs/preview"),
 ];
 
 global.STORIES = normalizedStories;
