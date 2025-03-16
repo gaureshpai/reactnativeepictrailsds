@@ -9,15 +9,21 @@ const preview = {
         date: /Date$/,
       },
     },
+    docs: {
+      source: {
+        type: "code", // Enables copyable code preview
+      },
+    },
   },
 
   decorators: [
-    (Story, { parameters }) => (
+    (Story) => (
       <View
         style={{
           flex: 1,
-          backgroundColor:
-            parameters.noBackground === true ? undefined : "#26c6da",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#ffffff",
           padding: 8,
         }}
       >
