@@ -10,11 +10,10 @@ function App() {
   );
 }
 
-let AppEntryPoint = App;
+let AppEntryPoint =  require("./.storybook").default;
 
-if (Constants.expoConfig.extra.storybookEnabled === "true") {
-  AppEntryPoint = require("./.storybook").default;
-}
+// if (Constants.expoConfig.extra.storybookEnabled === "true") {
+// }
 
 const styles = StyleSheet.create({
   container: {

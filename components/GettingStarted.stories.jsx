@@ -9,7 +9,7 @@ const StarterComponent = () => (
           textDecorationLine: "underline",
           textDecorationColor: "blue",
         }}
-        className="text-white p-4 bg-blue-500"
+        className="bg-blue-600 p-5"
         onPress={() =>
           Linking.openURL(
             "https://storybook.js.org/tutorials/intro-to-storybook/react-native/en/get-started/"
