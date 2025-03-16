@@ -143,7 +143,7 @@ module.exports = {
           "primary-default": "#1F1F1F",
           "primary-pressed": "#000000",
           "primary-disabled": "#A6A6A6",
-          "primary-hover": "#4B4B4B",
+          "primary-hover": "#4B4B4B !important",
         },
         primaryA: "#000000",
         primaryB: "#ffffff",
