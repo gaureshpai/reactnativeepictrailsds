@@ -7,6 +7,7 @@ module.exports = {
     "@storybook/addon-docs",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
+    '@storybook/addon-react-native-web',
   ], 
   actions: { argTypesRegex: "^on[A-Z].*" },
   framework: {

@@ -2,10 +2,10 @@ import React from "react";
 import { Text, View } from "react-native";
 
 export default {
-  title: "Design System/Typography",
-  parameters: {
-    layout: "centered",
-  },
+    title: "Design System/Foundations",
+    parameters: {
+        layout: "centered",
+    },
 };
 
 const TypographyExample = ({ label, family, size, lineHeight }) => (
@@ -183,7 +183,3 @@ export const Typography = () => (
   
   </>
 );
-
-
-
-

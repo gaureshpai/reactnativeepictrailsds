@@ -1,7 +1,7 @@
-import { Button } from "./button";
+import { Button } from "./rect";
 
 export default {
-  title: "Button System/Buttons/Rect/pr",
+  title: "Design System/Foundations/Buttons",
   component: Button,
   tags: ["autodocs"],
   parameters: {
@@ -14,12 +14,12 @@ export default {
   },
   argTypes: {
     state: {
-        options: ["default", "pressed", "hover", "disabled"],
+        options: ["default", "pressed", "hover", "disabled" , "loading"],
         description: "Variant of the button",   
         control: { type: "select" },
     },
     size: {
-        options: ["sm", "md", "lg"],
+        options: ["small", "medium", "large"],
         description: "Size of the button",
         control: { type: "select" },
     },
@@ -31,22 +31,21 @@ export default {
         control: { type: "text" },
         description: "Content of the button",
     },
-    disabled: {
-        control: { type: "boolean" },
-        description: "Whether the button is disabled or not",
+    varient : {
+        options: ["primary", "secondary"],
+        description: "Variant of the button",
+        control: { type: "select" },
     },
 },
 };
 
-export const ButtonDefault = {
+export const RectButton = {
   args: {
     label: "Button",
-    size: "sm",
+    size: "small",
     state: "default",
-    disabled: false,
-    onClick: () => console.log("Default button clicked"),
+    onClick: () =>alert("Default button clicked"),
     background : "",
-
   }
 }
 
