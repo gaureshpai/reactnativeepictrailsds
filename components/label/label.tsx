@@ -29,13 +29,13 @@ const Label: React.FC<LabelProps> = ({
     switch (type) {
       case 'checkbox':
         return (
-          <View className={`w-5 h-5 border-2 border-buttons-primary-default justify-center items-center ${checked ? 'bg-white' : ''} ${disabled ? 'opacity-50' : ''}`}>
+          <View className={`w-5 h-5 border-2 border-buttons-primary-default justify-center items-center bg-white ${disabled ? 'opacity-50' : ''}`}>
             {checked && <CheckIcon className="text-black" fontSize='small' />}
           </View>
         );
       case 'radio':
         return (
-          <View className={`w-5 h-5 rounded-full border-2 border-buttons-primary-default justify-center items-center ${checked ? 'bg-white' : ''} ${disabled ? 'opacity-50' : ''}`}>
+          <View className={`w-5 h-5 rounded-full border-2 border-buttons-primary-default justify-center items-center bg-white ${disabled ? 'opacity-50' : ''}`}>
             {checked && <View className="w-3 h-3 rounded-full bg-black" />}
           </View>
         );

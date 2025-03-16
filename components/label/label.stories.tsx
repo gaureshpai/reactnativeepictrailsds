@@ -1,7 +1,7 @@
 import Label from "./label";
 
 export default {
-  title: "Design System/Labels",
+  title: "Design System",
   component: Label,
   tags: ["autodocs"],
   parameters: {
@@ -13,8 +13,7 @@ export default {
     },
   },
 };
-
-export const checkbox = {
+export const label = {
   args: {
     type: "checkbox",
     label: "Label",
@@ -23,55 +22,20 @@ export const checkbox = {
     onPress: () => console.log("Component pressed"),
   },
   argTypes: {
+    type: {
+      options: ["checkbox", "radio", "toggle"],
+      control: { type: "select" },
+    },
     checked: {
       control: { type: "boolean" },
     },
     label: {
       control: { type: "text" },
+      if: { arg: "type", neq: "toggle" }, // Hide label only when type is 'toggle'
     },
     disabledLabel: {
-        control: {type: "boolean"},
-    },
-    disabled: {
       control: { type: "boolean" },
-    },
-  },
-};
-
-export const radio = {
-  args: {
-    type: "radio",
-    label: "Label",
-    checked: false,
-    disabled: false,
-    onPress: () => console.log("Component pressed"),
-  },
-  argTypes: {
-    checked: {
-      control: { type: "boolean" },
-    },
-    label: {
-      control: { type: "text" },
-    },
-    disabledLabel: {
-        control: {type: "boolean"},
-    },
-    disabled: {
-      control: { type: "boolean" },
-    },
-  },
-};
-
-export const toggle = {
-  args: {
-    type: "toggle",
-    checked: false,
-    disabled: false,
-    onPress: () => console.log("Component pressed"),
-  },
-  argTypes: {
-    checked: {
-      control: { type: "boolean" },
+      if: { arg: "checkbox", neq: "toggle" }, // Hide disabledLabel only when type is 'toggle'
     },
     disabled: {
       control: { type: "boolean" },
