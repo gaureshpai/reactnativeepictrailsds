@@ -5,6 +5,8 @@ export default function Index() {
     <View className="flex-1 items-center justify-center">
 
       <Icon label="Hello" />
+      <Text className="typography-display-medium">We ignite opportunity by setting the world in motion.
+      0123456789</Text>
     </View>
   );
 }
