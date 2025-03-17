@@ -292,8 +292,117 @@ module.exports = {
       },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
+  plugins: [function ({ addUtilities }) {
+    addUtilities({
+      ".typography-display-large": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "96px",
+        lineHeight: "112px",
+        fontWeight: "700",
+      },
+      ".typography-display-medium": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "52px",
+        lineHeight: "64px",
+        fontWeight: "700",
+      },
+      ".typography-display-small": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "44px",
+        lineHeight: "52px",
+        fontWeight: "700",
+      },
+      ".typography-display-xsmall": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "36px",
+        lineHeight: "44px",
+        fontWeight: "700",
+      },
+      ".typography-heading-xxlarge": {
+          fontFamily: "'Uber Move' 'sans-serif'",
+          fontSize: "40px",
+          lineHeight: "52px",
+          fontWeight: "700",
+      },
+      ".typography-heading-xlarge": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "36px",
+        lineHeight: "44px",
+        fontWeight: "700",
+      },
+      ".typography-heading-large": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "32px",
+        lineHeight: "40px",
+        fontWeight: "700",
+      },
+      ".typography-heading-medium": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "28px",
+        lineHeight: "36px",
+        fontWeight: "700",
+      },
+      ".typography-heading-small": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "24px",
+        lineHeight: "32px",
+        fontWeight: "700",
+      },
+      ".typography-heading-xsmall": {
+        fontFamily: "'Uber Move' 'sans-serif'",
+        fontSize: "20px",
+        lineHeight: "28px",
+        fontWeight: "700",
+      },
+      ".typography-label-large": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "18px",
+        lineHeight: "24px",
+        fontWeight: "500",
+      },
+      ".typography-label-medium": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "16px",
+        lineHeight: "20px",
+        fontWeight: "500",
+      },
+      ".typography-label-small": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "14px",
+        lineHeight: "16px",
+        fontWeight: "500",
+      },
+      ".typography-label-xsmall": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "12px",
+        lineHeight: "16px",
+        fontWeight: "500",
+      },
+      ".typography-paragraph-large": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "18px",
+        lineHeight: "28px",
+        fontWeight: "400",
+      },
+      ".typography-paragraph-medium": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "16px",
+        lineHeight: "24px",
+        fontWeight: "400",
+      },
+      ".typography-paragraph-small": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "14px",
+        lineHeight: "20px",
+        fontWeight: "400",
+      },
+      ".typography-paragraph-xsmall": {
+        fontFamily: "'Ubuntu Sans' 'sans-serif'",
+        fontSize: "12px",
+        lineHeight: "20px",
+        fontWeight: "400",
+      },
+    });
       const buttonUtilities = {
         /* Secondary Button States */
         '.btn-secondary-default': {
