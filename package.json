@@ -1,27 +1,54 @@
 {
   "name": "reactnativeepictrailsds",
   "version": "0.0.1",
-  "description": "Epic trails design system test",
+  "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
-    "test",
-    "design",
-    "system"
+    "react-native",
+    "design-system",
+    "ui-library",
+    "components",
+    "mobile-ui",
+    "react-native-ui",
+    "native-components",
+    "ui-kit",
+    "material-design",
+    "theming",
+    "styled-components",
+    "tailwind",
+    "expo",
+    "react-native-elements",
+    "react-native-paper",
+    "theme-provider",
+    "component-library",
+    "dark-mode",
+    "lightweight-ui",
+    "cross-platform",
+    "mobile-first",
+    "react-native-theme",
+    "animation",
+    "gesture-based-ui",
+    "performance-optimized",
+    "typescript-support",
+    "customizable-components",
+    "ios",
+    "android",
+    "open-source"
   ],
-  "homepage": "https://github.com/gaureshpai/epic-trails-ds#readme",
+  "homepage": "https://github.com/gaureshpai/reactnativeepictrailsds#readme",
   "bugs": {
-    "url": "https://github.com/gaureshpai/epic-trails-ds/issues"
-  },
-  "publishConfig": {
-    "access": "public"
+    "url": "https://github.com/gaureshpai/reactnativeepictrailsds/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gaureshpai/epic-trails-ds.git"
+    "url": "git+https://github.com/gaureshpai/reactnativeepictrailsds.git"
   },
-  "license": "ISC",
-  "author": "gaureshpai",
-  "type": "react-native",
+  "license": "MIT",
+  "author": "Gauresh Pai",
+  "type": "commonjs",
   "main": "expo-router/entry",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "react-native": "src/index.js",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -64,7 +91,8 @@
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "react-native-reactnativeepictrailsds": "file:./modules\\reactnativeepictrailsds"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
