@@ -1,50 +1,92 @@
-# Welcome to your Expo app 👋
+# React Native Epic Trails Design System
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+[![License](https://img.shields.io/npm/l/reactnativeepictrailsds.svg)](https://github.com/gaureshpai/reactnativeepictrailsds/blob/main/LICENSE)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Version](https://img.shields.io/badge/version-0.0.1-orange.svg)](https://github.com/gaureshpai/reactnativeepictrailsds)
 
-## Get started
+> **Note:** This package is currently in early development (v0.0.1). APIs may change frequently.
 
-1. Install dependencies
+A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development with a focus on outdoor and adventure applications.
 
+## Under Development
+
+This design system is currently under active development. Many features are planned but not yet implemented. Documentation and examples will be expanded as development progresses.
+
+## Installation
+
+```bash
+npm install reactnativeepictrailsds
+# or
+yarn add reactnativeepictrailsds
+```
+
+## Getting Started
+
+```jsx
+import { Button } from 'reactnativeepictrailsds';
+
+export default function App() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Button variant="primary">
+        Start Exploring
+      </Button>
+    </View>
+  );
+}
+```
+
+## Development
+
+To contribute to the design system:
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/gaureshpai/reactnativeepictrailsds.git
+   ```
+
+2. Install dependencies
    ```bash
    npm install
    ```
 
-2. Start the app
-
+3. Start the development server
    ```bash
-    npx expo start
+   npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+## Current Components
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- **Buttons**: Primary, Secondary variants in Medium, Large, and Docked sizes
+- **Tiles**: Basic content containers with various states
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## Roadmap
 
-## Get a fresh project
+- Complete component library
+- Comprehensive documentation
+- Theme customization
+- Accessibility improvements
+- Interactive examples
+- Component playground
 
-When you're ready, run:
+## License
 
-```bash
-npm run reset-project
-```
+[MIT](https://github.com/gaureshpai/reactnativeepictrailsds/blob/main/LICENSE)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Contributors
 
-## Learn more
+<div align="center">
+  <a href="https://github.com/gaureshpai/reactnativeepictrailsds/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=gaureshpai/reactnativeepictrailsds" />
+  </a>
+</div>
 
-To learn more about developing your project with Expo, look at the following resources:
+## How to Contribute
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Interested in joining our team? Check out our [contribution guidelines](CONTRIBUTING.md) to get started!
 
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request

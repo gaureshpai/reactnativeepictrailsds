@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💡 Feature Request
+    url: https://github.com/gaureshpai/reactnativeepictrailsds/discussions/new?category=ideas
+    about: If you have a feature request, please start a new discussion in the "Ideas" category.
+
+  - name: 💬 General Discussions & Help
+    url: https://github.com/gaureshpai/reactnativeepictrailsds/discussions
+    about: Need help or have questions? Join the discussions and ask your queries here.
