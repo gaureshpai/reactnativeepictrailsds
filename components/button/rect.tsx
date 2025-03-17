@@ -5,19 +5,17 @@ import { ActivityIndicator } from "react-native";
 
 type ButtonProps = {
   label: string;
-  onPress?: () => void;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
   icon?: "right" | "left" | "none";
   state?: "default" | "pressed" | "hover" | "disabled" | "loading";
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (() => void) | (()=>{});
   background?: string | null;
 };
 
 const Rect = ({
-  label,
-  onPress,
+  label = "Button",
   state = "default",
   size = "medium",
   disabled,
@@ -65,7 +63,7 @@ const Rect = ({
 
   return (
     <Pressable
-      onPress={!disabled ? onClick || onPress : undefined}
+      onPress={!disabled ? onClick  : undefined}
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)} 
