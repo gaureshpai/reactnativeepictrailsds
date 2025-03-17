@@ -48,11 +48,11 @@ type ButtonProps = {
   };
 
   const secondaryStates = {
-    default: "bg-buttons-secondary-default border border-buttons-secondary-default-border",
-    pressed: "bg-buttons-secondary-pressed border border-buttons-secondary-pressed-border",
-    hover: "bg-buttons-secondary-hover border border-buttons-secondary-hover-border",
-    disabled: "bg-buttons-secondary-disabled", 
-    loading: "bg-buttons-secondary-default border border-buttons-secondary-default-border",
+    default: 'btn-secondary-default',
+    pressed: 'btn-secondary-pressed',
+    hover: 'btn-secondary-hover',
+    disabled: 'btn-secondary-disabled', 
+    loading: '.btn-secondary-loading',
   };
 
   
