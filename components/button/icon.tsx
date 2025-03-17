@@ -5,31 +5,27 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 type ButtonProps = {
   label: string;
-  onPress?: () => void;
   variant?: "primary" | "secondary";
   size?: "small" | "medium" | "large";
   icon?: "right" | "left" ;
   state?: "default" | "pressed" | "hover" | "disabled" | "loading";
   disabled?: boolean;
-  onClick?: () => void;
+  onClick?: (() => void)  | (()=>{});
   background?: string | null;
-  varient?: string; 
 };
 
  const Icon = ({
-  label,
-  onPress,
+  label = "Button",
   state = "default",
   size = "medium",
   icon = "right",
   disabled,
   onClick,
   background,
-  varient,
   variant = "primary", 
 }: ButtonProps) => {
   
-  const buttonVariant = varient || variant;
+  const buttonVariant =  variant;
 
   
   const sizes = {
@@ -48,11 +44,11 @@ type ButtonProps = {
   };
 
   const secondaryStates = {
-    default: "bg-buttons-secondary-default border border-buttons-secondary-default-border",
-    pressed: "bg-buttons-secondary-pressed border border-buttons-secondary-pressed-border",
-    hover: "bg-buttons-secondary-hover border border-buttons-secondary-hover-border",
-    disabled: "bg-buttons-secondary-disabled", 
-    loading: "bg-buttons-secondary-default border border-buttons-secondary-default-border",
+    default: 'btn-secondary-default',
+    pressed: 'btn-secondary-pressed',
+    hover: 'btn-secondary-hover',
+    disabled: 'btn-secondary-disabled', 
+    loading: '.btn-secondary-loading',
   };
 
   
@@ -77,7 +73,7 @@ type ButtonProps = {
 
   return (
     <Pressable
-      onPress={!disabled ? onClick || onPress : undefined}
+      onPress={!disabled ? onClick : undefined}
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
