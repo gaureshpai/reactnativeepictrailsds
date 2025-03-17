@@ -1,7 +1,27 @@
 {
   "name": "reactnativeepictrailsds",
+  "version": "0.0.1",
+  "description": "Epic trails design system test",
+  "keywords": [
+    "test",
+    "design",
+    "system"
+  ],
+  "homepage": "https://github.com/gaureshpai/epic-trails-ds#readme",
+  "bugs": {
+    "url": "https://github.com/gaureshpai/epic-trails-ds/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaureshpai/epic-trails-ds.git"
+  },
+  "license": "ISC",
+  "author": "gaureshpai",
+  "type": "react-native",
   "main": "expo-router/entry",
-  "version": "1.0.0",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -10,9 +30,6 @@
     "web": "expo start --web",
     "test": "jest --watchAll",
     "lint": "expo lint"
-  },
-  "jest": {
-    "preset": "jest-expo"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -59,5 +76,7 @@
     "react-test-renderer": "18.3.1",
     "typescript": "^5.3.3"
   },
-  "private": true
+  "jest": {
+    "preset": "jest-expo"
+  }
 }
