@@ -293,116 +293,117 @@ module.exports = {
     },
   },
   plugins: [function ({ addUtilities }) {
-    addUtilities({
-      ".typography-display-large": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "96px",
-        lineHeight: "112px",
-        fontWeight: "700",
-      },
-      ".typography-display-medium": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "52px",
-        lineHeight: "64px",
-        fontWeight: "700",
-      },
-      ".typography-display-small": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "44px",
-        lineHeight: "52px",
-        fontWeight: "700",
-      },
-      ".typography-display-xsmall": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "36px",
-        lineHeight: "44px",
-        fontWeight: "700",
-      },
-      ".typography-heading-xxlarge": {
-          fontFamily: "'Uber Move' 'sans-serif'",
-          fontSize: "40px",
-          lineHeight: "52px",
-          fontWeight: "700",
-      },
-      ".typography-heading-xlarge": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "36px",
-        lineHeight: "44px",
-        fontWeight: "700",
-      },
-      ".typography-heading-large": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "32px",
-        lineHeight: "40px",
-        fontWeight: "700",
-      },
-      ".typography-heading-medium": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "28px",
-        lineHeight: "36px",
-        fontWeight: "700",
-      },
-      ".typography-heading-small": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "24px",
-        lineHeight: "32px",
-        fontWeight: "700",
-      },
-      ".typography-heading-xsmall": {
-        fontFamily: "'Uber Move' 'sans-serif'",
-        fontSize: "20px",
-        lineHeight: "28px",
-        fontWeight: "700",
-      },
-      ".typography-label-large": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "18px",
-        lineHeight: "24px",
-        fontWeight: "500",
-      },
-      ".typography-label-medium": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "16px",
-        lineHeight: "20px",
-        fontWeight: "500",
-      },
-      ".typography-label-small": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "14px",
-        lineHeight: "16px",
-        fontWeight: "500",
-      },
-      ".typography-label-xsmall": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "12px",
-        lineHeight: "16px",
-        fontWeight: "500",
-      },
-      ".typography-paragraph-large": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "18px",
-        lineHeight: "28px",
-        fontWeight: "400",
-      },
-      ".typography-paragraph-medium": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "16px",
-        lineHeight: "24px",
-        fontWeight: "400",
-      },
-      ".typography-paragraph-small": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "14px",
-        lineHeight: "20px",
-        fontWeight: "400",
-      },
-      ".typography-paragraph-xsmall": {
-        fontFamily: "'Ubuntu Sans' 'sans-serif'",
-        fontSize: "12px",
-        lineHeight: "20px",
-        fontWeight: "400",
-      },
-    });
+    const typographyStyles = {
+        ".typography-display-large": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-display-large)",
+          lineHeight: "var(--lh-display-large)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-display-medium": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-display-medium)",
+          lineHeight: "var(--lh-display-medium)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-display-small": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-display-small)",
+          lineHeight: "var(--lh-display-small)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-display-xsmall": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-display-xsmall)",
+          lineHeight: "var(--lh-display-xsmall)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-xxlarge": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-xxlarge)",
+          lineHeight: "var(--lh-heading-xxlarge)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-xlarge": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-xlarge)",
+          lineHeight: "var(--lh-heading-xlarge)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-large": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-large)",
+          lineHeight: "var(--lh-heading-large)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-medium": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-medium)",
+          lineHeight: "var(--lh-heading-medium)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-small": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-small)",
+          lineHeight: "var(--lh-heading-small)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-heading-xsmall": {
+          fontFamily: "var(--typography-2)",
+          fontSize: "var(--fs-heading-xsmall)",
+          lineHeight: "var(--lh-heading-xsmall)",
+          fontWeight: "var(--fw-bold)",
+        },
+        ".typography-label-large": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-label-large)",
+          lineHeight: "var(--lh-label-large)",
+          fontWeight: "var(--fw-medium)",
+        },
+        ".typography-label-medium": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-label-medium)",
+          lineHeight: "var(--lh-label-medium)",
+          fontWeight: "var(--fw-medium)",
+        },
+        ".typography-label-small": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-label-small)",
+          lineHeight: "var(--lh-label-small)",
+          fontWeight: "var(--fw-medium)",
+        },
+        ".typography-label-xsmall": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-label-xsmall)",
+          lineHeight: "var(--lh-label-xsmall)",
+          fontWeight: "var(--fw-medium)",
+        },
+        ".typography-paragraph-large": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-paragraph-large)",
+          lineHeight: "var(--lh-paragraph-large)",
+          fontWeight: "var(--fw-regular)",
+        },
+        ".typography-paragraph-medium": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-paragraph-medium)",
+          lineHeight: "var(--lh-paragraph-medium)",
+          fontWeight: "var(--fw-regular)",
+        },
+        ".typography-paragraph-small": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-paragraph-small)",
+          lineHeight: "var(--lh-paragraph-small)",
+          fontWeight: "var(--fw-regular)",
+        },
+        ".typography-paragraph-xsmall": {
+          fontFamily: "var(--typography-1)",
+          fontSize: "var(--fs-paragraph-xsmall)",
+          lineHeight: "var(--lh-paragraph-xsmall)",
+          fontWeight: "var(--fw-regular)",
+        },
+      };
+      addUtilities(typographyStyles);
       const buttonUtilities = {
         /* Secondary Button States */
         '.btn-secondary-default': {
