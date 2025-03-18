@@ -46,7 +46,7 @@
   "author": "Gauresh G Pai",
   "type": "commonjs",
   "main": "expo-router/entry",
-  "module": "dist/index.js",
+  "module": "src/index.js",
   "types": "dist/index.d.ts",
   "react-native": "src/index.js",
   "scripts": {
