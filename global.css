@@ -226,5 +226,56 @@
       --color-rewards-tier3: #b0b0b0;
       --color-rewards-tier4: #000000;
       --color-membership: #fbc02d;
+
+      /* typography */
+      --typography-1 : 'Ubuntu Sans' 'sans-serif';
+      --typography-2 : 'Uber Move' 'sans-serif';
+
+      /* Font Sizes */
+      --fs-display-large: 96px;
+      --fs-display-medium: 52px;
+      --fs-display-small: 44px;
+      --fs-display-xsmall: 36px;
+      --fs-heading-xxlarge: 40px;
+      --fs-heading-xlarge: 36px;
+      --fs-heading-large: 32px;
+      --fs-heading-medium: 28px;
+      --fs-heading-small: 24px;
+      --fs-heading-xsmall: 20px;
+      --fs-label-large: 18px;
+      --fs-label-medium: 16px;
+      --fs-label-small: 14px;
+      --fs-label-xsmall: 12px;
+      --fs-paragraph-large: 18px;
+      --fs-paragraph-medium: 16px;
+      --fs-paragraph-small: 14px;
+      --fs-paragraph-xsmall: 12px;
+    
+      /* Line Heights */
+      --lh-display-large: 112px;
+      --lh-display-medium: 64px;
+      --lh-display-small: 52px;
+      --lh-display-xsmall: 44px;
+      --lh-heading-xxlarge: 52px;
+      --lh-heading-xlarge: 44px;
+      --lh-heading-large: 40px;
+      --lh-heading-medium: 36px;
+      --lh-heading-small: 32px;
+      --lh-heading-xsmall: 28px;
+      --lh-label-large: 24px;
+      --lh-label-medium: 20px;
+      --lh-label-small: 16px;
+      --lh-label-xsmall: 16px;
+      --lh-paragraph-large: 28px;
+      --lh-paragraph-medium: 24px;
+      --lh-paragraph-small: 20px;
+      --lh-paragraph-xsmall: 20px;
+    
+      /* Font Weights */
+      --fw-bold: 700;
+      --fw-medium: 500;
+      --fw-regular: 400;
+
+      
     }
   }
