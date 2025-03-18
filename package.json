@@ -1,6 +1,6 @@
 {
   "name": "reactnativeepictrailsds",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
     "react-native",
@@ -44,9 +44,9 @@
   },
   "license": "MIT",
   "author": "Gauresh G Pai",
-  "type": "commonjs",
+  "type": "module",
   "main": "expo-router/entry",
-  "module": "dist/index.js",
+  "module": "src/index.js",
   "types": "dist/index.d.ts",
   "react-native": "src/index.js",
   "scripts": {
