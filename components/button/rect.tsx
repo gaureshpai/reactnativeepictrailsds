@@ -14,7 +14,7 @@ type ButtonProps = {
   background?: string | null;
 };
 
-const Rect = ({
+const RectButton = ({
   label = "Button",
   state = "default",
   size = "medium",
@@ -89,4 +89,4 @@ const Rect = ({
   );
 };  
 
-export default Rect;
+export default RectButton;
