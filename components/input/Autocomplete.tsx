@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextInput, View, ActivityIndicator, TouchableOpacity, Text } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // Import Ionicons
+import { Ionicons } from "@expo/vector-icons"; 
 
 type InputProp = {
   Size?: "small" | "medium" | "large";
@@ -10,7 +10,7 @@ type InputProp = {
   placeholder?: string;
   inputType?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
   value?: any | "";
-  input?: string[]; // Add input array for comparison
+  input?: string[]; 
 };
 
 const Sizes = {
@@ -27,16 +27,16 @@ export default function AutoComplete({
   inputType = "text",
   State = "Default",
   value = "",
-  input = [], // Default to empty array
+  input = [], 
 }: InputProp) {
   const [inputValue, setInputValue] = useState(value);
-  const [isFocused, setIsFocused] = useState(false); // Track focus state
-  const [suggestions, setSuggestions] = useState<string[]>([]); // Track suggestions
-
-  // Function to handle input change
+  const [isFocused, setIsFocused] = useState(false); 
+  const [suggestions, setSuggestions] = useState<string[]>([]); 
+  
+  
   const handleInputChange = (text: string) => {
     setInputValue(text);
-    // Filter suggestions based on input
+    
     if (text.length > 0) {
       const filteredSuggestions = input.filter((item) =>
         item.toLowerCase().startsWith(text.toLowerCase())
@@ -47,35 +47,35 @@ export default function AutoComplete({
     }
   };
 
-  // Function to clear input
+  
   const clearInput = () => {
     setInputValue("");
     setSuggestions([]);
   };
 
-  // Determine border color based on state
+  
   const getBorderColor = () => {
     switch (State) {
       case "Error":
-        return "border-red-500"; // Red border for error state
+        return "border-red-500"; 
       case "Success":
-        return "border-green-500"; // Green border for success state
+        return "border-green-500"; 
       case "Default":
-        return isFocused ? "border-black" : "border-transparent"; // Black border when focused, no border otherwise
+        return isFocused ? "border-black" : "border-transparent"; 
       default:
-        return "border-transparent"; // No border for other states
+        return "border-transparent"; 
     }
   };
 
-  // Determine hint text color based on state
+  
   const getHintColor = () => {
     switch (State) {
       case "Error":
-        return "text-red-500"; // Red hint for error state
+        return "text-red-500"; 
       case "Success":
-        return "text-green-500"; // Green hint for success state
+        return "text-green-500"; 
       default:
-        return "text-[#5e5e5e]"; // Default hint color
+        return "text-[#5e5e5e]"; 
     }
   };
 
@@ -90,15 +90,18 @@ export default function AutoComplete({
         {/* Input Field */}
         <View className="flex-row items-center w-[375px]"> {/* Constrain the input container to 375px */}
           <TextInput
-            className={`${Sizes[Size]} p-[8px] placeholder:text-[#5e5e5e] bg-[#e8e8e8] border-[3px] ${getBorderColor()} pr-[40px] outline-none flex-1`} // Add padding for icons and outline-none
+            className={`${Sizes[Size]} p-[8px] placeholder:text-[#5e5e5e] bg-[#e8e8e8] border-[3px] ${getBorderColor()} pr-[40px] outline-none flex-1`} 
             editable={State !== "Loading"}
             inputMode={inputType}
             value={inputValue}
             onFocus={() => setIsFocused(true)}
-            onBlur={() => setIsFocused(false)}
+            onBlur={(e) => {setIsFocused(false)
+              setInputValue( suggestions[0]? suggestions[0] : inputValue)
+              
+            }}
             onChangeText={handleInputChange}
             placeholder={placeholder}
-            style={{ width: 375 }} // Explicitly set width to 375px
+            style={{ width: 375 }} 
           />
           {/* Cross icon for Default state */}
           {State === "Default" && inputValue.length > 0 && (
@@ -118,12 +121,12 @@ export default function AutoComplete({
         </View>
         {/* Suggestions inside the input field */}
         {suggestions.length > 0 && (
-          <View className="absolute top-0 left-0 w-[375px] h-full pointer-events-none"> {/* Constrain suggestions to 375px */}
+          <View className={`absolute top-0 left-0 ${Sizes[Size]}  pointer-events-none`}> {/* Constrain suggestions to 375px */}
             <TextInput
-              className={`${Sizes[Size]} p-[8px] bg-transparent text-[#5e5e5e] border-transparent pr-[40px] outline-none flex-1`}
+              className={`${Sizes[Size]} p-[8px] border-[3px] bg-transparent text-[#5e5e5e] border-transparent pr-[40px] outline-none flex-1`}
               editable={false}
               value={inputValue + suggestions[0].slice(inputValue.length)}
-              style={{ width: 375 }} // Explicitly set width to 375px
+              style={{ width: 375 }} 
             />
           </View>
         )}
