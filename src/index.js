@@ -1,0 +1,1 @@
+export {RectButton} from '@/components/rect';
