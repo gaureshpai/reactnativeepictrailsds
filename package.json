@@ -1,6 +1,6 @@
 {
   "name": "reactnativeepictrailsds",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
     "react-native",
@@ -77,8 +77,6 @@
       "typescript"
     ]
   },
-
- 
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
