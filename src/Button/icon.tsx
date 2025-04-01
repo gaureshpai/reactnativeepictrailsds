@@ -2,17 +2,8 @@ import React, { useState } from "react";
 import { Pressable, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native"; 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
+import { ButtonProps } from "./Button.type";
 
-type ButtonProps = {
-  label: string;
-  variant?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
-  icon?: "right" | "left" ;
-  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
-  disabled?: boolean;
-  onClick?: (() => void)  | (()=>{});
-  background?: string | null;
-};
 
  const Icon = ({
   label = "Button",

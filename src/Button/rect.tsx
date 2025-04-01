@@ -2,17 +2,8 @@ import { Icon } from "@mui/material";
 import React, { useState } from "react";
 import { Pressable, Text } from "react-native";
 import { ActivityIndicator } from "react-native"; 
+import { ButtonProps } from "./Button.type";
 
-type ButtonProps = {
-  label: string;
-  variant?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
-  icon?: "right" | "left" | "none";
-  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
-  disabled?: boolean;
-  onClick?: (() => void) | (()=>{});
-  background?: string | null;
-};
 
 const RectButton = ({
   label = "Button",

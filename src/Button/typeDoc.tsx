@@ -2,17 +2,8 @@ import React, { useState, useEffect } from "react";
  import { Pressable, Text, View, ActivityIndicator } from "react-native";
  import CheckBoxIcon from "@mui/icons-material/CheckBox"; // Checked state
  import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"; // Unchecked state
- 
- type TypeDocsProps = {
-   icon?: "left" | "right"; // Define the type for the icon prop
-   buttonLabel?: string; // Optional button label
-   label?: string; // Optional terms and conditions label
-   size?: "small" | "medium" | "large"; // Size prop for the button
-   state?: "default" | "pressed" | "hover" | "disabled" | "loading"; // State prop for the button
-   disabled?: boolean; // Disabled state
-   onClick?: () => void; // onClick function
-   background?: string | null; // Background color as a hex code
- };
+ import { TypeDocsProps } from "./Button.type";
+
  
  const TypeDoc = ({
    icon = "right",

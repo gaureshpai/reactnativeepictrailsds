@@ -1,6 +1,6 @@
 {
   "name": "reactnativeepictrailsds",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
     "react-native",
@@ -45,10 +45,12 @@
   "license": "MIT",
   "author": "Gauresh G Pai",
   "type": "module",
-  "main": "expo-router/entry",
-  "module": "src/index.js",
-  "types": "dist/index.d.ts",
-  "react-native": "src/index.js",
+  "main": "src/index.tsx",
+  "module": "src/index.tsx",
+  "react-native": "src/index.ts",
+  "files": [
+    "src/"
+  ],
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -56,7 +58,24 @@
     "ios": "expo run:ios",
     "web": "expo start --web",
     "test": "jest --watchAll",
-    "lint": "expo lint"
+    "lint": "expo lint",
+    "build": "tsc",
+    "prepare": "bob build",
+    "postbuild": "npx tailwindcss --input src/styles/global.css --output dist/styles.css"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "dist",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "copyFlow": true
+        }
+      ],
+      "module",
+      "typescript"
+    ]
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
@@ -82,29 +101,34 @@
     "expo-web-browser": "~14.0.2",
     "nativewind": "^4.1.23",
     "postcss": "^8.5.3",
-    "react": "18.3.1",
+    "react": ">=18.0.0",
     "react-dom": "18.3.1",
-    "react-native": "0.76.7",
+    "react-native": ">=0.71.0",
+    "react-native-builder-bob": "^0.39.0",
     "react-native-gesture-handler": "~2.20.2",
+    "react-native-reactnativeepictrailsds": "file:./modules\\reactnativeepictrailsds",
     "react-native-reanimated": "^3.16.2",
     "react-native-safe-area-context": "^4.12.0",
     "react-native-screens": "~4.4.0",
     "react-native-web": "~0.19.13",
     "react-native-webview": "13.12.5",
-    "tailwindcss": "^3.4.17",
-    "react-native-reactnativeepictrailsds": "file:./modules\\reactnativeepictrailsds"
+    "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@types/jest": "^29.5.12",
     "@types/react": "~18.3.12",
+    "@types/react-native": "^0.73.0",
     "@types/react-test-renderer": "^18.3.0",
     "jest": "^29.2.1",
     "jest-expo": "~52.0.6",
     "react-test-renderer": "18.3.1",
-    "typescript": "^5.3.3"
+    "typescript": "^5.8.2"
   },
   "jest": {
     "preset": "jest-expo"
+  },
+  "directories": {
+    "example": "example"
   }
 }
