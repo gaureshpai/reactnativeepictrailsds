@@ -2,9 +2,10 @@
 
 # dependencies
 node_modules/
+example/node_modules/
 
 # Expo
-.expo/
+example/.expo/
 dist/
 web-build/
 expo-env.d.ts
@@ -32,7 +33,5 @@ yarn-error.*
 # local env files
 .env*.local
 
-# typescript
+# TypeScript
 *.tsbuildinfo
-
-app-example
