@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { TileProps } from "./Tile.type";
 
-
 const Tile = ({
+  w = 180, // Default width
+  h = 160, // Default height
   label,
   paragraph,
   variant = "variant-1",
@@ -12,41 +13,150 @@ const Tile = ({
   enabled = true,
   selected = false
 }: TileProps) => {
-  // Determine base container classes
-  const containerClasses = `
-    relative w-40 h-32  px-3  border
-    ${enabled ? 'bg-gray-100' : 'bg-gray-300 border-none'}
-    ${selected ? 'border-black border-solid border-2' : 'border-none'}
-  `;
+  // Ensure minimum dimensions
+  const minWidth = 180; // Minimum width
+  const minHeight = 160; // Minimum height
+  
+  // Calculate responsive width and height based on content
+  const width = Math.max(w, minWidth);
+  const height = Math.max(h, minHeight);
 
-  const textClasses = `
-    font-medium pb-1
-    ${enabled ? 'text-black' : 'text-gray-500'}
-  `;
+  // Fixed sizes for consistent UI elements
+  const LARGE_ICON_SIZE = 28;
+  const SMALL_ICON_SIZE = 18;
+  const LABEL_FONT_SIZE = 14;
+  const PARAGRAPH_FONT_SIZE = 12;
+  const CHECKBOX_SIZE = 20;
+  const TOGGLE_WIDTH = 28;
+  const TOGGLE_HEIGHT = 12;
+  const TOGGLE_KNOB_SIZE = 16;
+  const CHEVRON_SIZE = 20;
+  const RADIO_SIZE = 22;
+  const ICON_BOX_SIZE = 40;
+  const BASE_PADDING = 12;
+  const ICON_MARGIN = 8;
 
-  const paragraphClasses = `
-    text-sm
-    ${enabled ? 'text-gray-600' : 'text-gray-500'}
-  `;
+  // Calculate the position for the icon elements
+  const getIconTopPosition = () => {
+    // Always align with the icon position since we'll always render the icon space
+    return BASE_PADDING + ICON_MARGIN;
+  };
+
+  // Calculate responsive positions based on container dimensions
+  const styles = StyleSheet.create({
+    container: {
+      minWidth,
+      minHeight,
+      width,
+      height,
+      padding: BASE_PADDING,
+      position: 'relative',
+      backgroundColor: enabled ? '#f3f4f6' : '#D1D5DB',
+      borderWidth: selected ? 2 : 0,
+      borderColor: selected && enabled ? '#000000' : 'transparent',
+      borderStyle: 'solid',
+    },
+    text: {
+      fontWeight: '500',
+      paddingBottom: 4,
+      color: enabled ? '#000000' : '#6b7280',
+      fontSize: LABEL_FONT_SIZE,
+    },
+    paragraph: {
+      fontSize: PARAGRAPH_FONT_SIZE,
+      color: enabled ? '#4b5563' : '#6b7280',
+    },
+    iconBox: {
+      width: ICON_BOX_SIZE,
+      height: ICON_BOX_SIZE,
+      backgroundColor: '#9ca3af',
+    },
+    invisibleIconBox: {
+      width: ICON_BOX_SIZE,
+      height: ICON_BOX_SIZE,
+      backgroundColor: 'transparent',
+    },
+    variantElement: {
+      position: 'absolute',
+      right: BASE_PADDING,
+    },
+    checkboxContainer: {
+      width: CHECKBOX_SIZE,
+      height: CHECKBOX_SIZE,
+      borderWidth: 2,
+      borderColor: enabled ? '#000000' : '#9ca3af',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    toggleContainer: {
+      width: TOGGLE_WIDTH,
+      height: TOGGLE_HEIGHT,
+      borderRadius: 999,
+      backgroundColor: '#e5e7eb',
+      justifyContent: 'center',
+    },
+    toggleKnob: {
+      width: TOGGLE_KNOB_SIZE,
+      height: TOGGLE_KNOB_SIZE,
+      borderRadius: 999,
+      position: 'absolute',
+    },
+    contentContainer: {
+      flex: 1,
+      justifyContent: 'center',
+    },
+    iconContainer: {
+      marginRight: ICON_MARGIN,
+      marginBottom: ICON_MARGIN,
+    },
+    flexRow: {
+      flexDirection: 'row',
+    },
+    flexCol: {
+      flexDirection: 'column',
+    },
+    iconTextContainer: {
+      flex: 1,
+      marginTop: BASE_PADDING,
+    },
+    variant2Text: {
+      position: 'absolute',
+      top: BASE_PADDING,
+      right: BASE_PADDING,
+      textAlign: 'right',
+    },
+    // Style for content that might overflow
+    contentWrapper: {
+      flex: 1,
+      overflow: 'hidden',
+    },
+    // Additional wrapper for dynamic content expansion
+    dynamicContentWrapper: {
+      flexGrow: 1,
+      flexShrink: 1,
+    },
+  });
 
   // Render the appropriate icon based on the icon prop
   const renderIcon = () => {
-    if (!icon) return null;
+    if (!icon) {
+      // Return invisible placeholder with same dimensions
+      return <View style={styles.invisibleIconBox} />;
+    }
     
     const iconColor = enabled ? "#000000" : "#888888";
-    // const iconSize = 18;
     
     switch (icon) {
       case 'heart':
-        return <Ionicons name="heart" size={28} color={iconColor} />;
+        return <Ionicons name="heart" size={LARGE_ICON_SIZE} color={iconColor} />;
       case 'sheart':
-        return <Ionicons name="heart" size={18} color={iconColor} />;
+        return <Ionicons name="heart" size={SMALL_ICON_SIZE} color={iconColor} />;
       case 'box':
-        return <View className={`w-10 h-10 bg-gray-400`} />;
+        return <View style={styles.iconBox} />;
       case 'label':
-        return <Text className={textClasses}>{label}</Text>; // Just showing the label text as in the design
+        return <Text style={styles.text}>{label}</Text>;
       default:
-        return null;
+        return <View style={styles.invisibleIconBox} />;
     }
   };
   
@@ -56,36 +166,44 @@ const Tile = ({
       return renderDisabledVariantElement();
     }
     
+    const topPosition = getIconTopPosition();
+    
     switch (variant) {
       case 'variant-3':
         return (
-          <View className="absolute top-0 right-0 m-3 mt-6">
-            <Ionicons name="chevron-forward" size={20} color="#000000" />
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            <Ionicons name="chevron-forward" size={CHEVRON_SIZE} color="#000000" />
           </View>
         );
       case 'variant-4':
         return (
-          <View className="absolute top-1 right-0 m-3 mt-6">
-            <View className="w-5 h-5 border-2 border-black justify-center items-center">
-              {/* {selected && <View className="w-3 h-3 bg-black" />} */}
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            <View style={styles.checkboxContainer}>
               {selected && <Ionicons name="checkmark" size={16} color="#000000" />}
             </View>
           </View>
         );
       case 'variant-5':
         return (
-          <View className="absolute top-3 right-0 m-3">
-              {selected ? <Ionicons name="radio-button-on" size={22} color="#000000" />: <Ionicons name="radio-button-off" size={22} color="#000000" />}
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            {selected ? 
+              <Ionicons name="radio-button-on" size={RADIO_SIZE} color="#000000" /> : 
+              <Ionicons name="radio-button-off" size={RADIO_SIZE} color="#000000" />
+            }
           </View>
         );
       case 'variant-6':
         return (
-          <View className="absolute top-4 right-2 m-3">
-            <View className="w-7 h-3 rounded-full bg-gray-200 justify-center">
-              <View className={`
-                w-4 h-4 rounded-full bg-black absolute
-                ${selected ? 'right-0' : 'left-0 bg-white'}
-              `} />
+          <View style={[styles.variantElement, { top: topPosition+5 }]}>
+            <View style={styles.toggleContainer}>
+              <View style={[
+                styles.toggleKnob,
+                {
+                  right: selected ? 0 : undefined,
+                  left: selected ? undefined : 0,
+                  backgroundColor: selected ? '#000000' : '#ffffff',
+                }
+              ]} />
             </View>
           </View>
         );
@@ -95,36 +213,44 @@ const Tile = ({
   };
   
   const renderDisabledVariantElement = () => {
+    const topPosition = getIconTopPosition();
+    
     switch (variant) {
       case 'variant-3':
         return (
-          <View className="absolute top-0 right-0 m-3 mt-6">
-            <Ionicons name="chevron-forward" size={20} color="#888888" />
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            <Ionicons name="chevron-forward" size={CHEVRON_SIZE} color="#888888" />
           </View>
         );
       case 'variant-4':
         return (
-          <View className="absolute top-1 right-0 m-3 mt-6">
-            <View className="w-5 h-5 border-2 border-gray-400">
-              {/* {selected && <View className="w-3 h-3 bg-gray-400" />} */}
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            <View style={[styles.checkboxContainer, { borderColor: '#9ca3af' }]}>
               {selected && <Ionicons name="checkmark" size={16} color="#868686" />}
             </View>
           </View>
         );
       case 'variant-5':
         return (
-          <View className="absolute top-3 right-0 m-3">
-            {selected ? <Ionicons name="radio-button-on" size={22} color="#868686" />: <Ionicons name="radio-button-off" size={22} color="#868686" />}
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            {selected ? 
+              <Ionicons name="radio-button-on" size={RADIO_SIZE} color="#868686" /> : 
+              <Ionicons name="radio-button-off" size={RADIO_SIZE} color="#868686" />
+            }
           </View>
         );
       case 'variant-6':
         return (
-          <View className="absolute top-4 right-2 m-3">
-            <View className="w-7 h-3 rounded-full bg-gray-200 justify-center">
-              <View className={`
-                w-4 h-4 rounded-full bg-gray-500 absolute
-                ${selected ? 'right-0' : 'left-0 bg-white'}
-              `} />
+          <View style={[styles.variantElement, { top: topPosition }]}>
+            <View style={styles.toggleContainer}>
+              <View style={[
+                styles.toggleKnob,
+                {
+                  right: selected ? 0 : undefined,
+                  left: selected ? undefined : 0,
+                  backgroundColor: selected ? '#6b7280' : '#ffffff',
+                }
+              ]} />
             </View>
           </View>
         );
@@ -135,58 +261,89 @@ const Tile = ({
   
   // Layout variations based on variant prop
   const renderContent = () => {
+    // Calculate content position based on container size
+    const contentPadding = Math.min(width * 0.05, 12);
+    
     switch (variant) {
       case 'variant-2':
         return (
           <>
-            <View className="absolute top-0 right-0 m-3">
-              <Text className={textClasses+"text-right"}>{label}</Text>
-              {paragraph && <Text className={paragraphClasses+"text-right"}>{paragraph}</Text>}
+            <View style={[styles.variant2Text, { maxWidth: width * 0.4 }]}>
+              <Text style={[styles.text, { textAlign: 'right' }]}>{label}</Text>
+              {paragraph && (
+                <Text 
+                  style={[styles.paragraph, { textAlign: 'right' }]}
+                  numberOfLines={3} 
+                  ellipsizeMode="tail"
+                >
+                  {paragraph}
+                </Text>
+              )}
             </View>
-              <View className="flex-1 justify-center">
-                <View className={`flex-col ${icon == 'heart' ? 'gap-0' : 'gap-2'}`}>
-                  <View className={`mr-2 ${icon != 'box' ? 'mb-2' : ''}`}>
-                    {renderIcon()}
-                    {!icon && <View className={`w-10 h-10 bg-transparent`} />}
-                  </View>
-                  <View className="flex-1">
-                    <Text className={textClasses}>{label}</Text>
-                    {paragraph && <Text className={paragraphClasses}>{paragraph}</Text>}
-                  </View>
+            <View style={[styles.contentContainer, { padding: contentPadding }]}>
+              <View style={{display: 'flex',flexDirection: 'column',justifyContent: 'flex-end',alignItems: 'flex-start',height: height,paddingBlock:25}}>
+                <View style={styles.iconContainer}>
+                  {renderIcon()}
+                </View>
+                <View style={styles.dynamicContentWrapper}>
+                  <Text 
+                    style={styles.text}
+                    numberOfLines={1} 
+                    ellipsizeMode="tail"
+                  >
+                    {label}
+                  </Text>
+                  {paragraph && (
+                    <Text 
+                      style={{...styles.paragraph, marginTop: 10}}
+                      numberOfLines={3} 
+                      ellipsizeMode="tail"
+                    >
+                      {paragraph}
+                    </Text>
+                  )}
                 </View>
               </View>
+            </View>
           </>
         );
       default: // variant-1 and others
         return (
-          <>
-            {icon ? (
-              <View className="flex-1 justify-center">
-                <View className={`flex-col`}>
-                  <View className="mr-2 mb-2">
-                    {renderIcon()}
-                  </View>
-                  <View className="flex-1">
-                    <Text className={textClasses}>{label}</Text>
-                    {paragraph && <Text className={paragraphClasses}>{paragraph}</Text>}
-                  </View>
-                </View>
+          <View style={[styles.contentWrapper, { margin: contentPadding }]}>
+            <View style={styles.flexCol}>
+              <View style={styles.iconContainer}>
+                {renderIcon()}
               </View>
-            ) : (
-              <View className="flex-1 justify-center">
-                {variant !== 'variant-1' && <View className={`w-10 h-10 bg-transparent`} />}
-                <Text className={textClasses}>{label}</Text>
-                {paragraph && <Text className={paragraphClasses}>{paragraph}</Text>}
+              <View style={styles.dynamicContentWrapper}>
+                <Text 
+                  numberOfLines={1} 
+                  ellipsizeMode="tail" 
+                  style={styles.text}
+                >
+                  {label}
+                </Text>
+                {paragraph && (
+                  <Text 
+                    numberOfLines={3} 
+                    ellipsizeMode="tail" 
+                    style={styles.paragraph}
+                  >
+                    {paragraph}
+                  </Text>
+                )}
               </View>
-            )}
-          </>
+            </View>
+          </View>
         );
     }
   };
   
   return (
-    <TouchableOpacity 
-      className={containerClasses}
+    <TouchableOpacity className='bg-gray-100'
+      style={[
+        styles.container,
+        { width, height }
+      ]}
       disabled={!enabled}
       activeOpacity={0.7}
     >
