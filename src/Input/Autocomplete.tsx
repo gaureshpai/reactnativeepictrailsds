@@ -1,17 +1,7 @@
 import { useState } from "react";
 import { TextInput, View, ActivityIndicator, TouchableOpacity, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; 
-
-type InputProp = {
-  Size?: "small" | "medium" | "large";
-  Label?: string;
-  Hint?: string;
-  State?: "Default" | "Error" | "Success" | "Loading";
-  placeholder?: string;
-  inputType?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-  value?: any | "";
-  input?: string[]; 
-};
+import { AInputProp } from "./Input.type";
 
 const Sizes = {
   small: "w-[375px] h-[36px]",
@@ -28,7 +18,7 @@ export default function AutoComplete({
   State = "Default",
   value = "",
   input = [], 
-}: InputProp) {
+}: AInputProp) {
   const [inputValue, setInputValue] = useState(value);
   const [isFocused, setIsFocused] = useState(false); 
   const [suggestions, setSuggestions] = useState<string[]>([]); 

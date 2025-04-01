@@ -1,17 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { TextInput, View, ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons"; // Import Ionicons for icons
-
-type InputProp = {
-  Size?: "small" | "medium" | "large";
-  Label?: string;
-  Hint?: string;
-  State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
-  placeholder?: string;
-  inputType?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-  value?: any | "";
-};
-
+import { NInputProp } from "./Input.type";
 const Sizes = {
   small: "w-[375px] h-[36px]",
   medium: "w-[375px] h-[48px]",
@@ -26,7 +16,7 @@ export default function NormalText({
   inputType = "text",
   State = "Default",
   value = "",
-}: InputProp) {
+}: NInputProp) {
   const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<TextInput>(null); // Ref to focus the input
 
