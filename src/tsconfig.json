@@ -8,6 +8,6 @@
       ]
     }
   },
-  "include": ["nativewind-env.d.ts","./src/**/*","./dist/**/*"],
+  "include": ["src/nativewind-env.d.ts","./**/*","../dist/**/*"],
 
 }
