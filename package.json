@@ -49,7 +49,12 @@
   "module": "src/index.tsx",
   "react-native": "src/index.ts",
   "files": [
-    "src/"
+    "src/",
+    "tsconfig.json",
+    "package.json",
+    "README.md",
+    "tailwind.config.js"
+
   ],
   "scripts": {
     "start": "expo start",
