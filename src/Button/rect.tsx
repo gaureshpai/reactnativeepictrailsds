@@ -37,7 +37,7 @@ const RectButton = ({
     pressed: 'btn-secondary-pressed',
     hover: 'btn-secondary-hover',
     disabled: 'btn-secondary-disabled', 
-    loading: '.btn-secondary-loading',
+    loading: 'btn-secondary-loading',
   };
 
   
