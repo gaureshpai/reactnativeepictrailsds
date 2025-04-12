@@ -70,15 +70,15 @@ export default function AutoComplete({
   };
 
   return (
-    <View className="flex flex-col gap-2 relative w-[375px]"> {/* Constrain the container to 375px */}
+    <View className="flex flex-col gap-2 relative w-[375px]"> 
       {Label ? (
         <View className="text-sm">
           <Text>{Label}</Text>
         </View>
       ) : null}
       <View className="relative">
-        {/* Input Field */}
-        <View className="flex-row items-center w-[375px]"> {/* Constrain the input container to 375px */}
+        
+        <View className="flex-row items-center w-[375px]"> 
           <TextInput
             className={`${Sizes[Size]} p-[8px] placeholder:text-[#5e5e5e] bg-[#e8e8e8] border-[3px] ${getBorderColor()} pr-[40px] outline-none flex-1`} 
             editable={State !== "Loading"}
@@ -93,7 +93,7 @@ export default function AutoComplete({
             placeholder={placeholder}
             style={{ width: 375 }} 
           />
-          {/* Cross icon for Default state */}
+          
           {State === "Default" && inputValue.length > 0 && (
             <TouchableOpacity
               onPress={clearInput}
@@ -102,16 +102,16 @@ export default function AutoComplete({
               <Ionicons name="close-circle" size={24} color="#5e5e5e" />
             </TouchableOpacity>
           )}
-          {/* Loading spinner for Loading state */}
+          
           {State === "Loading" && (
             <View className="absolute right-2 top-1/2 -translate-y-1/2">
               <ActivityIndicator size="small" color="#e65300" />
             </View>
           )}
         </View>
-        {/* Suggestions inside the input field */}
+        
         {suggestions.length > 0 && (
-          <View className={`absolute top-0 left-0 ${Sizes[Size]}  pointer-events-none`}> {/* Constrain suggestions to 375px */}
+          <View className={`absolute top-0 left-0 ${Sizes[Size]}  pointer-events-none`}> 
             <TextInput
               className={`${Sizes[Size]} p-[8px] border-[3px] bg-transparent text-[#5e5e5e] border-transparent pr-[40px] outline-none flex-1`}
               editable={false}
@@ -123,11 +123,11 @@ export default function AutoComplete({
       </View>
       {Hint ? (
         <View className={`text-sm ${getHintColor()} flex flex-row items-center gap-1`}>
-          {/* Error icon for Error state */}
+          
           {State === "Error" && (
             <Ionicons name="alert-circle" size={16} color="#ef4444" />
           )}
-          {/* Success icon for Success state */}
+          
           {State === "Success" && (
             <Ionicons name="checkmark-circle" size={16} color="#22c55e" />
           )}

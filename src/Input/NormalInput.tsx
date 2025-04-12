@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { TextInput, View, ActivityIndicator } from "react-native";
-import { Ionicons } from "@expo/vector-icons"; // Import Ionicons for icons
+import { Ionicons } from "@expo/vector-icons"; 
 import { NInputProp } from "./Input.type";
 const Sizes = {
   small: "w-[375px] h-[36px]",
@@ -18,34 +18,34 @@ export default function NormalText({
   value = "",
 }: NInputProp) {
   const [inputValue, setInputValue] = useState(value);
-  const inputRef = useRef<TextInput>(null); // Ref to focus the input
+  const inputRef = useRef<TextInput>(null); 
 
-  // Focus the input for the "Active" state
+  
   useEffect(() => {
     if (State === "Active" && inputRef.current) {
       inputRef.current.focus();
     }
   }, [State]);
 
-  // Determine if the input should have an outline
+  
   const getOutlineClass = () => {
     if (["Loading", "Disabled", "ViewOnly"].includes(State)) {
-      return "outline-none"; // Remove outline for these states
+      return "outline-none"; 
     }
-    return ""; // Default outline
+    return ""; 
   };
 
-  // Determine the icon to display based on the state
+  
   const getIcon = () => {
     switch (State) {
       case "Correct":
-        return <Ionicons name="checkmark-circle" size={24} color="#22c55e" />; // Green tick
+        return <Ionicons name="checkmark-circle" size={24} color="#22c55e" />; 
       case "Incorrect":
-        return <Ionicons name="alert-circle" size={24} color="#ef4444" />; // Red exclamation
+        return <Ionicons name="alert-circle" size={24} color="#ef4444" />; 
       case "Loading":
-        return <ActivityIndicator size="small" color="#e65300" />; // Loading spinner
+        return <ActivityIndicator size="small" color="#e65300" />; 
       default:
-        return null; // No icon for other states
+        return null; 
     }
   };
 
@@ -59,14 +59,14 @@ export default function NormalText({
       <View className={`relative ${Sizes[Size]} `}>
         <TextInput
           ref={inputRef}
-          className={`bg-[#e8e8e8] p-[8px] placeholder:text-[#5e5e5e] ${getOutlineClass()} pr-[40px]`} // Add padding for icons
-          editable={!["Disabled", "ViewOnly"].includes(State)} // Disable edit for "Disabled" and "ViewOnly"
+          className={`bg-[#e8e8e8] p-[8px] placeholder:text-[#5e5e5e] ${getOutlineClass()} pr-[40px]`} 
+          editable={!["Disabled", "ViewOnly"].includes(State)} 
           inputMode={inputType}
           value={inputValue}
           onChange={(e) => setInputValue(e.nativeEvent.text)}
           placeholder={placeholder}
         />
-        {/* Icon for Correct, Incorrect, and Loading states */}
+        
         {["Correct", "Incorrect", "Loading"].includes(State) && (
           <View className="absolute left-full top-1/2 -translate-x-full -translate-y-1/2 pr-4">
             {getIcon()}

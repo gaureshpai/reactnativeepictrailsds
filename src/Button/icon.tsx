@@ -85,7 +85,7 @@ import { ButtonProps } from "./Button.type";
         </View>
       ) : (
         <>
-          {/* Render icon on the left if icon prop is "left" */}
+          
           {icon === "left" && (
             <ArrowForwardIcon
               style={{
@@ -96,12 +96,12 @@ import { ButtonProps } from "./Button.type";
             />
           )}
 
-          {/* Text */}
+          
           <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
             {label}
           </Text>
 
-          {/* Render icon on the right if icon prop is "right" */}
+          
           {icon === "right" && (
             <ArrowForwardIcon
               style={{
