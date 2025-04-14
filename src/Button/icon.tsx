@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable,PressableProps, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native"; 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
 import { ButtonProps } from "./Button.type";
@@ -11,9 +11,9 @@ import { ButtonProps } from "./Button.type";
   size = "medium",
   icon = "right",
   disabled,
-  onClick,
   background,
   variant = "primary", 
+  ...props
 }: ButtonProps) => {
   
   const buttonVariant =  variant;
@@ -64,7 +64,6 @@ import { ButtonProps } from "./Button.type";
 
   return (
     <Pressable
-      onPress={!disabled ? onClick : undefined}
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
@@ -78,6 +77,8 @@ import { ButtonProps } from "./Button.type";
           ? states.hover 
           : states[state]
       } flex flex-row items-center justify-between`} 
+      {...props}
+
     >
       {state === "loading" ? (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
@@ -85,7 +86,7 @@ import { ButtonProps } from "./Button.type";
         </View>
       ) : (
         <>
-          {/* Render icon on the left if icon prop is "left" */}
+          
           {icon === "left" && (
             <ArrowForwardIcon
               style={{
@@ -96,12 +97,12 @@ import { ButtonProps } from "./Button.type";
             />
           )}
 
-          {/* Text */}
+          
           <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
             {label}
           </Text>
 
-          {/* Render icon on the right if icon prop is "right" */}
+          
           {icon === "right" && (
             <ArrowForwardIcon
               style={{

@@ -3,9 +3,11 @@
 # dependencies
 node_modules/
 example/node_modules/
+*.tgz
 
 # Expo
 example/.expo/
+example
 dist/
 web-build/
 expo-env.d.ts

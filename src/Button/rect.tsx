@@ -10,9 +10,9 @@ const RectButton = ({
   state = "default",
   size = "medium",
   disabled,
-  onClick,
   background,
   variant = "primary", 
+  ...props
 }: ButtonProps) => {
   const buttonVariant = variant;
 
@@ -37,7 +37,7 @@ const RectButton = ({
     pressed: 'btn-secondary-pressed',
     hover: 'btn-secondary-hover',
     disabled: 'btn-secondary-disabled', 
-    loading: '.btn-secondary-loading',
+    loading: 'btn-secondary-loading',
   };
 
   
@@ -53,8 +53,7 @@ const RectButton = ({
   const isHoverEffectEnabled = !disabled && state !== "disabled" && state !== "loading";
 
   return (
-    <Pressable
-      onPress={!disabled ? onClick  : undefined}
+    <Pressable 
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)} 
@@ -68,6 +67,7 @@ const RectButton = ({
           ? states.hover 
           : states[state]
       } flex items-center justify-center`}
+      {...props}
     >
       {state === "loading" ? (
         <ActivityIndicator size="small" color={buttonVariant === "primary" ? "#ffffff" : "#000000"} /> 

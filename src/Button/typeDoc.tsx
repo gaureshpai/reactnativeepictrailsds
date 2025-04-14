@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
- import { Pressable, Text, View, ActivityIndicator } from "react-native";
- import CheckBoxIcon from "@mui/icons-material/CheckBox"; // Checked state
- import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"; // Unchecked state
+ import { Pressable, PressableProps,Text, View, ActivityIndicator } from "react-native";
+ import CheckBoxIcon from "@mui/icons-material/CheckBox"; 
+ import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"; 
  import { TypeDocsProps } from "./Button.type";
 
  
@@ -9,109 +9,107 @@ import React, { useState, useEffect } from "react";
    icon = "right",
    buttonLabel = "Button",
    label = "I agree to the terms and conditions.",
-   size = "medium", // Default size is medium
-   state = "default", // Default state is "default"
-   disabled = false, // Default disabled state is false
-   onClick, // onClick function
-   background = null, // Default background color is null
+   size = "medium", 
+   state = "default", 
+   disabled = false, 
+   background = null, 
+   ...props
  }: TypeDocsProps) => {
-   const [isChecked, setIsChecked] = useState(false); // State for checkbox
-   const [isHovered, setIsHovered] = useState(false); // State for hover
-   const [isPressed, setIsPressed] = useState(false); // State for press
+   const [isChecked, setIsChecked] = useState(false); 
+   const [isHovered, setIsHovered] = useState(false); 
+   const [isPressed, setIsPressed] = useState(false); 
  
-   // Automatically check the checkbox when the button is in a specific state
+   
    useEffect(() => {
      if (state === "loading" || state === "pressed") {
-       setIsChecked(true); // Check the checkbox
+       setIsChecked(true); 
      }
    }, [state]);
  
-   // Define sizes for the button using Tailwind-like classes
+   
    const sizes = {
-     small: "w-3/4 min-w-[80px] p-[10px]", // Small size (75% width, min-width 80px, padding 10px)
-     medium: "w-full min-w-[120px] p-[10px]", // Medium size (100% width, min-width 120px, padding 10px)
-     large: "w-full min-w-[160px] p-[15px]", // Large size (100% width, min-width 160px, padding 15px)
+     small: "w-3/4 min-w-[80px] p-[10px]", 
+     medium: "w-full min-w-[120px] p-[10px]", 
+     large: "w-full min-w-[160px] p-[15px]", 
    };
  
-   // Define states for the button
+   
    const buttonStates = {
-     default: "bg-black", // Default state: black background
-     pressed: "bg-gray-800", // Pressed state: darker black background
-     hover: "bg-gray-900", // Hover state: slightly lighter black background
-     disabled: "bg-gray-300", // Disabled state: gray background
-     loading: "bg-black", // Loading state: black background
+     default: "bg-black", 
+     pressed: "bg-gray-800", 
+     hover: "bg-gray-900", 
+     disabled: "bg-gray-300", 
+     loading: "bg-black", 
    };
  
-   // Determine if the button should be disabled
+   
    const isButtonDisabled = disabled || !isChecked;
  
-   // Determine if hover effect should be applied
+   
    const isHoverEffectEnabled = !isButtonDisabled && state !== "disabled" && state !== "loading";
  
-   // Handle button press
+   
    const handlePress = () => {
      if (!isButtonDisabled) {
-       setIsPressed(true); // Set pressed state
-       setTimeout(() => setIsPressed(false), 100); // Reset pressed state after 100ms
-       if (onClick) {
-         onClick(); // Call the onClick function
-       }
+       setIsPressed(true); 
+       setTimeout(() => setIsPressed(false), 100); 
      }
    };
  
    return (
      <View className="flex justify-center items-center w-[335px] p-5">
-       {/* Checkbox for Terms and Conditions */}
+       
        <Pressable
-         onPress={() => setIsChecked(!isChecked)} // Toggle checkbox state
+         onPress={() => setIsChecked(!isChecked)} 
          className="flex-row items-center mb-5"
+         {...props}
        >
-         {/* Checkbox on the Left when icon is "right" */}
+         
          {icon === "right" && (
            <>
              {isChecked ? (
-               <CheckBoxIcon className="text-black text-2xl" /> // Checked icon
+               <CheckBoxIcon className="text-black text-2xl" /> 
              ) : (
-               <CheckBoxOutlineBlankIcon className="text-gray-600 text-2xl" /> // Unchecked icon
+               <CheckBoxOutlineBlankIcon className="text-gray-600 text-2xl" /> 
              )}
              <Text className="ml-2.5">{label}</Text>
            </>
          )}
  
-         {/* Checkbox on the Right when icon is "left" */}
+         
          {icon === "left" && (
            <>
              <Text className="mr-2.5">{label}</Text>
              {isChecked ? (
-               <CheckBoxIcon className="text-black text-2xl" /> // Checked icon
+               <CheckBoxIcon className="text-black text-2xl" /> 
              ) : (
-               <CheckBoxOutlineBlankIcon className="text-gray-600 text-2xl" /> // Unchecked icon
+               <CheckBoxOutlineBlankIcon className="text-gray-600 text-2xl" /> 
              )}
            </>
          )}
        </Pressable>
  
-       {/* Button */}
+       
        <Pressable
-         onPress={handlePress} // Handle button press
-         disabled={isButtonDisabled} // Disable button if checkbox is not checked or explicitly disabled
-         onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} // Handle hover in
-         onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)} // Handle hover out
-         style={{ backgroundColor: background || undefined }} // Apply background color if provided
+         onPress={handlePress} 
+         disabled={isButtonDisabled} 
+         onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
+         onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)} 
+         style={{ backgroundColor: background || undefined }} 
          className={`${sizes[size]} ${
            background
-             ? null // If background is provided, ignore default styles
+             ? null 
              : isButtonDisabled
-             ? buttonStates.disabled // Apply disabled styles
+             ? buttonStates.disabled 
              : isPressed
-             ? buttonStates.pressed // Apply pressed styles
+             ? buttonStates.pressed 
              : isHovered && isHoverEffectEnabled
-             ? buttonStates.hover // Apply hover styles when hovered and hover effect is enabled
+             ? buttonStates.hover 
              : buttonStates[state]
          } flex items-center justify-center`}
        >
          {state === "loading" ? (
-           <ActivityIndicator size="small" color="#ffffff" /> // React Native loading indicator
+           <ActivityIndicator size="small" color="#ffffff" /> 
          ) : (
            <Text className={`${isButtonDisabled ? "text-[#868686]" : "text-white"}`}>
              {buttonLabel}
