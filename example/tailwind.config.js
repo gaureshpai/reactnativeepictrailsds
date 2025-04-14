@@ -6,7 +6,7 @@ module.exports = {
       extend: {
         colors: {
           /* Magenta */
-          magenta: {
+          magenta: {  
             900: "var(--color-magenta-900)",
             800: "var(--color-magenta-800)",
             700: "var(--color-magenta-700)",
@@ -182,6 +182,12 @@ module.exports = {
           negative: "var(--color-negative)",
           warning: "var(--color-warning)",
           positive: "var(--color-positive)",
+          inputBackground: "var(--color-gray-200)", // Reuse --color-gray-200
+          inputPlaceholder: "#5e5e5e",
+          inputSuggestion:"#5e5e5e",
+          inputHint:"#5e5e5e",
+          inputIconDefault:"#5e5e5e",
+          inputLoading:"#276ef1",
   
           /* Backgrounds */
           backgroundPrimary: "var(--color-white)", // Reuse --color-white
