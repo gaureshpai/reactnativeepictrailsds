@@ -13,11 +13,11 @@ export default function AutoComplete({
   Size = "small",
   Label = "",
   Hint = "",
-  placeholder = "Placeholder",
-  inputType = "text",
   State = "Default",
   value = "",
   input = [], 
+  curved = false,
+  ...props
 }: AInputProp) {
   const [inputValue, setInputValue] = useState(value);
   const [isFocused, setIsFocused] = useState(false); 
@@ -47,9 +47,9 @@ export default function AutoComplete({
   const getBorderColor = () => {
     switch (State) {
       case "Error":
-        return "border-red-500"; 
+        return "border-borderNegative"; 
       case "Success":
-        return "border-green-500"; 
+        return "border-borderPositive"; 
       case "Default":
         return isFocused ? "border-black" : "border-transparent"; 
       default:
@@ -61,11 +61,11 @@ export default function AutoComplete({
   const getHintColor = () => {
     switch (State) {
       case "Error":
-        return "text-red-500"; 
+        return "text-contentNegative"; 
       case "Success":
-        return "text-green-500"; 
+        return "text-contentPositive"; 
       default:
-        return "text-[#5e5e5e]"; 
+        return "text-inputHint"; 
     }
   };
 
@@ -80,9 +80,8 @@ export default function AutoComplete({
         
         <View className="flex-row items-center w-[375px]"> 
           <TextInput
-            className={`${Sizes[Size]} p-[8px] placeholder:text-[#5e5e5e] bg-[#e8e8e8] border-[3px] ${getBorderColor()} pr-[40px] outline-none flex-1`} 
+            className={`${Sizes[Size]} p-[8px] placeholder:text-inputPlaceholder bg-inputBackground border-[3px] ${getBorderColor()} pr-[40px] outline-none flex-1 ${curved && "rounded-md"}`} 
             editable={State !== "Loading"}
-            inputMode={inputType}
             value={inputValue}
             onFocus={() => setIsFocused(true)}
             onBlur={(e) => {setIsFocused(false)
@@ -90,8 +89,8 @@ export default function AutoComplete({
               
             }}
             onChangeText={handleInputChange}
-            placeholder={placeholder}
             style={{ width: 375 }} 
+            {...props}
           />
           
           {State === "Default" && inputValue.length > 0 && (
@@ -105,7 +104,7 @@ export default function AutoComplete({
           
           {State === "Loading" && (
             <View className="absolute right-2 top-1/2 -translate-y-1/2">
-              <ActivityIndicator size="small" color="#e65300" />
+              <ActivityIndicator size="small" color="#276ef1" />
             </View>
           )}
         </View>
@@ -113,10 +112,11 @@ export default function AutoComplete({
         {suggestions.length > 0 && (
           <View className={`absolute top-0 left-0 ${Sizes[Size]}  pointer-events-none`}> 
             <TextInput
-              className={`${Sizes[Size]} p-[8px] border-[3px] bg-transparent text-[#5e5e5e] border-transparent pr-[40px] outline-none flex-1`}
+              className={`${Sizes[Size]} p-[8px] border-[3px] bg-transparent text-[] border-transparent pr-[40px] outline-none flex-1 ${curved && "rounded-md"}`}
               editable={false}
               value={inputValue + suggestions[0].slice(inputValue.length)}
               style={{ width: 375 }} 
+              {...props}
             />
           </View>
         )}
@@ -131,7 +131,7 @@ export default function AutoComplete({
           {State === "Success" && (
             <Ionicons name="checkmark-circle" size={16} color="#22c55e" />
           )}
-          <Text>{Hint}</Text>
+          <Text className={`${State === "Error" && "color-contentNegative"} ${State === "Success" && "text-contentPositive"}   `}>{Hint}</Text>
         </View>
       ) : null}
     </View>

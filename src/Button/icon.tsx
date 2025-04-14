@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable,PressableProps, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native"; 
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward"; 
 import { ButtonProps } from "./Button.type";
@@ -11,9 +11,9 @@ import { ButtonProps } from "./Button.type";
   size = "medium",
   icon = "right",
   disabled,
-  onClick,
   background,
   variant = "primary", 
+  ...props
 }: ButtonProps) => {
   
   const buttonVariant =  variant;
@@ -64,7 +64,6 @@ import { ButtonProps } from "./Button.type";
 
   return (
     <Pressable
-      onPress={!disabled ? onClick : undefined}
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
@@ -78,6 +77,8 @@ import { ButtonProps } from "./Button.type";
           ? states.hover 
           : states[state]
       } flex flex-row items-center justify-between`} 
+      {...props}
+
     >
       {state === "loading" ? (
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
