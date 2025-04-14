@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
- import { Pressable, Text, View, ActivityIndicator } from "react-native";
+ import { Pressable, PressableProps,Text, View, ActivityIndicator } from "react-native";
  import CheckBoxIcon from "@mui/icons-material/CheckBox"; 
  import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank"; 
  import { TypeDocsProps } from "./Button.type";
@@ -12,8 +12,8 @@ import React, { useState, useEffect } from "react";
    size = "medium", 
    state = "default", 
    disabled = false, 
-   onClick, 
    background = null, 
+   ...props
  }: TypeDocsProps) => {
    const [isChecked, setIsChecked] = useState(false); 
    const [isHovered, setIsHovered] = useState(false); 
@@ -53,9 +53,6 @@ import React, { useState, useEffect } from "react";
      if (!isButtonDisabled) {
        setIsPressed(true); 
        setTimeout(() => setIsPressed(false), 100); 
-       if (onClick) {
-         onClick(); 
-       }
      }
    };
  
@@ -65,6 +62,7 @@ import React, { useState, useEffect } from "react";
        <Pressable
          onPress={() => setIsChecked(!isChecked)} 
          className="flex-row items-center mb-5"
+         {...props}
        >
          
          {icon === "right" && (

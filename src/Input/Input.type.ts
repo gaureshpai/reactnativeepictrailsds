@@ -1,20 +1,18 @@
-export type NInputProp = {
-    Size?: "small" | "medium" | "large";
-    Label?: string;
-    Hint?: string;
-    State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
-    placeholder?: string;
-    inputType?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-    value?: any | "";
-  };
+import { TextInputProps } from "react-native";
 
-  export type AInputProp = {
-    Size?: "small" | "medium" | "large";
-    Label?: string;
-    Hint?: string;
-    State?: "Default" | "Error" | "Success" | "Loading";
-    placeholder?: string;
-    inputType?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-    value?: any | "";
-    input?: string[]; 
-  };
+export type NInputProp =TextInputProps & {
+  Size?: "small" | "medium" | "large";
+  Label?: string;
+  Hint?: string;
+  State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
+  curved?: boolean
+};
+
+export type AInputProp = TextInputProps & {
+  Size?: "small" | "medium" | "large";
+  Label?: string;
+  Hint?: string;
+  State?: "Default" | "Error" | "Success" | "Loading";
+  input?: string[]; 
+  curved?: boolean
+};

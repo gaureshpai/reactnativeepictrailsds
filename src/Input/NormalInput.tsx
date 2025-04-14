@@ -13,11 +13,11 @@ export default function NormalText({
   Label = "",
   Hint = "",
   placeholder = "Placeholder",
-  inputType = "text",
   State = "Default",
   value = "",
+  curved = false,
+  ...props
 }: NInputProp) {
-  const [inputValue, setInputValue] = useState(value);
   const inputRef = useRef<TextInput>(null); 
 
   
@@ -32,7 +32,6 @@ export default function NormalText({
     if (["Loading", "Disabled", "ViewOnly"].includes(State)) {
       return "outline-none"; 
     }
-    return ""; 
   };
 
   
@@ -57,15 +56,12 @@ export default function NormalText({
         </View>
       ) : null}
       <View className={`relative ${Sizes[Size]} `}>
-        <TextInput
+        <TextInput 
           ref={inputRef}
-          className={`bg-[#e8e8e8] p-[8px] placeholder:text-[#5e5e5e] ${getOutlineClass()} pr-[40px]`} 
+          className={`bg-[#e8e8e8] p-[8px] placeholder:text-inputPlaceholder ${getOutlineClass()} pr-[40px] ${curved && 'rounded-md'}`} 
           editable={!["Disabled", "ViewOnly"].includes(State)} 
-          inputMode={inputType}
-          value={inputValue}
-          onChange={(e) => setInputValue(e.nativeEvent.text)}
-          placeholder={placeholder}
-        />
+          {...props}
+        />  
         
         {["Correct", "Incorrect", "Loading"].includes(State) && (
           <View className="absolute left-full top-1/2 -translate-x-full -translate-y-1/2 pr-4">
@@ -74,7 +70,7 @@ export default function NormalText({
         )}
       </View>
       {Hint ? (
-        <View className="text-sm text-[#5e5e5e]">
+        <View className="text-sm text-inputHint">
           <text>{Hint}</text>
         </View>
       ) : null}
