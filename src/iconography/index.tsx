@@ -1,0 +1,1 @@
+export {default as Iconography} from './iconography';
