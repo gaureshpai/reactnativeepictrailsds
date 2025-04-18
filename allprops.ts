@@ -397,3 +397,9 @@ interface SocialLoginProps {
 }
 
 export { SocialButtonProps, providerConfig, SocialLoginProps };
+
+export interface NavTabProps {
+  tabs: string[];
+  initialActiveIndex?: number;
+  onTabChange?: (index: number) => void;
+}
