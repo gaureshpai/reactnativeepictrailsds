@@ -403,3 +403,14 @@ export interface NavTabProps {
   initialActiveIndex?: number;
   onTabChange?: (index: number) => void;
 }
+
+type MessageType = 'none' | 'help' | 'error';
+
+export interface TabsProps {
+  label: string;
+  placeholder?: string;
+  value?: string;
+  messageType?: MessageType;
+  message?: string;
+  onPress?: () => void;
+}

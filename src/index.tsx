@@ -20,3 +20,4 @@ export * from './segmentedswitchios';
 export * from './skeleton';
 export * from './socialbuttons';
 export * from './Navtabs';
+export * from './tabs';
