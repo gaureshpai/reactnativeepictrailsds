@@ -15,3 +15,4 @@ export * from './socialmediastack';
 export * from './navigationbar';
 export * from './card';
 export * from './statusbutton';
+export * from './alert';
