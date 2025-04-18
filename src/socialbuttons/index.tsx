@@ -1,0 +1,1 @@
+export { default as SocialLogin } from './socialbuttons';
