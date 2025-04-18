@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView } from 'react-native';
-import Ionicons from '@expo/vector-icons/Ionicons';
+import { Ionicons } from '@expo/vector-icons';
 import { RectButton } from "../Button";
 import { AndroidModalSheetProps } from './androidmodalsheets.type';
 const AndroidModalSheet: React.FC<AndroidModalSheetProps> = ({
@@ -19,7 +19,8 @@ const AndroidModalSheet: React.FC<AndroidModalSheetProps> = ({
       <View className="flex-1 justify-end">
         <View className="bg-white overflow-hidden w-full h-full">
           {/* Header */}
-          <View className="flex-row justify-between items-center px-4 py-3 shadow shadow-gray-400">
+          <View className='shadow shadow-gray-400'>
+          <View className="flex-row justify-between items-center px-4 py-3">
             <View className="flex-row gap-4 items-center">
             <TouchableOpacity onPress={onClose} className="p-1">
               <Ionicons name="close" size={24} color="#000" />
@@ -41,12 +42,13 @@ const AndroidModalSheet: React.FC<AndroidModalSheetProps> = ({
               {action === 1 && <View className="w-6" />}
             </View>
           </View>
+          {!compact && (
+              <Text className="text-xl px-6 font-semibold mb-4">{title}</Text>
+            )}
+          </View>
           
           {/* Content */}
           <View className="p-2 flex-1">
-            {!compact && (
-              <Text className="text-xl px-1 font-semibold mb-4">{title}</Text>
-            )}
             <View className="bg-green-50 p-2 flex-1">
               {children}
             </View>
