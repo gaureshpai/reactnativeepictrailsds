@@ -17,3 +17,4 @@ export * from './card';
 export * from './statusbutton';
 export * from './alert';
 export * from './segmentedswitchios';
+export * from './skeleton';

@@ -346,3 +346,7 @@ export interface SegmentedSwitchIOSProps {
   message?: string;
   onChange?: (index: number) => void;
 }
+
+export interface SkeletonProps {
+  className?: string;
+}
