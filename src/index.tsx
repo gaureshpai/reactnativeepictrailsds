@@ -22,3 +22,4 @@ export * from './socialbuttons';
 export * from './Navtabs';
 export * from './tabs';
 export * from './emptystates';
+export * from './select';
