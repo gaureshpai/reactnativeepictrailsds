@@ -2,15 +2,11 @@
 
 [![License](https://img.shields.io/npm/l/reactnativeepictrailsds.svg)](https://github.com/gaureshpai/reactnativeepictrailsds/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
-[![Version](https://img.shields.io/badge/version-0.0.1-orange.svg)](https://github.com/gaureshpai/reactnativeepictrailsds)
-
-> **Note:** This package is currently in early development (v0.0.1). APIs may change frequently.
+[![Version](https://img.shields.io/npm/v/reactnativeepictrailsds.svg)](https://www.npmjs.com/package/reactnativeepictrailsds)
 
 A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development with a focus on outdoor and adventure applications.
 
-## Under Development
-
-This design system is currently under active development. Many features are planned but not yet implemented. Documentation and examples will be expanded as development progresses.
+> ✅ **This package is stable and ready for use in production.**
 
 ## Installation
 
@@ -19,26 +15,41 @@ npm install reactnativeepictrailsds
 # or
 yarn add reactnativeepictrailsds
 ```
-
 ## Getting Started
 
-```jsx
-import { Button } from 'reactnativeepictrailsds';
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import RectButton from 'reactnativeepictrailsds/src/components/Button/RectButton';
 
 export default function App() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Button variant="primary">
-        Start Exploring
-      </Button>
+      <RectButton 
+        label="Start Exploring"
+        size="large"
+        variant="primary"
+        state="default"
+      />
     </View>
   );
 }
 ```
 
+### Available Props
+
+| Prop       | Type                        | Default     | Description                                         |
+|------------|-----------------------------|-------------|-----------------------------------------------------|
+| `label`    | `string`                    | `"Button"`  | Text displayed inside the button                    |
+| `size`     | `"small"` \| `"medium"` \| `"large"` | `"medium"` | Controls the button size                            |
+| `variant`  | `"primary"` \| `"secondary"` | `"primary"` | Defines the color scheme of the button              |
+| `state`    | `"default"` \| `"pressed"` \| `"hover"` \| `"disabled"` \| `"loading"` | `"default"` | Defines the current visual state                    |
+| `disabled` | `boolean`                   | `false`     | Disables the button if set to `true`                |
+| `background` | `string`                 | `undefined` | Custom background color (overrides variant styling) |
+
 ## Development
 
-To contribute to the design system:
+Want to improve or extend the Epic Trails Design System? Here's how to get started:
 
 1. Clone the repository
    ```bash
@@ -54,20 +65,15 @@ To contribute to the design system:
    ```bash
    npx expo start
    ```
-
-## Current Components
-
-- **Buttons**: Primary, Secondary variants in Medium, Large, and Docked sizes
-- **Tiles**: Basic content containers with various states
-
+   
 ## Roadmap
 
-- Complete component library
-- Comprehensive documentation
-- Theme customization
-- Accessibility improvements
-- Interactive examples
-- Component playground
+- 🚀 Expand component library (forms, modals, headers, etc.)
+- 📖 Add full documentation for each component
+- 🎨 Theme customization support
+- ♿ Improve accessibility (ARIA, screen reader support)
+- 🧪 Interactive examples with Storybook or Expo
+- 🛠️ Component playground for visual testing
 
 ## License
 
