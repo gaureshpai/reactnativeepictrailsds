@@ -23,6 +23,10 @@ const SocialButton: React.FC<SocialButtonProps> = ({ provider, onPress }) => {
 
 
 const SocialLogin: React.FC<SocialLoginProps> = ({
+  email = true,
+  google = false,
+  facebook = false,
+  apple = false,
   onEmailSignIn = () => {},
   onGoogleSignIn = () => {},
   onFacebookSignIn = () => {},
@@ -30,10 +34,10 @@ const SocialLogin: React.FC<SocialLoginProps> = ({
 }) => {
   return (
     <View className="w-[80vw] bg-white p-4">
-      <SocialButton provider="email" onPress={onEmailSignIn} />
-      <SocialButton provider="google" onPress={onGoogleSignIn} />
-      <SocialButton provider="facebook" onPress={onFacebookSignIn} />
-      <SocialButton provider="apple" onPress={onAppleSignIn} />
+      {(email && <SocialButton provider="email" onPress={onEmailSignIn} />)}
+      {(google && <SocialButton provider="google" onPress={onGoogleSignIn} />)}
+      {(facebook && <SocialButton provider="facebook" onPress={onFacebookSignIn} />)}
+      {(apple && <SocialButton provider="apple" onPress={onAppleSignIn} />)}
     </View>
   );
 };

@@ -6,7 +6,9 @@ const Sizes = {
   small: "w-[375px] h-[36px]",
   medium: "w-[375px] h-[48px]",
   large: "w-[375px] h-[56px]",
-};
+  full: "w-full h-full",
+  fit : "w-fit h-full",
+}; 
 
 export default function NormalText({
   Size = "small",
