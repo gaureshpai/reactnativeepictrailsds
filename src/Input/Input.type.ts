@@ -1,7 +1,7 @@
 import { TextInputProps } from "react-native";
 
 export type NInputProp =TextInputProps & {
-  Size?: "small" | "medium" | "large";
+  Size?: "small" | "medium" | "large" | "full" | "fit";
   Label?: string;
   Hint?: string;
   State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
@@ -9,7 +9,7 @@ export type NInputProp =TextInputProps & {
 };
 
 export type AInputProp = TextInputProps & {
-  Size?: "small" | "medium" | "large";
+  Size?: "small" | "medium" | "large" | "full" | "fit";
   Label?: string;
   Hint?: string;
   State?: "Default" | "Error" | "Success" | "Loading";
