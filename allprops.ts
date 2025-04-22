@@ -390,6 +390,10 @@ const providerConfig = {
 };
 // Main component that renders all social login buttons
 interface SocialLoginProps {
+  email?: boolean;
+  google?: boolean;
+  facebook?: boolean;
+  apple?: boolean;
   onEmailSignIn?: () => void;
   onGoogleSignIn?: () => void;
   onFacebookSignIn?: () => void;
