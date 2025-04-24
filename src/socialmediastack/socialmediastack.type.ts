@@ -1,28 +1,29 @@
+// Improved type for image content to handle both remote and local images
+export type ImageContent = {
+  type: 'image';
+  imageUri: string;
+  isLocal?: boolean;
+};
+
 export type VideoContent = {
-  type: "video";
+  type: 'video';
   uri: string;
 };
 
-export type ImageContent = {
-  type: "image";
-  imageUri: string;
-};
-
 export type TextContent = {
-  type: "text";
+  type: 'text';
   text: string;
   backgroundColor?: string;
 };
 
-// Union type for all possible content types
 export type ContentItem = VideoContent | ImageContent | TextContent;
 
-// Component props interface
 export interface SocialMediaContainerProps {
   contentItems: ContentItem[];
   duration?: number;
   onActiveIndexChange?: (index: number) => void;
 }
+
 
 export interface SocialMediaStackProps {
   children: React.ReactNode;

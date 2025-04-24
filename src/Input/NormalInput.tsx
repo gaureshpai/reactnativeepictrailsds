@@ -14,7 +14,6 @@ export default function NormalText({
   Size = "small",
   Label = "",
   Hint = "",
-  placeholder = "Placeholder",
   State = "Default",
   value = "",
   curved = false,
@@ -60,7 +59,7 @@ export default function NormalText({
       <View className={`relative ${Sizes[Size]} `}>
         <TextInput 
           ref={inputRef}
-          className={`bg-[#e8e8e8] p-[8px] placeholder:text-inputPlaceholder ${getOutlineClass()} pr-[40px] ${curved && 'rounded-md'}`} 
+          className={`bg-[#e8e8e8] p-[8px] placeholder:text-gray-600 ${getOutlineClass()} pr-[40px] ${curved && 'rounded-md'}`} 
           editable={!["Disabled", "ViewOnly"].includes(State)} 
           {...props}
         />  
