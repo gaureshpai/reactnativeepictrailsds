@@ -13,6 +13,7 @@ import React, { useState, useEffect } from "react";
    state = "default", 
    disabled = false, 
    background = null, 
+   onClick = () => {},
    ...props
  }: TypeDocsProps) => {
    const [isChecked, setIsChecked] = useState(false); 
@@ -91,7 +92,8 @@ import React, { useState, useEffect } from "react";
  
        
        <Pressable
-         onPress={handlePress} 
+         onPress={onClick} 
+        // {...props}
          disabled={isButtonDisabled} 
          onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)} 
          onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)} 

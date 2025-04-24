@@ -7,7 +7,6 @@ export type ButtonProps = PressableProps&{
     state?: "default" | "pressed" | "hover" | "disabled" | "loading";
     disabled?: boolean;
     background?: string | null;
-
   };
 
 export type TypeDocsProps = PressableProps&{
@@ -18,4 +17,5 @@ export type TypeDocsProps = PressableProps&{
     state?: "default" | "pressed" | "hover" | "disabled" | "loading"; 
     disabled?: boolean; 
     background?: string | null; 
+    onClick?: () => void
   };

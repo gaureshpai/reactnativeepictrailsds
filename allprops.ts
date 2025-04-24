@@ -221,26 +221,25 @@ export interface LoadingProps {
   description?: string;
 }
 
+export type ImageContent = {
+  type: 'image';
+  imageUri: string;
+  isLocal?: boolean;
+};
+
 export type VideoContent = {
-  type: "video";
+  type: 'video';
   uri: string;
 };
 
-export type ImageContent = {
-  type: "image";
-  imageUri: string;
-};
-
 export type TextContent = {
-  type: "text";
+  type: 'text';
   text: string;
   backgroundColor?: string;
 };
 
-// Union type for all possible content types
 export type ContentItem = VideoContent | ImageContent | TextContent;
 
-// Component props interface
 export interface SocialMediaContainerProps {
   contentItems: ContentItem[];
   duration?: number;
@@ -390,6 +389,10 @@ const providerConfig = {
 };
 // Main component that renders all social login buttons
 interface SocialLoginProps {
+  email?: boolean;
+  google?: boolean;
+  facebook?: boolean;
+  apple?: boolean;
   onEmailSignIn?: () => void;
   onGoogleSignIn?: () => void;
   onFacebookSignIn?: () => void;
