@@ -1,4 +1,3 @@
-import { Icon } from "@mui/material";
 import React, { useState } from "react";
 import { Pressable, Text } from "react-native";
 import { ActivityIndicator } from "react-native"; 
