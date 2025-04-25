@@ -1,6 +1,6 @@
 {
   "name": "reactnativeepictrailsds",
-  "version": "0.1.7",
+  "version": "0.1.9",
   "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
     "react-native",
@@ -88,8 +88,6 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@expo/vector-icons": "^14.0.2",
-    "@mui/icons-material": "^6.4.7",
-    "@mui/material": "^6.4.7",
     "@react-native-community/cli": "^18.0.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
