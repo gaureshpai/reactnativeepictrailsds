@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     borderRadius: 8,
     backgroundColor: '#000',
+    zIndex: -1000,
   },
   mediaContainer: {
     width: '100%',
