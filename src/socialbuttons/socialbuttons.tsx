@@ -33,7 +33,7 @@ const SocialLogin: React.FC<SocialLoginProps> = ({
   onAppleSignIn = () => {},
 }) => {
   return (
-    <View className="w-[80vw] bg-white p-4">
+    <View className="w-[80%] bg-white p-4">
       {(email && <SocialButton provider="email" onPress={onEmailSignIn} />)}
       {(google && <SocialButton provider="google" onPress={onGoogleSignIn} />)}
       {(facebook && <SocialButton provider="facebook" onPress={onFacebookSignIn} />)}

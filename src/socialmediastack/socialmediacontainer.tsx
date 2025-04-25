@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     height: '95%',
     alignSelf: 'center',
     overflow: 'hidden',
-    borderRadius: 8,
+    // borderRadius: 8,
     backgroundColor: '#000',
     zIndex: -1000,
   },
