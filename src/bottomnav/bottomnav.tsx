@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#E5E5E5',
     paddingVertical: 8,
-    paddingBottom: 20, // Add extra padding at the bottom for better usability
+    // paddingBottom: 20, // Add extra padding at the bottom for better usability
     elevation: 8, // Android shadow
     shadowColor: '#000000', // iOS shadow
     shadowOffset: { width: 0, height: -2 },

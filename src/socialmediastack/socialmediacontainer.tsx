@@ -177,7 +177,7 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '90%',
+    height: '95%',
     alignSelf: 'center',
     overflow: 'hidden',
     borderRadius: 8,
