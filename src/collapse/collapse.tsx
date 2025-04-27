@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { CollapsibleProps } from './collapse.type';
+
 const Collapsible: React.FC<CollapsibleProps> = ({
   title,
   text,
@@ -45,7 +46,7 @@ const Collapsible: React.FC<CollapsibleProps> = ({
           opacity: height,
           maxHeight: height.interpolate({
             inputRange: [0, 1],
-            outputRange: [0, 500] // Adjust max height as needed
+            outputRange: [0, 500]
           }),
         }}
       >
@@ -59,4 +60,3 @@ const Collapsible: React.FC<CollapsibleProps> = ({
 };
 
 export default Collapsible;
-

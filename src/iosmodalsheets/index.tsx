@@ -1,1 +1,1 @@
-export {default as IOSModalSheet} from './iosmodalsheets';
+export { default as IOSModalSheet } from './iosmodalsheets';

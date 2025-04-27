@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { CardSectionProps } from './card.type';
+
 const CardSection: React.FC<CardSectionProps> = ({
   title = "Section Title",
   icon = false,
@@ -22,7 +23,7 @@ const CardSection: React.FC<CardSectionProps> = ({
           )}
           <Text className="text-base font-medium text-gray-800">{title}</Text>
         </View>
-        
+
         <View className="flex items-center justify-center">
           <Ionicons name="chevron-forward" size={20} color="#000" />
         </View>

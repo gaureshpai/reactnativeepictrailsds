@@ -1,25 +1,26 @@
 import { ReactNode } from "react";
 import { PressableProps, TextInputProps } from "react-native";
-export type ButtonProps = PressableProps&{
-    label: string;
-    variant?: "primary" | "secondary";
-    size?: "small" | "medium" | "large";
-    icon?: "right" | "left" ;
-    state?: "default" | "pressed" | "hover" | "disabled" | "loading";
-    disabled?: boolean;
-    background?: string | null;
 
-  };
+export type ButtonProps = PressableProps & {
+  label: string;
+  variant?: "primary" | "secondary";
+  size?: "small" | "medium" | "large";
+  icon?: "right" | "left";
+  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
+  disabled?: boolean;
+  background?: string | null;
 
-  export type TypeDocsProps = PressableProps&{
-    icon?: "left" | "right"; 
-    buttonLabel?: string; 
-    label?: string; 
-    size?: "small" | "medium" | "large"; 
-    state?: "default" | "pressed" | "hover" | "disabled" | "loading"; 
-    disabled?: boolean; 
-    background?: string | null; 
-  };
+};
+
+export type TypeDocsProps = PressableProps & {
+  icon?: "left" | "right";
+  buttonLabel?: string;
+  label?: string;
+  size?: "small" | "medium" | "large";
+  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
+  disabled?: boolean;
+  background?: string | null;
+};
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 export type ResponsiveValue<T> = T | Partial<Record<Breakpoint, T>>;
@@ -49,31 +50,31 @@ export interface ItemProps {
 }
 
 export type NInputProp = TextInputProps & {
-    Size?: "small" | "medium" | "large";
-    Label?: string;
-    Hint?: string;
-    State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
-    curved?: boolean
+  Size?: "small" | "medium" | "large";
+  Label?: string;
+  Hint?: string;
+  State?: "Default" | "Active" | "Correct" | "ViewOnly" | "Loading" | "Disabled" | "Incorrect";
+  curved?: boolean
 };
 
 export type AInputProp = TextInputProps & {
-    Size?: "small" | "medium" | "large";
-    Label?: string;
-    Hint?: string;
-    State?: "Default" | "Error" | "Success" | "Loading";
-    input?: string[];
-    curved?: boolean
+  Size?: "small" | "medium" | "large";
+  Label?: string;
+  Hint?: string;
+  State?: "Default" | "Error" | "Success" | "Loading";
+  input?: string[];
+  curved?: boolean
 };
 
 export type TileProps = {
-    w?: number;
-    h?: number;
-    label: string;
-    paragraph?: string;
-    variant?: "variant-1" | "variant-2" | "variant-3" | "variant-4" | "variant-5" | "variant-6";
-    icon?: "sheart" | "heart" | "box" | "label";
-    enabled?: boolean;
-    selected?: boolean;
+  w?: number;
+  h?: number;
+  label: string;
+  paragraph?: string;
+  variant?: "variant-1" | "variant-2" | "variant-3" | "variant-4" | "variant-5" | "variant-6";
+  icon?: "sheart" | "heart" | "box" | "label";
+  enabled?: boolean;
+  selected?: boolean;
 };
 
 export interface NavItemProps {
@@ -132,8 +133,6 @@ export interface DialogProps {
   children: React.ReactNode;
 }
 
-// Map your iconography to Ionicons names
-// This maps your design system icon names to actual Ionicons names
 export const iconMap: Record<string, string> = {
   bell: "notifications-outline",
   calendar: "calendar-outline",
@@ -156,10 +155,8 @@ export const iconMap: Record<string, string> = {
   "check-small": "checkmark-outline",
 };
 
-// Define the possible icon names from your iconography
 export type IconName = keyof typeof iconMap;
 
-// Define placeholder sizes
 export type PlaceholderSize =
   | "xl"
   | "large"
@@ -170,30 +167,20 @@ export type PlaceholderSize =
   | "xxs"
   | "tiny";
 
-// Define avatar sizes
 export type AvatarSize = "xl" | "large" | "medium" | "small" | "xs" | "xxs";
 
-// Props for our IconComponent
 export interface IconComponentProps {
-  // Common props
   type: "icon" | "placeholder" | "avatar";
   className?: string;
-
-  // Icon specific props
   iconName?: IconName;
   size?: number;
-  theme?: "light" | "dark";
-
-  // Placeholder specific props
+  theme?: "light" | "dark"; 
   placeholderSize?: PlaceholderSize;
   filled?: boolean;
-
-  // Avatar specific props
   avatarSize?: AvatarSize;
   initials?: string;
 }
 
-// Size mapping for both placeholder and avatar components
 export const sizeMapping: Record<string, number> = {
   xl: 48,
   large: 40,
@@ -263,6 +250,7 @@ export interface NavigationBarProps {
   onClipboard?: () => void;
   onForward?: () => void;
 }
+
 export interface CardProps {
   title?: string;
   label?: string;
@@ -270,6 +258,7 @@ export interface CardProps {
   button?: boolean;
   children?: ReactNode;
 }
+
 export interface CardSectionProps {
   title?: string;
   icon?: boolean;
@@ -289,7 +278,6 @@ export interface StatusButtonProps {
   onPress?: () => void;
 }
 
-// Define alert types and their respective styling
 const alertStyles = {
   information: {
     backgroundColor: "#E8E8E8",
@@ -350,13 +338,11 @@ export interface SkeletonProps {
   className?: string;
 }
 
-// Define the props for our social button component
 interface SocialButtonProps {
   provider: "email" | "google" | "facebook" | "apple";
   onPress: () => void;
 }
 
-// Define the provider-specific styling and icons
 const providerConfig = {
   email: {
     text: "Sign in with E-mail",
@@ -387,7 +373,7 @@ const providerConfig = {
     iconColor: "white",
   },
 };
-// Main component that renders all social login buttons
+
 interface SocialLoginProps {
   email?: boolean;
   google?: boolean;
@@ -428,7 +414,6 @@ export interface EmptyStateProps {
   children?: ReactNode;
 }
 
-// Define types for the component props
 export type SelectValue = {
   value: string;
   label: string;

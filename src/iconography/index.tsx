@@ -1,1 +1,1 @@
-export {default as Iconography} from './iconography';
+export { default as Iconography } from './iconography';

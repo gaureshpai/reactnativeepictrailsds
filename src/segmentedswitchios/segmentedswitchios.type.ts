@@ -1,4 +1,4 @@
-export interface SegmentedSwitchIOSProps{
+export interface SegmentedSwitchIOSProps {
   title: string;
   items: string[];
   selectedIndex?: number | null;

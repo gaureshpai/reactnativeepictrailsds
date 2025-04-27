@@ -1,10 +1,8 @@
-// Define the props for our social button component
 interface SocialButtonProps {
   provider: "email" | "google" | "facebook" | "apple";
   onPress: () => void;
 }
 
-// Define the provider-specific styling and icons
 const providerConfig = {
   email: {
     text: "Sign in with E-mail",
@@ -35,7 +33,7 @@ const providerConfig = {
     iconColor: "white",
   },
 };
-// Main component that renders all social login buttons
+
 interface SocialLoginProps {
   email?: boolean;
   google?: boolean;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { NavTabProps } from './Navtabs.type';
+
 const NavTabs: React.FC<NavTabProps> = ({
   tabs,
   initialActiveIndex = 0,
@@ -20,17 +21,15 @@ const NavTabs: React.FC<NavTabProps> = ({
       {tabs.map((tab, index) => (
         <TouchableOpacity
           key={index}
-          className={`flex-1 py-2 px-4 items-center justify-center ${
-            activeIndex === index
+          className={`flex-1 py-2 px-4 items-center justify-center ${activeIndex === index
               ? 'bg-white rounded-md shadow'
               : 'bg-transparent'
-          }`}
+            }`}
           onPress={() => handleTabPress(index)}
         >
           <Text
-            className={`text-sm font-medium ${
-              activeIndex === index ? 'text-black' : 'text-gray-500'
-            }`}
+            className={`text-sm font-medium ${activeIndex === index ? 'text-black' : 'text-gray-500'
+              }`}
           >
             {tab}
           </Text>

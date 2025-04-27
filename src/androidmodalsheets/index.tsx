@@ -1,1 +1,1 @@
-export {default as AndroidModalSheet} from './androidmodalsheets';
+export { default as AndroidModalSheet } from './androidmodalsheets';

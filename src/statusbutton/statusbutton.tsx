@@ -2,6 +2,7 @@ import React from 'react';
 import { TouchableOpacity, Text, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusButtonProps } from './statusbutton.type';
+
 const StatusButton: React.FC<StatusButtonProps> = ({
   label = 'Label',
   type = 'information',
@@ -58,7 +59,6 @@ const StatusButton: React.FC<StatusButtonProps> = ({
   const textColor = currentStyle.color;
   const backgroundColor = currentStyle.backgroundColor;
 
-  // Determine the content to render based on props
   const renderContent = () => {
     if (iconOnly) {
       return (

@@ -4,8 +4,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { TileProps } from "./Tile.type";
 
 const Tile = ({
-  w = 180, // Default width
-  h = 160, // Default height
+  w = 180, 
+  h = 160, 
   label,
   paragraph,
   variant = "variant-1",
@@ -13,15 +13,12 @@ const Tile = ({
   enabled = true,
   selected = false
 }: TileProps) => {
-  // Ensure minimum dimensions
-  const minWidth = 180; // Minimum width
-  const minHeight = 160; // Minimum height
   
-  // Calculate responsive width and height based on content
+  const minWidth = 180; 
+  const minHeight = 160; 
   const width = Math.max(w, minWidth);
   const height = Math.max(h, minHeight);
 
-  // Fixed sizes for consistent UI elements
   const LARGE_ICON_SIZE = 28;
   const SMALL_ICON_SIZE = 18;
   const LABEL_FONT_SIZE = 14;
@@ -36,13 +33,10 @@ const Tile = ({
   const BASE_PADDING = 12;
   const ICON_MARGIN = 8;
 
-  // Calculate the position for the icon elements
-  const getIconTopPosition = () => {
-    // Always align with the icon position since we'll always render the icon space
+  const getIconTopPosition = () => { 
     return BASE_PADDING + ICON_MARGIN;
   };
 
-  // Calculate responsive positions based on container dimensions
   const styles = StyleSheet.create({
     container: {
       minWidth,
@@ -125,22 +119,18 @@ const Tile = ({
       right: BASE_PADDING,
       textAlign: 'right',
     },
-    // Style for content that might overflow
     contentWrapper: {
       flex: 1,
       overflow: 'hidden',
-    },
-    // Additional wrapper for dynamic content expansion
+    },  
     dynamicContentWrapper: {
       flexGrow: 1,
       flexShrink: 1,
     },
   });
 
-  // Render the appropriate icon based on the icon prop
   const renderIcon = () => {
-    if (!icon) {
-      // Return invisible placeholder with same dimensions
+    if (!icon) {   
       return <View style={styles.invisibleIconBox} />;
     }
     
@@ -159,8 +149,7 @@ const Tile = ({
         return <View style={styles.invisibleIconBox} />;
     }
   };
-  
-  // Render variant elements (checkbox, radio, toggle, etc.)
+    
   const renderVariantElement = () => {
     if (!enabled) {
       return renderDisabledVariantElement();
@@ -259,9 +248,7 @@ const Tile = ({
     }
   };
   
-  // Layout variations based on variant prop
-  const renderContent = () => {
-    // Calculate content position based on container size
+  const renderContent = () => { 
     const contentPadding = Math.min(width * 0.05, 12);
     
     switch (variant) {
@@ -307,7 +294,7 @@ const Tile = ({
             </View>
           </>
         );
-      default: // variant-1 and others
+      default: 
         return (
           <View style={[styles.contentWrapper, { margin: contentPadding }]}>
             <View style={styles.flexCol}>

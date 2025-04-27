@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, Text, Image, Platform } from 'react-native';
 import Video, { VideoRef } from 'react-native-video';
 import { SocialMediaContainerProps, ImageContent } from './socialmediastack.type';
+
 const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({ 
   contentItems = [], 
   duration = 10000, 
@@ -16,11 +17,9 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
   useEffect(() => {
     if (contentItems.length === 0) return;
     
-    // Reset states when content changes
     setImageLoaded(false);
     setImageError(false);
     
-    // Clear any existing timer
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
@@ -41,7 +40,6 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
     };
   }, [activeIndex, contentItems, duration, onActiveIndexChange]);
 
-  // If no content items are provided
   if (contentItems.length === 0) {
     return (
       <View style={styles.container}>
@@ -78,12 +76,9 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
         );
         
       case 'image':
-        // Handle image rendering with better error handling
         return (
           <View style={styles.mediaContainer}>
-            {/* Check if image is local or remote */}
             {currentItem.isLocal ? (
-              // Local image rendering using require (which should be handled in the parent component)
               <Image
                 // @ts-ignore: This is handled properly when passed correctly
                 source={currentItem.imageUri}
@@ -96,11 +91,10 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
                 }}
               />
             ) : (
-              // Remote image rendering
               <Image
                 source={{ 
                   uri: currentItem.imageUri,
-                  cache: 'force-cache', // Try to force caching
+                  cache: 'force-cache',
                 }}
                 style={styles.media}
                 resizeMode="cover"
@@ -112,14 +106,12 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
               />
             )}
             
-            {/* Loading indicator */}
             {!imageLoaded && !imageError && (
               <View style={styles.loadingContainer}>
                 <Text style={styles.text}>Loading image...</Text>
               </View>
             )}
             
-            {/* Error state */}
             {imageError && (
               <View style={[styles.loadingContainer, { backgroundColor: '#e74c3c' }]}>
                 <Text style={styles.text}>
@@ -152,7 +144,6 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
     }
   };
 
-  // Add debug UI to help identify the issue
   const currentItem = contentItems[activeIndex];
   const isImageType = currentItem.type === 'image';
   
@@ -160,7 +151,6 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
     <View style={styles.container}>
       {renderContent()}
       
-      {/* Debug panel - remove in production */}
       {__DEV__ && isImageType && imageError && (
         <View style={styles.debugPanel}>
           <Text style={styles.debugText}>
@@ -180,7 +170,6 @@ const styles = StyleSheet.create({
     height: '95%',
     alignSelf: 'center',
     overflow: 'hidden',
-    // borderRadius: 8,
     backgroundColor: '#000',
     zIndex: -1000,
   },

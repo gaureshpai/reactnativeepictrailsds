@@ -1,1 +1,1 @@
-export {default as Tile} from './tile';
+export { default as Tile } from './tile';

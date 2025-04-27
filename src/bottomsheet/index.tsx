@@ -1,1 +1,1 @@
-export {default as BottomSheet} from './bottomsheet';
+export { default as BottomSheet } from './bottomsheet';

@@ -12,10 +12,8 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
   onClipboard,
   onForward,
 }) => {
-  // Determine styles based on device type
   const isIOS = device === 'ios';
   
-  // Render actions based on the action prop
   const renderActions = () => {
     if (action === 1) {
       return null;
@@ -42,29 +40,24 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 
   return (
     <View className={`absolute bg-white pb-2 ${isIOS ? 'rounded-t-3xl' : 'shadow shadow-gray-400'} top-0 left-0 right-0 z-10`}>
-      {/* Navigation bar */}
       <View 
         className={`px-4`}
       >
         <View className="flex-row items-center justify-between h-12 ">
-          {/* Back button */}
            <TouchableOpacity onPress={onClose} className="p-1">
                 <Ionicons name="close" size={24} color="#000" />
             </TouchableOpacity>
           
-          {/* Title */}
           <Text className={`text-lg font-medium text-black ${action === 1 ? '-ml-10' : ''}`}>
             {title}
           </Text>
           
-          {/* Action buttons */}
           <View className="flex-row items-center">
             {renderActions()}
           </View>
         </View>
       </View>
       
-      {/* Expandable title section */}
       {size === 'expandable' && (
         <View className={`px-6 py-2`}>
           <Text className={`text-xl font-semibold text-black`}>

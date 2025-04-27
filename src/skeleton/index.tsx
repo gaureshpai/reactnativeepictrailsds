@@ -1,1 +1,1 @@
-export {default as SkeletonLoader} from './skeleton';
+export { default as SkeletonLoader } from './skeleton';

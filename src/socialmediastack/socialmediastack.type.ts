@@ -1,4 +1,3 @@
-// Improved type for image content to handle both remote and local images
 export type ImageContent = {
   type: 'image';
   imageUri: string;
