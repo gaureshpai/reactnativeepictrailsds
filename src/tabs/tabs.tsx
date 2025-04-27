@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { TabsProps } from './tabs.type';
+
 const Tabs: React.FC<TabsProps> = ({
   label,
   placeholder = 'Placeholder',
@@ -10,10 +11,8 @@ const Tabs: React.FC<TabsProps> = ({
   message = '',
   onPress = () => {},
 }) => {
-  // Determine if showing placeholder or value
   const hasValue = value.trim().length > 0;
   
-  // Get border style based on message type
   const getBorderStyle = () => {
     switch (messageType) {
       case 'error':
@@ -25,7 +24,6 @@ const Tabs: React.FC<TabsProps> = ({
     }
   };
 
-  // Get message icon based on type
   const getMessageIcon = () => {
     switch (messageType) {
       case 'error':

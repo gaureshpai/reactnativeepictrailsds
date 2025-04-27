@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{js,jsx,ts,tsx}","./dist/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}", "./dist/**/*.{js,jsx,ts,tsx}"],
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
@@ -294,145 +294,145 @@ module.exports = {
   },
   plugins: [function ({ addUtilities }) {
     const typographyStyles = {
-        ".typography-display-large": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-display-large)",
-          lineHeight: "var(--lh-display-large)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-display-medium": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-display-medium)",
-          lineHeight: "var(--lh-display-medium)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-display-small": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-display-small)",
-          lineHeight: "var(--lh-display-small)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-display-xsmall": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-display-xsmall)",
-          lineHeight: "var(--lh-display-xsmall)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-xxlarge": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-xxlarge)",
-          lineHeight: "var(--lh-heading-xxlarge)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-xlarge": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-xlarge)",
-          lineHeight: "var(--lh-heading-xlarge)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-large": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-large)",
-          lineHeight: "var(--lh-heading-large)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-medium": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-medium)",
-          lineHeight: "var(--lh-heading-medium)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-small": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-small)",
-          lineHeight: "var(--lh-heading-small)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-heading-xsmall": {
-          fontFamily: "var(--typography-2)",
-          fontSize: "var(--fs-heading-xsmall)",
-          lineHeight: "var(--lh-heading-xsmall)",
-          fontWeight: "var(--fw-bold)",
-        },
-        ".typography-label-large": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-label-large)",
-          lineHeight: "var(--lh-label-large)",
-          fontWeight: "var(--fw-medium)",
-        },
-        ".typography-label-medium": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-label-medium)",
-          lineHeight: "var(--lh-label-medium)",
-          fontWeight: "var(--fw-medium)",
-        },
-        ".typography-label-small": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-label-small)",
-          lineHeight: "var(--lh-label-small)",
-          fontWeight: "var(--fw-medium)",
-        },
-        ".typography-label-xsmall": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-label-xsmall)",
-          lineHeight: "var(--lh-label-xsmall)",
-          fontWeight: "var(--fw-medium)",
-        },
-        ".typography-paragraph-large": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-paragraph-large)",
-          lineHeight: "var(--lh-paragraph-large)",
-          fontWeight: "var(--fw-regular)",
-        },
-        ".typography-paragraph-medium": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-paragraph-medium)",
-          lineHeight: "var(--lh-paragraph-medium)",
-          fontWeight: "var(--fw-regular)",
-        },
-        ".typography-paragraph-small": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-paragraph-small)",
-          lineHeight: "var(--lh-paragraph-small)",
-          fontWeight: "var(--fw-regular)",
-        },
-        ".typography-paragraph-xsmall": {
-          fontFamily: "var(--typography-1)",
-          fontSize: "var(--fs-paragraph-xsmall)",
-          lineHeight: "var(--lh-paragraph-xsmall)",
-          fontWeight: "var(--fw-regular)",
-        },
-      };
-      addUtilities(typographyStyles);
-      const buttonUtilities = {
-        /* Secondary Button States */
-        '.btn-secondary-default': {
-          backgroundColor: 'var(--color-buttons-secondary-default)',
-          borderColor: 'var(--color-buttons-secondary-default-border)',
-          borderWidth: '1px',
-        },
-        '.btn-secondary-pressed': {
-          backgroundColor: 'var(--color-buttons-secondary-pressed)',
-          borderColor: 'var(--color-buttons-secondary-pressed-border)',
-          borderWidth: '1px',
-        },
-        '.btn-secondary-hover': {
-          backgroundColor: 'var(--color-buttons-secondary-hover)',
-          borderColor: 'var(--color-buttons-secondary-hover-border)',
-          borderWidth: '1px',
-        },
-        '.btn-secondary-disabled': {
-          backgroundColor: 'var(--color-buttons-secondary-disabled)',
-          // No border for disabled state
-        },
-        '.btn-secondary-loading': {
-          backgroundColor: 'var(--color-buttons-secondary-default)',
-          borderColor: 'var(--color-buttons-secondary-default-border)',
-          borderWidth: '1px',
-        },
-      };
+      ".typography-display-large": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-display-large)",
+        lineHeight: "var(--lh-display-large)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-display-medium": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-display-medium)",
+        lineHeight: "var(--lh-display-medium)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-display-small": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-display-small)",
+        lineHeight: "var(--lh-display-small)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-display-xsmall": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-display-xsmall)",
+        lineHeight: "var(--lh-display-xsmall)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-xxlarge": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-xxlarge)",
+        lineHeight: "var(--lh-heading-xxlarge)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-xlarge": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-xlarge)",
+        lineHeight: "var(--lh-heading-xlarge)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-large": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-large)",
+        lineHeight: "var(--lh-heading-large)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-medium": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-medium)",
+        lineHeight: "var(--lh-heading-medium)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-small": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-small)",
+        lineHeight: "var(--lh-heading-small)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-heading-xsmall": {
+        fontFamily: "var(--typography-2)",
+        fontSize: "var(--fs-heading-xsmall)",
+        lineHeight: "var(--lh-heading-xsmall)",
+        fontWeight: "var(--fw-bold)",
+      },
+      ".typography-label-large": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-label-large)",
+        lineHeight: "var(--lh-label-large)",
+        fontWeight: "var(--fw-medium)",
+      },
+      ".typography-label-medium": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-label-medium)",
+        lineHeight: "var(--lh-label-medium)",
+        fontWeight: "var(--fw-medium)",
+      },
+      ".typography-label-small": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-label-small)",
+        lineHeight: "var(--lh-label-small)",
+        fontWeight: "var(--fw-medium)",
+      },
+      ".typography-label-xsmall": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-label-xsmall)",
+        lineHeight: "var(--lh-label-xsmall)",
+        fontWeight: "var(--fw-medium)",
+      },
+      ".typography-paragraph-large": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-paragraph-large)",
+        lineHeight: "var(--lh-paragraph-large)",
+        fontWeight: "var(--fw-regular)",
+      },
+      ".typography-paragraph-medium": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-paragraph-medium)",
+        lineHeight: "var(--lh-paragraph-medium)",
+        fontWeight: "var(--fw-regular)",
+      },
+      ".typography-paragraph-small": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-paragraph-small)",
+        lineHeight: "var(--lh-paragraph-small)",
+        fontWeight: "var(--fw-regular)",
+      },
+      ".typography-paragraph-xsmall": {
+        fontFamily: "var(--typography-1)",
+        fontSize: "var(--fs-paragraph-xsmall)",
+        lineHeight: "var(--lh-paragraph-xsmall)",
+        fontWeight: "var(--fw-regular)",
+      },
+    };
+    addUtilities(typographyStyles);
+    const buttonUtilities = {
+      /* Secondary Button States */
+      '.btn-secondary-default': {
+        backgroundColor: 'var(--color-buttons-secondary-default)',
+        borderColor: 'var(--color-buttons-secondary-default-border)',
+        borderWidth: '1px',
+      },
+      '.btn-secondary-pressed': {
+        backgroundColor: 'var(--color-buttons-secondary-pressed)',
+        borderColor: 'var(--color-buttons-secondary-pressed-border)',
+        borderWidth: '1px',
+      },
+      '.btn-secondary-hover': {
+        backgroundColor: 'var(--color-buttons-secondary-hover)',
+        borderColor: 'var(--color-buttons-secondary-hover-border)',
+        borderWidth: '1px',
+      },
+      '.btn-secondary-disabled': {
+        backgroundColor: 'var(--color-buttons-secondary-disabled)',
+        // No border for disabled state
+      },
+      '.btn-secondary-loading': {
+        backgroundColor: 'var(--color-buttons-secondary-default)',
+        borderColor: 'var(--color-buttons-secondary-default-border)',
+        borderWidth: '1px',
+      },
+    };
 
-      addUtilities(buttonUtilities);
-    },
+    addUtilities(buttonUtilities);
+  },
   ],
 };

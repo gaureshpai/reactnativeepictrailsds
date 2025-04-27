@@ -13,8 +13,6 @@ const SegmentedSwitchIOS: React.FC<SegmentedSwitchIOSProps> = ({
 }) => {
   const [selected, setSelected] = useState<number | null>(selectedIndex);
   const { width } = useWindowDimensions();
-  
-  // Calculate responsive sizes based on screen width
   const fontSize = width < 360 ? 'text-sm' : 'text-base';
   const padding = width < 360 ? 'py-2' : 'py-3';
 

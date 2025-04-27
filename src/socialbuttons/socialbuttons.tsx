@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { SocialButtonProps, providerConfig, SocialLoginProps } from './socialbuttons.type';
-// Individual social button component
+
 const SocialButton: React.FC<SocialButtonProps> = ({ provider, onPress }) => {
   const config = providerConfig[provider];
-  
+
   return (
     <TouchableOpacity
       onPress={onPress}
@@ -20,17 +20,15 @@ const SocialButton: React.FC<SocialButtonProps> = ({ provider, onPress }) => {
   );
 };
 
-
-
 const SocialLogin: React.FC<SocialLoginProps> = ({
   email = true,
   google = false,
   facebook = false,
   apple = false,
-  onEmailSignIn = () => {},
-  onGoogleSignIn = () => {},
-  onFacebookSignIn = () => {},
-  onAppleSignIn = () => {},
+  onEmailSignIn = () => { },
+  onGoogleSignIn = () => { },
+  onFacebookSignIn = () => { },
+  onAppleSignIn = () => { },
 }) => {
   return (
     <View className="w-[80%] bg-white p-4">

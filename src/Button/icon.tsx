@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Pressable, PressableProps, Text, View } from "react-native";
+import { Pressable, Text, View } from "react-native";
 import { ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { ButtonProps } from "./Button.type";
@@ -61,12 +61,12 @@ const Icon = ({
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
       style={{ backgroundColor: background ? background : undefined }}
       className={`${sizes[size]} ${background
-          ? null
-          : disabled
-            ? states.disabled
-            : isHovered && isHoverEffectEnabled
-              ? states.hover
-              : states[state]
+        ? null
+        : disabled
+          ? states.disabled
+          : isHovered && isHoverEffectEnabled
+            ? states.hover
+            : states[state]
         } flex flex-row items-center justify-between`}
       {...props}
     >
@@ -76,7 +76,6 @@ const Icon = ({
         </View>
       ) : (
         <>
-          {/* Left icon */}
           {icon === "left" && (
             <Ionicons
               name="arrow-forward"
@@ -86,12 +85,10 @@ const Icon = ({
             />
           )}
 
-          {/* Button text */}
           <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
             {label}
           </Text>
 
-          {/* Right icon */}
           {icon === "right" && (
             <Ionicons
               name="arrow-forward"

@@ -1,4 +1,3 @@
-// Define alert types and their respective styling
 const alertStyles = {
   information: {
     backgroundColor: "#E8E8E8",

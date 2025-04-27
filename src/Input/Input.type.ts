@@ -1,6 +1,6 @@
 import { TextInputProps } from "react-native";
 
-export type NInputProp =TextInputProps & {
+export type NInputProp = TextInputProps & {
   Size?: "small" | "medium" | "large" | "full" | "fit";
   Label?: string;
   Hint?: string;
@@ -13,6 +13,6 @@ export type AInputProp = TextInputProps & {
   Label?: string;
   Hint?: string;
   State?: "Default" | "Error" | "Success" | "Loading";
-  input?: string[]; 
+  input?: string[];
   curved?: boolean
 };

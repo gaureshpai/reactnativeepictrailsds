@@ -15,17 +15,14 @@ const IconComponent: React.FC<IconComponentProps> = ({
   initials = "AB",
   className = "",
 }) => {
-  // Handle standard icons
   if (type === "icon") {
     return renderIcon(iconName, size, theme, className);
   }
 
-  // Handle placeholder circles
   if (type === "placeholder") {
     return renderPlaceholder(placeholderSize, filled, className);
   }
 
-  // Handle avatar icons
   if (type === "avatar") {
     return renderAvatar(avatarSize, initials, className);
   }
@@ -33,7 +30,7 @@ const IconComponent: React.FC<IconComponentProps> = ({
   return null;
 };
 
-// Function to render standard icons using Ionicons
+
 const renderIcon = (
   iconName?: IconName,
   size: number = 24,
@@ -42,9 +39,9 @@ const renderIcon = (
 ) => {
   if (!iconName) return null;
 
-  const baseIconName = iconMap[iconName]; // e.g. 'calendar-outline'
+  const baseIconName = iconMap[iconName];
 
-  // If theme is dark, remove '-outline'; else, keep original
+
   const ionIconName =
     theme === "dark" && baseIconName.endsWith("-outline")
       ? baseIconName.replace("-outline", "")
@@ -57,7 +54,7 @@ const renderIcon = (
   );
 };
 
-// Function to render placeholder circles
+
 const renderPlaceholder = (
   size: PlaceholderSize = "medium",
   filled: boolean = false,
@@ -78,7 +75,7 @@ const renderPlaceholder = (
   );
 };
 
-// Function to render avatar icons
+
 const renderAvatar = (
   size: AvatarSize = "medium",
   initials: string = "AB",
@@ -86,16 +83,16 @@ const renderAvatar = (
 ) => {
   const pixelSize = sizeMapping[size];
 
-  // Calculate font size based on avatar size
+
   const fontSize = Math.max(Math.floor(pixelSize * 0.4), 8);
 
-  // Set fontWeight based on size
+
   const fontWeight =
     size === "xl" || size === "large"
       ? "900"
       : size === "medium" || size === "small"
-      ? "700"
-      : "500"; // for 'xs' and 'xxs'
+        ? "700"
+        : "500";
 
   return (
     <View

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Pressable, PressableProps, Text, View, ActivityIndicator } from "react-native";
+import { Pressable, Text, View, ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { TypeDocsProps } from "./Button.type";
 

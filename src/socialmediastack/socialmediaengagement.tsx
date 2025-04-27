@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 
-const SocialMediaEngagement = ({ 
+const SocialMediaEngagement = ({
   icons = [
     { name: 'heart-outline', onPress: () => console.log('Like pressed') },
     { name: 'chatbox-outline', onPress: () => console.log('Comment pressed') },
@@ -14,8 +14,8 @@ const SocialMediaEngagement = ({
     <View style={[styles.container]}>
       <View style={styles.iconsContainer}>
         {icons.map((icon, index) => (
-          <TouchableOpacity 
-            key={index} 
+          <TouchableOpacity
+            key={index}
             style={styles.iconButton}
             onPress={icon.onPress}
           >
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     padding: 8,
     width: 60,
     alignItems: 'center',
-    zIndex: 999, 
+    zIndex: 999,
   },
   title: {
     fontSize: 12,
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   iconButton: {
     width: '100%',
     backgroundColor: '#ffffff75',
-    marginBottom:18,
+    marginBottom: 18,
     alignItems: 'center',
     paddingVertical: 12,
     marginVertical: 2,

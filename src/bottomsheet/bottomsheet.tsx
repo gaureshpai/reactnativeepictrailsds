@@ -7,26 +7,19 @@ import {
   TextInput,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Comment , BottomSheetProps} from "./bottomsheet.type";
+import { BottomSheetProps } from "./bottomsheet.type";
 import { RectButton } from "../Button";
 
-
-/**
- * BottomSheet component with optional knob, button, comments section,
- * and an auto-expanding container for custom content.
- * The custom container will only appear when comments are not shown.
- * It has a minimum height of 200 and will expand as content grows.
- */
 const BottomSheet: React.FC<BottomSheetProps> = ({
   showKnob = false,
   showButton = false,
   buttonLabel = "Submit",
-  onButtonPress = () => {},
+  onButtonPress = () => { },
   showComments = false,
   comments = [],
-  onAddComment = () => {},
-  onLikeComment = () => {},
-  onReplyComment = () => {},
+  onAddComment = () => { },
+  onLikeComment = () => { },
+  onReplyComment = () => { },
   children,
   containerStyle = {},
 }) => {
@@ -47,7 +40,6 @@ const BottomSheet: React.FC<BottomSheetProps> = ({
         </View>
       )}
 
-      {/* Auto-expanding container for custom content - only shown if comments are not shown */}
       {!showComments && (
         <View style={[styles.customContentContainer, containerStyle]}>
           {children}
@@ -132,7 +124,7 @@ const styles = StyleSheet.create({
   container: {
     position: "absolute",
     bottom: 0,
-    paddingHorizontal:20,
+    paddingHorizontal: 20,
     backgroundColor: "white",
     borderTopLeftRadius: 16,
     borderTopRightRadius: 16,
@@ -257,42 +249,3 @@ const styles = StyleSheet.create({
 });
 
 export default BottomSheet;
-
-// Usage examples:
-// 1. Bottom Sheet with Knob, Custom Content and Button
-// <BottomSheet
-//   showKnob={true}
-//   showButton={true}
-//   buttonLabel="Submit"
-//   onButtonPress={() => console.log("Button pressed")}
-// >
-//   <Text>This is custom content with a minimum height of 200</Text>
-//   <View style={{ height: 150, backgroundColor: '#eee', marginVertical: 10 }}>
-//     <Text>Container will be 200px tall even with this content</Text>
-//   </View>
-// </BottomSheet>
-
-// 2. Bottom Sheet with tall Custom Content that expands the container
-// <BottomSheet
-//   showKnob={true}
-//   showButton={true}
-// >
-//   <Text>This container will grow beyond 200px</Text>
-//   <View style={{ height: 300, backgroundColor: '#eee', marginVertical: 10 }}>
-//     <Text>Container will grow to accommodate this taller content</Text>
-//   </View>
-// </BottomSheet>
-
-// 3. Bottom Sheet with Comments (Custom content will NOT appear)
-// <BottomSheet
-//   showKnob={true}
-//   showComments={true}
-//   comments={[
-//     { id: "1", userInitials: "AB", userName: "Motoholic Serene Adventure in my motorbike", likes: 1, time: "12 hrs ago" },
-//   ]}
-//   onAddComment={(text) => console.log("Comment added:", text)}
-// >
-//   <View style={{ padding: 10 }}>
-//     <Text>This content will not be displayed because comments are shown</Text>
-//   </View>
-// </BottomSheet>

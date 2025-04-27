@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Ionicons } from "@expo/vector-icons";
 import { BottomNavProps, NavItemProps } from './bottomnav.type';
 
-// NavItem component that renders individual navigation items
-const NavItem = ({ icon, label, active,theme, onPress }: NavItemProps) => {
+const NavItem = ({ icon, label, active, theme, onPress }: NavItemProps) => {
   return (
     <TouchableOpacity style={styles.navItem} onPress={onPress} activeOpacity={0.7}>
-      <Ionicons 
-        name={icon as any} 
-        size={24} 
-        color={active ? theme === 'light' ? '#000000' : '#FFFFFF' : '#BBBBBB'} 
+      <Ionicons
+        name={icon as any}
+        size={24}
+        color={active ? theme === 'light' ? '#000000' : '#FFFFFF' : '#BBBBBB'}
       />
       <Text style={[
-        styles.label, 
+        styles.label,
         { color: active ? theme === 'light' ? '#000000' : '#FFFFFF' : '#BBBBBB' }
       ]}>
         {label}
@@ -22,13 +21,11 @@ const NavItem = ({ icon, label, active,theme, onPress }: NavItemProps) => {
   );
 };
 
-
-// Main BottomNav component
-const BottomNav = ({ 
-  items, 
-  theme = 'light', 
+const BottomNav = ({
+  items,
+  theme = 'light',
   initialActiveIndex = 0,
-  onItemPress 
+  onItemPress
 }: BottomNavProps) => {
   const [activeIndex, setActiveIndex] = useState(initialActiveIndex);
 
@@ -41,7 +38,7 @@ const BottomNav = ({
 
   return (
     <View style={[
-      styles.container, 
+      styles.container,
       { backgroundColor: theme === 'light' ? '#FFFFFF' : '#000000' }
     ]}>
       <View style={styles.navContainer}>
@@ -58,7 +55,7 @@ const BottomNav = ({
       </View>
       <View style={[
         styles.indicatorContainer,
-        { justifyContent: 'center'}
+        { justifyContent: 'center' }
       ]}>
         <View style={[
           styles.indicator,
@@ -79,9 +76,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderTopColor: '#E5E5E5',
     paddingVertical: 8,
-    // paddingBottom: 20, // Add extra padding at the bottom for better usability
-    elevation: 8, // Android shadow
-    shadowColor: '#000000', // iOS shadow
+    elevation: 8,
+    shadowColor: '#000000',
     shadowOffset: { width: 0, height: -2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,

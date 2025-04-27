@@ -1,5 +1,4 @@
-import React, { ReactNode } from "react";
-
+import { ReactNode } from "react";
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 export type ResponsiveValue<T> = T | Partial<Record<Breakpoint, T>>;

@@ -1,4 +1,3 @@
-// Define types for the component props
 export type SelectValue = {
   value: string;
   label: string;
