@@ -231,6 +231,7 @@ export interface SocialMediaContainerProps {
   contentItems: ContentItem[];
   duration?: number;
   onActiveIndexChange?: (index: number) => void;
+  index?: number;
 }
 
 export interface SocialMediaStackProps {

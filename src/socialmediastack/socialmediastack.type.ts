@@ -1,3 +1,4 @@
+// Improved type for image content to handle both remote and local images
 export type ImageContent = {
   type: 'image';
   imageUri: string;
@@ -21,6 +22,7 @@ export interface SocialMediaContainerProps {
   contentItems: ContentItem[];
   duration?: number;
   onActiveIndexChange?: (index: number) => void;
+  index?: number;
 }
 
 
