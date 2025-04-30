@@ -10,6 +10,7 @@ const RectButton = ({
   disabled,
   background,
   variant = "primary",
+  
   ...props
 }: ButtonProps) => {
   const buttonVariant = variant;
@@ -46,6 +47,7 @@ const RectButton = ({
 
   return (
     <Pressable
+
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)}
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
