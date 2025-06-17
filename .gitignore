@@ -4,6 +4,7 @@
 node_modules/
 example/node_modules/
 *.tgz
+.npmrc
 
 # Expo
 example/.expo/

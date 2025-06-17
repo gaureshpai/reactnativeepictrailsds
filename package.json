@@ -1,6 +1,6 @@
 {
-  "name": "reactnativeepictrailsds",
-  "version": "0.1.12",
+  "name": "@gaureshpai/reactnativeepictrailsds",
+  "version": "0.1.13",
   "description": "A flexible and customizable design system for React Native, providing pre-built UI components, typography, and themes to enhance mobile app development.",
   "keywords": [
     "react-native",
@@ -56,6 +56,9 @@
     "README.md",
     "global.css"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "exports": {
     ".": {
       "import": "./src/index.tsx",
