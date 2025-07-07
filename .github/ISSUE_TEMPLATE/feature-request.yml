@@ -1,0 +1,43 @@
+name: "🚀 Feature Request"
+description: Suggest an idea or enhancement for this project.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🚀 Feature Request
+
+        Thanks for suggesting a feature!
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem
+      description: What problem are you trying to solve?
+      placeholder: I'm always frustrated when...
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe the solution you’d like.
+      placeholder: A possible solution would be...
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Have you considered other solutions?
+      placeholder: Another approach could be...
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Add any extra context or links.

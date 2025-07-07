@@ -2,38 +2,42 @@
 
 ## 🛠 Supported Versions
 
-We actively maintain and provide security updates for the latest stable version of this design system. Older versions are not supported unless explicitly stated.
+We currently **maintain active support only for the latest stable release** of the design system. Versions prior to `1.0.0` have been **deprecated** and will not receive updates, including security patches.
 
-| Version | Supported               |
-| ------- | ----------------------- |
-| 1.0.0   | ✅ Yes (Active Support) |
-| < 0.1.0 | ❌ No (Deprecated)       |
+| Version    | Status                    |
+| ---------- | ------------------------- |
+| `>= 1.0.0` | ✅ Supported (Active)      |
+| `< 1.0.0`  | ❌ Deprecated (No Support) |
 
-Once we reach **v1.0.0**, it will mark our first fully stable release. All future patches and features will be built on that foundation.
+> The `1.x` release line marks the foundation for long-term support, stability, and forward compatibility. All critical fixes, patches, and features will be based on `v1.0.0` and above.
 
 ## 🛡 Reporting a Vulnerability
 
-If you find a security vulnerability in `reactnativeepictrailsds`, please report it privately so we can resolve it quickly and responsibly.
+If you discover a security vulnerability in **`reactnativeepictrailsds`**, please report it responsibly and privately so that we can address the issue promptly.
 
 ### 📩 How to Report
 
-1. Email us at **[security@gaureshpai.dev](mailto:security@gaureshpai.dev)**  
-   Subject: **Security Issue - reactnativeepictrailsds**
-2. Include:
-   - Reproduction steps
-   - Affected versions
-   - Security impact
-   - Any suggested remediation steps
-3. We’ll acknowledge your report within **48 hours** and prioritize resolution accordingly.
+Please send a detailed email to:
+
+📧 **[paigauresh@gmail.com](mailto:paigauresh@gmail.com)**
+Subject: **Security Issue — reactnativeepictrailsds**
+
+Include the following information:
+
+* Clear steps to reproduce the issue
+* Affected package versions
+* Impact assessment (data leak, crash, etc.)
+* Optional: Any suggestions for remediation
 
 ### 🔄 What to Expect
 
-- **Acknowledgment**: Within **2 business days**
-- **Assessment & Fix**: We evaluate and patch as quickly as possible
-- **Disclosure**: Public advisories will be published responsibly, with credit to valid reporters
+* **Acknowledgment**: You will receive a response within **2 business days**
+* **Assessment & Patch**: We aim to investigate and patch issues swiftly
+* **Disclosure**: If necessary, we will publish a public advisory in a responsible and transparent manner (with credit to reporters if desired)
 
-## ⚠ Responsible Disclosure
+## ⚠️ Responsible Disclosure Guidelines
 
-We strongly encourage responsible disclosure. Please do **not** publish any vulnerability reports publicly until we’ve issued a fix.
+We **strongly encourage responsible disclosure**:
 
-💬 For urgent concerns or clarification, reach out to **[security@gaureshpai.dev](mailto:security@gaureshpai.dev)**.
+* Please **do not** publicly disclose or discuss the vulnerability until a patch is released.
+* Avoid posting issues directly on GitHub if they contain sensitive security details.

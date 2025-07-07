@@ -174,7 +174,7 @@ export interface IconComponentProps {
   className?: string;
   iconName?: IconName;
   size?: number;
-  theme?: "light" | "dark"; 
+  theme?: "light" | "dark";
   placeholderSize?: PlaceholderSize;
   filled?: boolean;
   avatarSize?: AvatarSize;

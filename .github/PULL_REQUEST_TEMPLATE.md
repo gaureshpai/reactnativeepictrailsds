@@ -1,49 +1,36 @@
 ---
 name: 🚀 Pull Request
-about: Suggest code changes or improvements for this project.
+about: Submit a code change or improvement.
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 ## 📌 Description
 
-<!-- Please include a **clear and concise** description of the changes made in this pull request. -->
+<!-- Briefly describe what this PR does and what issue it fixes (if any). -->
 
-Fixes # (issue number, if applicable)
+Fixes: #
 
-## 🔍 Changes Made
+## 🔧 Changes
 
-<!-- List the key changes in this PR (e.g., new feature, bug fix, refactor, etc.) -->
+<!-- List major changes or features -->
 - 
 - 
 - 
 
 ## ✅ Checklist
 
-Please confirm the following before submitting your PR:
+- [ ] Code follows project style
+- [ ] Tested and working
+- [ ] Docs updated (if needed)
 
-- [ ] My code follows the project's **coding style**.
-- [ ] I have **tested** my changes to ensure they work as expected.
-- [ ] I have updated **documentation** (if necessary).
-- [ ] I have checked for **existing issues** to avoid duplicates.
+## 🧪 Testing Steps
 
-## 🛠 How to Test
-
-<!-- Provide clear steps to test your changes -->
+<!-- How to test this PR -->
 1. 
 2. 
-3. 
 
-## 📸 Screenshots (if applicable)
+## 📝 Notes
 
-<!-- Add screenshots or GIFs to show the changes visually -->
-
-## 📝 Additional Context
-
-<!-- Add any extra details that might help the maintainers review your PR -->
-
----
-💡 **Tip:** If this PR is related to a security fix, please label it as `security`.  
-🚀 Thanks for contributing! 🎉
+<!-- Optional: anything reviewers should know -->
