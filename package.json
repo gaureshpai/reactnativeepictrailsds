@@ -1,6 +1,6 @@
 {
   "name": "reactnativeepictrailsds",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A modern, production-ready design system for React Native — featuring pre-styled, customizable components, state-based UI logic, theme support, and seamless integration with Tailwind, Expo, and TypeScript. Built for scalable mobile app development with accessibility and performance in mind.",
   "keywords": [
     "react-native",
