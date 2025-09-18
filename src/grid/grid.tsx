@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { View, StyleSheet } from "react-native";
-
+import { createStyle } from '../utils/styleCompat';
 import { GridProps, ItemProps } from "./Grid.type";
 import { Breakpoint, ResponsiveValue } from "./Grid.type";
 
@@ -38,7 +38,9 @@ const Grid = React.forwardRef<View, GridProps>(
       rows,
       direction = "row",
       className = "",
+      style,
       size,
+      ...props
     },
     ref
   ) => {
@@ -96,8 +98,13 @@ const Grid = React.forwardRef<View, GridProps>(
       return child;
     });
 
+    const containerStyle = createStyle({
+      className: className,
+      style: [styles.base, gridStyles, style].filter(Boolean)
+    });
+
     return (
-      <View ref={ref} style={[styles.base, gridStyles]} className={className}>
+      <View ref={ref} style={containerStyle} {...props}>
         {gridChildren}
       </View>
     );
@@ -117,7 +124,7 @@ interface ExtendedItemProps extends ItemProps {
 }
 
 const GridItem = React.forwardRef<View, ExtendedItemProps>(
-  ({ children, xs, sm, md, lg, xl, className = "", _gridContext, size }, ref) => {
+  ({ children, xs, sm, md, lg, xl, className = "", style, _gridContext, size, ...props }, ref) => {
     const currentBreakpoint: Breakpoint = 'xs';
 
     let span = size;
@@ -149,8 +156,13 @@ const GridItem = React.forwardRef<View, ExtendedItemProps>(
       itemStyles.flexBasis = "auto";
     }
 
+    const itemStyle = createStyle({
+      className: className,
+      style: [styles.item, itemStyles, style].filter(Boolean)
+    });
+
     return (
-      <View ref={ref} style={[styles.item, itemStyles]} className={className}>
+      <View ref={ref} style={itemStyle} {...props}>
         {children}
       </View>
     );

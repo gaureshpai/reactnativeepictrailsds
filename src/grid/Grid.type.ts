@@ -1,9 +1,10 @@
 import { ReactNode } from "react";
+import { ContainerComponentProps } from '../types/common';
 
 export type Breakpoint = "xs" | "sm" | "md" | "lg" | "xl";
 export type ResponsiveValue<T> = T | Partial<Record<Breakpoint, T>>;
 
-export interface GridProps {
+export interface GridProps extends ContainerComponentProps {
   children: ReactNode;
   container?: boolean;
   spacing?: ResponsiveValue<number>;
@@ -12,17 +13,15 @@ export interface GridProps {
   columns?: ResponsiveValue<number>;
   rows?: ResponsiveValue<number>;
   direction?: ResponsiveValue<"row" | "column">;
-  className?: string;
   size?: ResponsiveValue<number>;
 }
 
-export interface ItemProps {
+export interface ItemProps extends ContainerComponentProps {
   children: ReactNode;
   xs?: number;
   sm?: number;
   md?: number;
   lg?: number;
   xl?: number;
-  className?: string;
   size?: number;
 }

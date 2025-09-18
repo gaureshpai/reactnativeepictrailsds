@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
+import { ContainerComponentProps } from '../types/common';
 
-export interface AndroidModalSheetProps {
+export interface AndroidModalSheetProps extends ContainerComponentProps {
   title: string;
   label: string;
   action?: 1 | 2 | 3;

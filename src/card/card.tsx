@@ -1,37 +1,69 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import { RectButton } from "../Button";
-import { CardProps } from "./card.type";
+import React from "react";
+import { View, Text } from "react-native";
+import { createStyle } from '../utils/styleCompat';
+import { ContainerComponentProps } from '../types/common';
+
+export interface CardProps extends ContainerComponentProps {
+  title?: string;
+  subtitle?: string;
+  cardTitle?: boolean;
+  content?: React.ReactNode;
+  backgroundColor?: string;
+}
 
 const Card: React.FC<CardProps> = ({
-  title = "Card Title",
-  label = "Label",
+  title,
+  subtitle,
   cardTitle = true,
-  button = true,
-  children
+  children,
+  content,
+  backgroundColor = 'white',
+  className,
+  style,
+  ...props
 }) => {
+  const containerStyle = createStyle({
+    className: "px-4 bg-white overflow-hidden border border-gray-200 shadow-sm mb-4 w-[80vw]",
+    style: [{ backgroundColor }, style].filter(Boolean)
+  });
+
+  const headerStyle = createStyle({
+    className: `flex ${cardTitle ? "flex-row" : "flex-row-reverse"} justify-between px-0 py-2`
+  });
+
+  const titleContainerStyle = createStyle({
+    className: "px-0 py-2"
+  });
+
+  const titleTextStyle = createStyle({
+    className: "font-medium text-gray-800"
+  });
+
+  const contentContainerStyle = createStyle({
+    className: "relative mb-4 p-4 bg-green-50 min-h-32 flex-grow"
+  });
+
   return (
-    <View className="px-4 bg-white overflow-hidden border border-gray-200 shadow-sm mb-4 w-[80vw]">
-      <View className={`flex ${cardTitle ? "flex-row" : "flex-row-reverse"} justify-between px-0 py-2`}>
-        {cardTitle && (
-          <View className="px-0 py-2">
-            <Text className="font-medium text-gray-800">{title}</Text>
+    <View style={containerStyle} {...props}>
+      <View style={headerStyle}>
+        {title && (
+          <View style={titleContainerStyle}>
+            <Text style={titleTextStyle}>{title}</Text>
           </View>
         )}
-        {button && (
-          <View className="">
-            <RectButton
-              label={label}
-              onPress={() => console.log("Button clicked")}
-              size="small"
-              variant="secondary"
-            />
+        
+        {subtitle && (
+          <View style={createStyle({ className: "" })}>
+            <Text style={createStyle({ className: "text-sm text-gray-600" })}>
+              {subtitle}
+            </Text>
           </View>
         )}
       </View>
 
-      <View className="relative mb-4 p-4 bg-green-50 min-h-32 flex-grow">
+      <View style={contentContainerStyle}>
         {children}
+        {content}
       </View>
     </View>
   );

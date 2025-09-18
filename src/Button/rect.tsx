@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Pressable, Text } from "react-native";
 import { ActivityIndicator } from "react-native";
 import { ButtonProps } from "./Button.type";
+import { createStyle, mergeStyles } from '../utils/styleCompat';
 
 const RectButton = ({
   label = "Button",
@@ -45,27 +46,37 @@ const RectButton = ({
 
   const isHoverEffectEnabled = !disabled && state !== "disabled" && state !== "loading";
 
+  // Create the style object combining className and style props
+  const baseStyle = {
+    backgroundColor: background ? background : undefined
+  };
+  
+  const containerStyle = createStyle({
+    className: `${sizes[size]} ${background
+        ? ''
+        : disabled
+          ? states.disabled
+          : isHovered && isHoverEffectEnabled
+            ? states.hover
+            : states[state]
+      } flex items-center justify-center`,
+    style: [baseStyle, props.style].filter(Boolean)
+  });
+
   return (
     <Pressable
-
       disabled={disabled}
       onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)}
       onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
-      style={{ backgroundColor: background ? background : undefined }}
-      className={`${sizes[size]} ${background
-          ? null
-          : disabled
-            ? states.disabled
-            : isHovered && isHoverEffectEnabled
-              ? states.hover
-              : states[state]
-        } flex items-center justify-center`}
+      style={containerStyle}
       {...props}
     >
       {state === "loading" ? (
         <ActivityIndicator size="small" color={buttonVariant === "primary" ? "#ffffff" : "#000000"} />
       ) : (
-        <Text className={`${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}`}>
+        <Text style={createStyle({ 
+          className: `${state === "disabled" ? "text-[#868686]" : buttonVariant === "primary" ? "text-white" : "text-black"}` 
+        })}>
           {label}
         </Text>
       )}

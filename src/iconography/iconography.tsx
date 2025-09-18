@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { twMerge } from "tailwind-merge";
 import { Ionicons } from "@expo/vector-icons";
+import { createStyle } from '../utils/styleCompat';
 import { iconMap, IconName, PlaceholderSize, AvatarSize, IconComponentProps, sizeMapping } from "./iconography.type";
 
 const IconComponent: React.FC<IconComponentProps> = ({
@@ -48,7 +48,7 @@ const renderIcon = (
       : baseIconName;
 
   return (
-    <View className={twMerge(`flex items-center justify-center`, className)}>
+    <View style={createStyle({ className: `flex items-center justify-center ${className}` })}>
       <Ionicons name={ionIconName as any} size={size} color={"#000"} />
     </View>
   );
@@ -66,11 +66,10 @@ const renderPlaceholder = (
 
   return (
     <View
-      className={twMerge(
-        `rounded-full flex items-center justify-center ${bgClass} ${borderClass}`,
-        className
-      )}
-      style={{ width: pixelSize, height: pixelSize }}
+      style={createStyle({
+        className: `rounded-full flex items-center justify-center ${bgClass} ${borderClass} ${className}`,
+        style: { width: pixelSize, height: pixelSize }
+      })}
     />
   );
 };
@@ -96,11 +95,10 @@ const renderAvatar = (
 
   return (
     <View
-      className={twMerge(
-        `bg-black rounded-full flex items-center justify-center`,
-        className
-      )}
-      style={{ width: pixelSize, height: pixelSize }}
+      style={createStyle({
+        className: `bg-black rounded-full flex items-center justify-center ${className}`,
+        style: { width: pixelSize, height: pixelSize }
+      })}
     >
       <Text
         style={{

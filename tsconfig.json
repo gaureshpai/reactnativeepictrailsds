@@ -2,6 +2,16 @@
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
     "jsx": "react-native",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": false,
+    "skipLibCheck": true,
+    "noEmitOnError": false,
+    "ignoreDeprecations": "6.0",
+    "target": "es2019",
+    "lib": ["es2019", "dom"],
     "paths": {
       "@/*": [
         "./*"
@@ -10,7 +20,11 @@
   },
   "include": [
     "nativewind-env.d.ts",
-    "./src/**/*",
-    "./dist/**/*"
+    "./src/**/*"
   ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "example"
+  ]
 }

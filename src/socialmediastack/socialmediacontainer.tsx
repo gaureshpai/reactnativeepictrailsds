@@ -187,8 +187,17 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
           </Text>
         </View>
       )}
-      <View className="w-full grid grid-cols-[25%_75%] absolute inset-0">
+      <View style={{
+        width: '100%',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        flexDirection: 'row'
+      }}>
         <Pressable
+          style={{ flex: 0.25 }}
           onPress={() => {
             setActiveIndex(
               (activeIndex + contentItems.length - 1) % contentItems.length
@@ -197,13 +206,14 @@ const SocialMediaContainer: React.FC<SocialMediaContainerProps> = ({
               (activeIndex + contentItems.length - 1) % contentItems.length
             );
           }}
-        ></Pressable>
+        />
         <Pressable
+          style={{ flex: 0.75 }}
           onPress={() => {
             setActiveIndex((activeIndex + 1) % contentItems.length);
             onActiveIndexChange((activeIndex + 1) % contentItems.length);
           }}
-        ></Pressable>
+        />
       </View>
     </View>
   );

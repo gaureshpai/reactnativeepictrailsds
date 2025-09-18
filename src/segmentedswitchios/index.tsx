@@ -1,1 +1,0 @@
-export { default as SegmentedSwitchIOS } from './segmentedswitchios';

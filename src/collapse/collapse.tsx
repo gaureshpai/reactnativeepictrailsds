@@ -1,13 +1,24 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import { CollapsibleProps } from './collapse.type';
+import { createStyle } from '../utils/styleCompat';
+import { PressableComponentProps } from '../types/common';
 
-const Collapsible: React.FC<CollapsibleProps> = ({
+export interface CollapseProps extends PressableComponentProps {
+  title: string;
+  text?: string;
+  initialCollapsed?: boolean;
+  children?: React.ReactNode;
+}
+
+const Collapsible: React.FC<CollapseProps> = ({
   title,
   text,
   initialCollapsed = false,
-  children
+  children,
+  className,
+  style,
+  ...props
 }) => {
   const [collapsed, setCollapsed] = useState(initialCollapsed);
   const [height] = useState(new Animated.Value(initialCollapsed ? 0 : 1));
@@ -24,13 +35,66 @@ const Collapsible: React.FC<CollapsibleProps> = ({
     setCollapsed(!collapsed);
   };
 
+  const containerStyle = createStyle({
+    className: `${className || ''} mb-4 bg-white py-2 border-b border-gray-400`,
+    style: [
+      {
+        marginBottom: 16,
+        backgroundColor: 'white',
+        paddingVertical: 8,
+        borderBottomWidth: 1,
+        borderBottomColor: '#9ca3af'
+      },
+      style
+    ].filter(Boolean)
+  });
+
+  const headerStyle = createStyle({
+    className: "flex-row justify-between items-center px-2 py-3 border-gray-200",
+    style: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      paddingHorizontal: 8,
+      paddingVertical: 12,
+      borderColor: '#e5e7eb'
+    }
+  });
+
+  const titleStyle = createStyle({
+    className: "text-lg font-medium",
+    style: {
+      fontSize: 18,
+      fontWeight: '500',
+      color: '#252A31'
+    }
+  });
+
+  const contentContainerStyle = createStyle({
+    className: "p-4",
+    style: [
+      {
+        padding: 16,
+        width: '90%'
+      },
+      !collapsed && { backgroundColor: '#f0fdf4' }
+    ].filter(Boolean)
+  });
+
+  const textStyle = createStyle({
+    className: "text-gray-700",
+    style: {
+      color: '#374151'
+    }
+  });
+
   return (
-    <View className="mb-4 bg-white py-2  border-b border-gray-400">
+    <View style={containerStyle} {...props}>
       <TouchableOpacity 
         onPress={toggleCollapse}
-        className="flex-row justify-between items-center px-2 py-3 border-gray-200"
+        style={headerStyle}
       >
-        <Text className="text-lg font-medium text-[#252A31]">
+        <Text style={titleStyle}>
           {title}
         </Text>
         <Ionicons 
@@ -41,8 +105,8 @@ const Collapsible: React.FC<CollapsibleProps> = ({
       </TouchableOpacity>
 
       <Animated.View
-        className={`overflow-hidden ${collapsed ? 'h-0' : ''}`}
         style={{
+          overflow: 'hidden',
           opacity: height,
           maxHeight: height.interpolate({
             inputRange: [0, 1],
@@ -50,8 +114,8 @@ const Collapsible: React.FC<CollapsibleProps> = ({
           }),
         }}
       >
-        <View className={`p-4 ${!collapsed ? 'bg-green-50' : ''} w-[90vw]`}>
-          {text && <Text className="text-gray-700">{text}</Text>}
+        <View style={contentContainerStyle}>
+          {text && <Text style={textStyle}>{text}</Text>}
           {children}
         </View>
       </Animated.View>
@@ -60,3 +124,4 @@ const Collapsible: React.FC<CollapsibleProps> = ({
 };
 
 export default Collapsible;
+

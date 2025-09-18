@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Pressable, Text, View, ActivityIndicator } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { createStyle } from '../utils/styleCompat';
 import { TypeDocsProps } from "./Button.type";
 
-const TypeDoc = ({
+const TypeDoc: React.FC<TypeDocsProps> = ({
   icon = "right",
   buttonLabel = "Button",
   label = "I agree to the terms and conditions.",
@@ -12,8 +13,10 @@ const TypeDoc = ({
   disabled = false,
   background = null,
   onClick = () => { },
+  className,
+  style,
   ...props
-}: TypeDocsProps) => {
+}) => {
   const [isChecked, setIsChecked] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isPressed, setIsPressed] = useState(false);
@@ -24,18 +27,20 @@ const TypeDoc = ({
     }
   }, [state]);
 
-  const sizes = {
-    small: "w-3/4 min-w-[80px] p-[10px]",
-    medium: "w-full min-w-[120px] p-[10px]",
-    large: "w-full min-w-[160px] p-[15px]",
+  // Size mappings for React Native styles
+  const sizeMappings = {
+    small: { width: '75%', minWidth: 80, padding: 10 },
+    medium: { width: '100%', minWidth: 120, padding: 10 },
+    large: { width: '100%', minWidth: 160, padding: 15 },
   };
 
-  const buttonStates = {
-    default: "bg-black",
-    pressed: "bg-gray-800",
-    hover: "bg-gray-900",
-    disabled: "bg-gray-300",
-    loading: "bg-black",
+  // Button state styles
+  const buttonStateMappings = {
+    default: { backgroundColor: "#000000" },
+    pressed: { backgroundColor: "#1f2937" },
+    hover: { backgroundColor: "#111827" },
+    disabled: { backgroundColor: "#d1d5db" },
+    loading: { backgroundColor: "#000000" },
   };
 
   const isButtonDisabled = disabled || !isChecked;
@@ -49,11 +54,47 @@ const TypeDoc = ({
     }
   };
 
+  // Create container styles
+  const containerStyle = createStyle({
+    className: `${className || ''} justify-center items-center p-5`,
+    style: [{ width: 335 }, style].filter(Boolean)
+  });
+
+  const checkboxContainerStyle = createStyle({
+    className: "flex-row items-center mb-5"
+  });
+
+  const labelTextStyle = createStyle({
+    className: icon === "right" ? "ml-2.5" : "mr-2.5",
+    style: { fontSize: 16 }
+  });
+
+  // Determine current button state for styling
+  const currentButtonState = isButtonDisabled ? "disabled" : isPressed ? "pressed" : isHovered && isHoverEffectEnabled ? "hover" : state;
+  const buttonStateStyle = buttonStateMappings[currentButtonState];
+
+  const buttonStyle = createStyle({
+    className: "flex items-center justify-center",
+    style: [
+      sizeMappings[size],
+      buttonStateStyle,
+      background ? { backgroundColor: background } : {}
+    ].filter(Boolean)
+  });
+
+  const buttonTextStyle = createStyle({
+    style: {
+      color: isButtonDisabled ? "#868686" : "#ffffff",
+      fontSize: 16,
+      fontWeight: "500"
+    }
+  });
+
   return (
-    <View className="flex justify-center items-center w-[335px] p-5">
+    <View style={containerStyle}>
       <Pressable
         onPress={() => setIsChecked(!isChecked)}
-        className="flex-row items-center mb-5"
+        style={checkboxContainerStyle}
         {...props}
       >
         {icon === "right" && (
@@ -63,13 +104,13 @@ const TypeDoc = ({
             ) : (
               <Ionicons name="square-outline" size={24} color="#666666" />
             )}
-            <Text className="ml-2.5">{label}</Text>
+            <Text style={labelTextStyle}>{label}</Text>
           </>
         )}
 
         {icon === "left" && (
           <>
-            <Text className="mr-2.5">{label}</Text>
+            <Text style={labelTextStyle}>{label}</Text>
             {isChecked ? (
               <Ionicons name="checkbox" size={24} color="black" />
             ) : (
@@ -82,24 +123,14 @@ const TypeDoc = ({
       <Pressable
         onPress={onClick}
         disabled={isButtonDisabled}
-        onHoverIn={() => isHoverEffectEnabled && setIsHovered(true)}
-        onHoverOut={() => isHoverEffectEnabled && setIsHovered(false)}
-        style={{ backgroundColor: background || undefined }}
-        className={`${sizes[size]} ${background
-            ? null
-            : isButtonDisabled
-              ? buttonStates.disabled
-              : isPressed
-                ? buttonStates.pressed
-                : isHovered && isHoverEffectEnabled
-                  ? buttonStates.hover
-                  : buttonStates[state]
-          } flex items-center justify-center`}
+        onPressIn={() => isHoverEffectEnabled && setIsHovered(true)}
+        onPressOut={() => isHoverEffectEnabled && setIsHovered(false)}
+        style={buttonStyle}
       >
         {state === "loading" ? (
           <ActivityIndicator size="small" color="#ffffff" />
         ) : (
-          <Text className={`${isButtonDisabled ? "text-[#868686]" : "text-white"}`}>
+          <Text style={buttonTextStyle}>
             {buttonLabel}
           </Text>
         )}

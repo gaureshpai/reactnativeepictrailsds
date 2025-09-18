@@ -1,22 +1,21 @@
 import { PressableProps } from "react-native";
+import { PressableComponentProps, ComponentSize, ComponentState } from '../types/common';
 
-export type ButtonProps = PressableProps & {
+export type ButtonProps = PressableProps & PressableComponentProps & {
   label: string;
   variant?: "primary" | "secondary";
-  size?: "small" | "medium" | "large";
+  size?: ComponentSize;
   icon?: "right" | "left";
-  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
-  disabled?: boolean;
+  state?: ComponentState;
   background?: string | null;
 };
 
-export type TypeDocsProps = PressableProps & {
+export type TypeDocsProps = PressableProps & PressableComponentProps & {
   icon?: "left" | "right";
   buttonLabel?: string;
   label?: string;
-  size?: "small" | "medium" | "large";
-  state?: "default" | "pressed" | "hover" | "disabled" | "loading";
-  disabled?: boolean;
+  size?: ComponentSize;
+  state?: ComponentState;
   background?: string | null;
-  onClick?: () => void
+  onClick?: () => void;
 };

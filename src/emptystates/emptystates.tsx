@@ -1,15 +1,28 @@
-import React from "react";
+﻿import React from "react";
 import { View, Text } from "react-native";
-import { RectButton } from "../Button";
-import { EmptyStateProps } from "./emptystates.type";
+import Button from "../Button/Button";
+import { createStyle } from '../utils/styleCompat';
+import { ContainerComponentProps } from '../types/common';
 
-const EmptyState: React.FC<EmptyStateProps> = ({
+export interface EmptyStatesProps extends ContainerComponentProps {
+  message: string;
+  description?: string;
+  label?: string;
+  onPress?: () => void;
+  action?: "none" | "primary" | "secondary";
+  children?: React.ReactNode;
+}
+
+const EmptyState: React.FC<EmptyStatesProps> = ({
   message,
   description,
   label = "Okay",
   onPress,
   action = "none",
   children,
+  className,
+  style,
+  ...props
 }) => {
   const renderButton = () => {
     if (action === "none") return null;
@@ -17,7 +30,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
     const buttontype = action === "primary" ? "primary" : "secondary";
 
     return (
-      <RectButton
+      <Button
         label={label}
         variant={buttontype}
         onPress={onPress}
@@ -25,18 +38,72 @@ const EmptyState: React.FC<EmptyStateProps> = ({
     );
   };
 
+  const containerStyle = createStyle({
+    className: `${className || ''} flex bg-white justify-center items-center`,
+    style: [
+      {
+        display: 'flex',
+        backgroundColor: 'white',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '75%'
+      },
+      style
+    ].filter(Boolean)
+  });
+
+  const childrenContainerStyle = createStyle({
+    className: "w-full min-h-32",
+    style: {
+      width: '100%',
+      minHeight: 128
+    }
+  });
+
+  const contentContainerStyle = createStyle({
+    className: "flex bg-white justify-center items-center py-2 px-4",
+    style: {
+      display: 'flex',
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
+      paddingVertical: 8,
+      paddingHorizontal: 16
+    }
+  });
+
+  const messageStyle = createStyle({
+    className: "text-center text-sm font-semibold text-black mb-2",
+    style: {
+      textAlign: 'center',
+      fontSize: 14,
+      fontWeight: '600',
+      color: '#000000',
+      marginBottom: 8
+    }
+  });
+
+  const descriptionStyle = createStyle({
+    className: "text-center text-xs text-gray-500 mb-2 max-w-xs",
+    style: {
+      textAlign: 'center',
+      fontSize: 12,
+      color: '#6b7280',
+      marginBottom: 8,
+      maxWidth: 288 // Approx equivalent to max-w-xs
+    }
+  });
+
   return (
-    <View className="flex bg-white justify-center items-center"
-      style={{ width: "75%" }}
-    >
-      {children && <View className="w-full min-h-32">{children}</View>}
-      <View className="flex bg-white justify-center items-center py-2 px-4">
-        <Text className="text-center text-sm font-semibold textblack mb-2">
+    <View style={containerStyle} {...props}>
+      {children && <View style={childrenContainerStyle}>{children}</View>}
+      <View style={contentContainerStyle}>
+        <Text style={messageStyle}>
           {message}
         </Text>
 
         {description && (
-          <Text className="text-center text-xs text-gray-500 mb-2 max-w-xs">
+          <Text style={descriptionStyle}>
             {description}
           </Text>
         )}
@@ -48,3 +115,4 @@ const EmptyState: React.FC<EmptyStateProps> = ({
 };
 
 export default EmptyState;
+

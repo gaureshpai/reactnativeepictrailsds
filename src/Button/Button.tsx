@@ -1,15 +1,22 @@
 import React, { useState } from "react";
-import { Pressable, Text, View } from "react-native";
+import { Pressable, Text } from "react-native";
 import { ActivityIndicator } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
 import { createStyle } from '../utils/styleCompat';
-import { ButtonProps } from "./Button.type";
+import { PressableComponentProps, ComponentSize, ComponentState } from '../types/common';
 
-const Icon: React.FC<ButtonProps> = ({
+export interface ButtonProps extends PressableComponentProps {
+  label: string;
+  variant?: "primary" | "secondary";
+  size?: ComponentSize;
+  icon?: "right" | "left";
+  state?: ComponentState;
+  background?: string | null;
+}
+
+const Button: React.FC<ButtonProps> = ({
   label = "Button",
   state = "default",
   size = "medium",
-  icon = "right",
   disabled,
   background,
   variant = "primary",
@@ -17,17 +24,28 @@ const Icon: React.FC<ButtonProps> = ({
   style,
   ...props
 }) => {
-
   const buttonVariant = variant;
 
-  // Size mappings for React Native styles
-  const sizeMappings = {
-    small: { minWidth: 169, padding: 10 },
-    medium: { minWidth: 270, padding: 10 },
-    large: { minWidth: 270, padding: 15 },
+  const sizes = {
+    small: "min-w-[80px] h-fit p-[10px]",
+    medium: "min-w-[120px] h-fit p-[10px]",
+    large: "min-w-[160px] h-fit p-[15px]",
   };
 
-  // Primary button state styles
+  const sizeMappings = {
+    small: { minWidth: 80, padding: 10 },
+    medium: { minWidth: 120, padding: 10 },
+    large: { minWidth: 160, padding: 15 },
+  };
+
+  const primaryStates = {
+    default: "bg-blue-600",
+    pressed: "bg-blue-700",
+    hover: "bg-blue-500",
+    disabled: "bg-gray-300",
+    loading: "bg-blue-600",
+  };
+
   const primaryStateMappings = {
     default: { backgroundColor: "#2563eb" },
     pressed: { backgroundColor: "#1d4ed8" },
@@ -36,7 +54,14 @@ const Icon: React.FC<ButtonProps> = ({
     loading: { backgroundColor: "#2563eb" },
   };
 
-  // Secondary button state styles
+  const secondaryStates = {
+    default: 'border border-gray-300 bg-white',
+    pressed: 'border border-gray-400 bg-gray-50',
+    hover: 'border border-gray-400 bg-gray-50',
+    disabled: 'border border-gray-200 bg-gray-100',
+    loading: 'border border-gray-300 bg-white',
+  };
+
   const secondaryStateMappings = {
     default: { borderWidth: 1, borderColor: "#d1d5db", backgroundColor: "#ffffff" },
     pressed: { borderWidth: 1, borderColor: "#9ca3af", backgroundColor: "#f9fafb" },
@@ -53,18 +78,12 @@ const Icon: React.FC<ButtonProps> = ({
 
   // Determine current state for styling
   const currentState = disabled ? "disabled" : isHovered && isHoverEffectEnabled ? "hover" : state;
+  const stateClassName = buttonVariant === "primary" ? primaryStates[currentState] : secondaryStates[currentState];
   const stateStyle = buttonVariant === "primary" ? primaryStateMappings[currentState] : secondaryStateMappings[currentState];
-
-  const iconColor =
-    state === "disabled"
-      ? "#868686"
-      : buttonVariant === "primary"
-        ? "#ffffff"
-        : "#000000";
 
   // Create the combined container style
   const containerStyle = createStyle({
-    className: `${className || ''} flex flex-row items-center justify-between`,
+    className: `${className || ''} flex items-center justify-center ${stateClassName}`,
     style: [
       sizeMappings[size],
       stateStyle,
@@ -89,10 +108,6 @@ const Icon: React.FC<ButtonProps> = ({
     }
   });
 
-  const loadingContainerStyle = createStyle({
-    className: "flex-1 justify-center items-center"
-  });
-
   return (
     <Pressable
       disabled={disabled}
@@ -102,36 +117,17 @@ const Icon: React.FC<ButtonProps> = ({
       {...props}
     >
       {state === "loading" ? (
-        <View style={loadingContainerStyle}>
-          <ActivityIndicator size="small" color={buttonVariant === "primary" ? "#ffffff" : "#000000"} />
-        </View>
+        <ActivityIndicator 
+          size="small" 
+          color={buttonVariant === "primary" ? "#ffffff" : "#000000"} 
+        />
       ) : (
-        <>
-          {icon === "left" && (
-            <Ionicons
-              name="arrow-forward"
-              size={20}
-              color={iconColor}
-              style={{ marginRight: 24 }}
-            />
-          )}
-
-          <Text style={textStyle}>
-            {label}
-          </Text>
-
-          {icon === "right" && (
-            <Ionicons
-              name="arrow-forward"
-              size={20}
-              color={iconColor}
-              style={{ marginLeft: 24 }}
-            />
-          )}
-        </>
+        <Text style={textStyle}>
+          {label}
+        </Text>
       )}
     </Pressable>
   );
 };
 
-export default Icon;
+export default Button;

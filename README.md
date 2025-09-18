@@ -4,17 +4,19 @@
 [![Version](https://img.shields.io/npm/v/reactnativeepictrailsds.svg)](https://www.npmjs.com/package/reactnativeepictrailsds)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
 
-A modular, themeable, and production-ready **React Native design system** crafted for outdoor and adventure applications. It includes pre-styled components, built-in theming support, and flexible customization.
-
-> ⚠️ Versions `<1.0.0` have been **deprecated** in favor of a fully rewritten architecture. Please upgrade to `v1.x` or above for improved performance, stability, and maintainability.
+A modern, production-ready **React Native design system** featuring pre-styled, customizable components, state-based UI logic, theme support, and seamless integration with Tailwind, Expo, and TypeScript. Built for scalable mobile app development with accessibility and performance in mind.
 
 ## 🚀 Features
 
-* ⚛️ Pre-built, customizable React Native components
-* 🎨 Variant and theme support (Primary / Secondary buttons, etc.)
-* 🧱 Utility class support via Tailwind-like styles (using libraries like NativeWind)
-* 🌀 State-driven component rendering (hover, pressed, disabled, loading)
-* ✅ Production-ready and actively maintained
+* 🎯 **25+ Production-Ready Components** - Buttons, Inputs, Cards, Modals, Navigation, Social Media Stack, and more
+* 🎨 **Dual Styling Support** - Works with both NativeWind className and React Native styles
+* 🔧 **State-Driven UI** - Built-in hover, pressed, disabled, loading, and error states
+* 📱 **Cross-Platform** - Optimized for iOS, Android, and React Native Web
+* 🌗 **Theme Ready** - Consistent design tokens and customizable variants
+* ⚡ **TypeScript First** - Full type safety with comprehensive prop interfaces
+* 🧩 **Modular Architecture** - Import only what you need for optimal bundle size
+* ♿ **Accessible** - Built-in accessibility support for screen readers
+* 📦 **Zero Dependencies** - No external UI library dependencies
 
 ## 📦 Installation
 
@@ -24,70 +26,304 @@ npm install reactnativeepictrailsds
 yarn add reactnativeepictrailsds
 ```
 
-Make sure you’ve set up NativeWind (or similar library) for class-based styles if you're using Tailwind-style classNames.
+### Optional: NativeWind Setup
 
-## ✨ Usage Example – `RectButton`
+For enhanced className support (optional - components work with pure React Native styles too):
+
+```bash
+npm install nativewind tailwindcss
+```
+
+Follow the [NativeWind installation guide](https://www.nativewind.dev/quick-starts/expo) for your platform.
+
+## ✨ Quick Start
 
 ```tsx
 import React from "react";
 import { View } from "react-native";
-import RectButton from "reactnativeepictrailsds";
+import { 
+  Button, 
+  NormalInput, 
+  Card, 
+  SocialLogin,
+  SocialMediaStack,
+  StoryProgressBar
+} from "reactnativeepictrailsds";
 
 export default function App() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <RectButton
-        label="Start Exploring"
-        size="large"
-        variant="primary"
-        state="default"
-      />
+    <View style={{ flex: 1, padding: 20, justifyContent: 'center' }}>
+      <Card>
+        <NormalInput 
+          placeholder="Enter your email"
+          size="full"
+        />
+        
+        <Button
+          title="Sign In"
+          variant="primary"
+          onPress={() => console.log('Pressed!')}
+        />
+        
+        <SocialLogin 
+          google 
+          apple 
+          onGoogleSignIn={() => console.log('Google')}
+          onAppleSignIn={() => console.log('Apple')}
+        />
+      </Card>
     </View>
+  );
+/>
+```
+
+### Social Media Stack Example
+
+```tsx
+import React, { useState } from "react";
+import {
+  SocialMediaStack,
+  SocialMediaContainer,
+  SocialMediaEngagement,
+  StoryProgressBar,
+  BottomNav
+} from "reactnativeepictrailsds";
+
+export default function StoriesScreen() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  
+  const contentItems = [
+    {
+      type: "text" as const,
+      text: "Welcome to our app!",
+      backgroundColor: "#e74c3c"
+    },
+    {
+      type: "image" as const,
+      imageUri: require("./assets/image.png"),
+      isLocal: true
+    }
+  ];
+  
+  const engagementIcons = [
+    { name: "heart-outline", onPress: () => console.log("Like") },
+    { name: "chatbox-outline", onPress: () => console.log("Comment") },
+    { name: "paper-plane-outline", onPress: () => console.log("Share") }
+  ];
+  
+  return (
+    <SocialMediaStack>
+      <StoryProgressBar
+        totalStories={contentItems.length}
+        activeStoryIndex={activeIndex}
+      />
+      <SocialMediaEngagement icons={engagementIcons} />
+      <SocialMediaContainer
+        contentItems={contentItems}
+        duration={5000}
+        onActiveIndexChange={(index: number) => setActiveIndex(index)}
+        index={activeIndex}
+      />
+    </SocialMediaStack>
   );
 }
 ```
 
-## 🧩 RectButton Props
+## 🧩 Available Components
 
-| Prop         | Type                                                                   | Default     | Description                                              |
-| ------------ | ---------------------------------------------------------------------- | ----------- | -------------------------------------------------------- |
-| `label`      | `string`                                                               | `"Button"`  | Text displayed inside the button                         |
-| `size`       | `"small"` \| `"medium"` \| `"large"`                                   | `"medium"`  | Controls the button size                                 |
-| `variant`    | `"primary"` \| `"secondary"`                                           | `"primary"` | Defines the button color style                           |
-| `state`      | `"default"` \| `"pressed"` \| `"hover"` \| `"disabled"` \| `"loading"` | `"default"` | Defines the current visual interaction state             |
-| `disabled`   | `boolean`                                                              | `false`     | Disables the button interaction if `true`                |
-| `background` | `string`                                                               | `undefined` | Custom background color, overrides variant/state styling |
+### Core Components
 
-> ℹ️ When `state` is `"loading"`, a spinner is shown and `label` is hidden.
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **Button** | Primary button with variants and states | `label`, `variant`, `size`, `state` |
+| **Input** | Text input with label, hint, and validation | `label`, `placeholder`, `state`, `curved` |
+| **Card** | Container with elevation and padding | `elevation`, `padding`, `backgroundColor` |
+| **Alert** | Notification component with variants | `type`, `message`, `dismissible` |
+| **Loading** | Loading spinner with customizable size | `size`, `color` |
+| **Skeleton** | Loading placeholder animations | `width`, `height`, `animated` |
 
-## 🧪 Component States Preview
+### Navigation Components
 
-| State      | Description                     |
-| ---------- | ------------------------------- |
-| `default`  | Default style of the button     |
-| `pressed`  | When button is actively pressed |
-| `hover`    | Hover state (web only)          |
-| `disabled` | Grayed out & non-interactive    |
-| `loading`  | Spinner shown instead of text   |
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **NavTabs** | Tab navigation component | `tabs`, `activeTab`, `onTabPress` |
+| **BottomNav** | Bottom navigation bar | `items`, `activeIndex`, `onItemPress` |
+| **Tabs** | Horizontal tab switcher | `items`, `selected`, `onChange` |
+
+### Layout Components
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **Grid** | Responsive grid layout | `columns`, `spacing`, `children` |
+| **Tile** | Grid tile with content | `title`, `subtitle`, `onPress` |
+| **Collapse** | Expandable/collapsible content | `title`, `expanded`, `children` |
+| **EmptyStates** | Empty state illustrations | `title`, `message`, `actionButton` |
+
+### Form Components
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **Select** | Dropdown selection component | `options`, `value`, `onSelect` |
+| **Autocomplete** | Auto-completing text input | `data`, `onSelect`, `placeholder` |
+| **NormalInput** | Basic text input (alias for Input) | Same as Input |
+
+### Modal & Dialog Components
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **Dialog** | Modal dialog with actions | `visible`, `title`, `message`, `actions` |
+| **AndroidModalSheet** | Android-style bottom sheet | `visible`, `onClose`, `children` |
+| **IosModalSheet** | iOS-style modal presentation | `visible`, `onClose`, `children` |
+
+### Social & Authentication
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **SocialLogin** | Social login buttons | `google`, `apple`, `facebook`, `email` |
+| **TypeDoc** | Terms agreement with checkbox | `label`, `buttonLabel`, `onAccept` |
+
+### Social Media Stack
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **SocialMediaStack** | Container for social media components | `children` |
+| **SocialMediaContainer** | Story/post container with navigation | `contentItems`, `duration`, `onActiveIndexChange` |
+| **SocialMediaEngagement** | Like, comment, share buttons | `icons`, `onIconPress` |
+| **StoryProgressBar** | Progress indicator for stories | `totalStories`, `activeStoryIndex` |
+
+### Icons & Graphics
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **Iconography** | Icon component with avatars and placeholders | `type`, `iconName`, `size`, `initials` |
+
+### Button Variants
+
+| Component | Description | Key Props |
+|-----------|-------------|----------|
+| **ButtonIcon** | Button with icon support | `label`, `icon`, `iconPosition` |
+| **ButtonRect** | Rectangular button variant | `label`, `variant`, `size` |
+| **RectButton** | Alias for ButtonRect | `label`, `variant`, `size` |
+| **ButtonTypeDoc** | Button with terms agreement | `label`, `termsText`, `onAccept` |
+
+## 🎨 Styling Approaches
+
+### Method 1: NativeWind Classes (Recommended)
+
+```tsx
+import { Button } from "reactnativeepictrailsds";
+
+<Button 
+  label="Styled Button"
+  className="bg-blue-500 rounded-lg shadow-md"
+/>
+```
+
+### Method 2: React Native Styles
+
+```tsx
+import { Button } from "reactnativeepictrailsds";
+
+<Button 
+  label="Styled Button"
+  style={{
+    backgroundColor: '#3b82f6',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+  }}
+/>
+```
+
+### Method 3: Hybrid Approach
+
+```tsx
+<Button 
+  label="Hybrid Button"
+  className="rounded-lg shadow-md" // NativeWind classes
+  style={{ backgroundColor: '#custom-color' }} // Direct styles
+/>
+```
+
+## 🧪 Component States
+
+| State | Description | Availability |
+|-------|-------------|-------------|
+| `default` | Default appearance | All interactive components |
+| `hover` | Mouse hover effect | Web + compatible components |
+| `pressed` | Active press state | Pressable components |
+| `disabled` | Non-interactive state | Form + button components |
+| `loading` | Loading with spinner | Async action components |
+| `success` | Success state | Form validation components |
+| `error` | Error state | Form validation components |
 
 ## 🛠 Development
 
 ```bash
+# Clone the repository
 git clone https://github.com/gaureshpai/reactnativeepictrailsds.git
 cd reactnativeepictrailsds
+
+# Install dependencies
+npm install
+
+# Build the library
+npm run build
+
+# Run the demo app
+cd Demo-react-native-epic-trails-ds
 npm install
 npx expo start
 ```
 
+### Building the Library
+
+```bash
+# Build all formats (CommonJS, ESM, TypeScript declarations)
+npm run build
+
+# Development build with watch mode
+npm run build:watch
+
+# Type checking
+npm run type-check
+```
+
 ## 📅 Roadmap
 
-* [x] RectButton with state variants
-* [ ] Forms and input controls
-* [ ] Typography tokens and components
-* [ ] Modal, Header, and Layout primitives
-* [ ] Full theming and dark mode support
-* [ ] Component documentation and Storybook/Expo integration
-* [ ] Improved accessibility (VoiceOver, TalkBack, ARIA)
+### ✅ Completed
+* Core component library (25+ components)
+* Button variants with full state management
+* Form and input controls with validation
+* Modal and dialog primitives
+* Navigation components (tabs, bottom nav)
+* Layout components (grid, tiles, cards)
+* Social authentication components
+* Social Media Stack (Instagram-like stories)
+* Iconography system with avatars and icons
+* TypeScript support with full type definitions
+* Dual styling system (NativeWind + React Native)
+* Cross-platform compatibility (iOS, Android, Web)
+* React Native 0.76.x compatibility
+* Expo SDK 52 compatibility
+
+### 🚧 In Progress
+* Enhanced theme system with design tokens
+* Advanced animation support
+* Component documentation site
+* Storybook integration
+* Video support for Social Media Stack
+
+### 🎯 Planned
+* Dark mode theme variants
+* Advanced accessibility features
+* Performance optimizations
+* Extended icon library
+* Form validation utilities
+* Gesture-based components
 
 ## 🧑‍💻 Contributing
 
