@@ -272,11 +272,6 @@ npm install
 
 # Build the library
 npm run build
-
-# Run the demo app
-cd Demo-react-native-epic-trails-ds
-npm install
-npx expo start
 ```
 
 ### Building the Library
