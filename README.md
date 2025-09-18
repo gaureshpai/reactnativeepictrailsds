@@ -264,9 +264,15 @@ import { Button } from "reactnativeepictrailsds";
 ## 🛠 Development
 
 ```bash
+# Clone the repository
+git clone https://github.com/gaureshpai/reactnativeepictrailsds.git
+cd reactnativeepictrailsds
+
+
+```bash
 # Clone the demo repo
 git clone https://github.com/Milan-C-I/Demo-react-native-epic-trails-ds.git
-cd reactnativeepictrailsds
+cd Demo-react-native-epic-trails-ds
 
 # Install dependencies
 npm install
