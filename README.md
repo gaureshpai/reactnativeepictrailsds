@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/npm/l/reactnativeepictrailsds.svg)](https://github.com/gaureshpai/reactnativeepictrailsds/blob/main/LICENSE)
 [![Version](https://img.shields.io/npm/v/reactnativeepictrailsds.svg)](https://www.npmjs.com/package/reactnativeepictrailsds)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue.svg)](https://www.typescriptlang.org/)
+[![Demo](https://img.shields.io/badge/Demo-epictrails--demo.expo.app-blue.svg)](https://epictrails-demo.expo.app/)
 
 A modern, production-ready **React Native design system** featuring pre-styled, customizable components, state-based UI logic, theme support, and seamless integration with Tailwind, Expo, and TypeScript. Built for scalable mobile app development with accessibility and performance in mind.
 
@@ -263,8 +264,8 @@ import { Button } from "reactnativeepictrailsds";
 ## 🛠 Development
 
 ```bash
-# Clone the repository
-git clone https://github.com/gaureshpai/reactnativeepictrailsds.git
+# Clone the demo repo
+git clone https://github.com/Milan-C-I/Demo-react-native-epic-trails-ds.git
 cd reactnativeepictrailsds
 
 # Install dependencies
