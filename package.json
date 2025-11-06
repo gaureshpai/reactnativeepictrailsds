@@ -115,7 +115,7 @@
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@expo/vector-icons": "^14.0.5",
-    "@react-native-community/cli": "^19.0.0",
+    "@react-native-community/cli": "^20.0.2",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/native": "^7.0.14",
     "autoprefixer": "^10.4.21",
